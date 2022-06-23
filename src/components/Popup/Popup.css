@@ -1,0 +1,106 @@
+.popup {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, .5);
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    visibility: visible;
+    transition: opacity 500ms linear, visibility 0.5s linear;
+}
+
+.popup_opened {
+    display: flex;
+    visibility: visible;
+    transition: opacity 500ms linear, visibility 0s linear;
+}
+
+.popup__container {
+    width: 430px;
+    background-color: #000A0B;
+    border-radius: 10px;
+    box-sizing: border-box;
+    box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.15);
+    padding: 0 36px;
+    position: relative;
+}
+
+.popup__title {
+    font-style: normal;
+    font-weight: 900;
+    font-size: 24px;
+    line-height: 29px;
+    color: #FFFFFF;
+    margin: 34px 0 0;
+    max-width: 340px;
+    word-wrap: break-word;
+}
+
+.popup__form {
+    display: flex;
+    flex-direction: column;
+}
+
+.popup__input {
+    border: none;
+    border-bottom: 1px solid #1F1F1F;
+    outline: none;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 17px;
+    color: #FFFFFF;
+    padding-bottom: 13px;
+    margin: 0 0 48px;
+    background-color: #000A0B;
+}
+
+.popup__input:first-of-type {
+    margin: 54px 0 30px;
+}
+
+.popup__button-save {
+    width: 358px;
+    height: 50px;
+    color: #FFF;
+    background-color: #000A0B;
+    cursor: pointer;
+    border: none;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 22px;
+    text-align: center; 
+    margin-bottom: 37px;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 2px;
+    border: 1px solid #1F1F1F;
+}
+.popup__button-save:hover {
+    background-color: #2FABF1;
+    transition: linear 0.3s;
+    color: #000000;
+}
+
+.popup__button-close {
+    width: 23px;
+    height: 23px;
+    background-image: url(../../images/close.svg);
+    background-color:rgba(0, 0, 0, 0);
+    background-position: center;
+    background-repeat: no-repeat;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    position: absolute;
+    top: -30px;
+    right: -30px;
+}
+.popup__button-close:hover {
+  opacity: 0.6;
+  transition: linear 0.2s;
+}
