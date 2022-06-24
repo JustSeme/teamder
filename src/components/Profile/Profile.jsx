@@ -13,7 +13,7 @@ import age from "../../images/age.svg";
 import edit from "../../images/edit.svg";
 import like from "../../images/like.svg";
 
-function Profile() {
+function Profile(props) {
   const [post, setPost] = useState("ProfilePosts");
 
   const [like, setLike] = useState(42),
@@ -124,8 +124,8 @@ function Profile() {
             My posts
           </button>
         </div>
-        {post === "ProfilePosts" && <ProfilePosts />}
-        {post === "MyPosts" && <MyPosts />}
+        {post === "ProfilePosts" && <ProfilePosts profilePosts={props.profilePosts} />}
+        {post === "MyPosts" && <MyPosts myPosts={props.myPosts} />}
         {isPopup === "popupEdit" && <Popup close={setIsPopup} />}
       </div>
       <Hashtags />
