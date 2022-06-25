@@ -11,7 +11,16 @@ function App(props) {
     <div className="page">
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<Home />} exact />
+          <Route
+            path="/"
+            element={
+              <Home 
+                currentEvent={props.state.eventPage.currentEvent}
+                completedEvent={props.state.eventPage.completedEvent}
+              />
+            }
+            exact
+          />
           <Route path="/messages" element={<Messages />} exact />
           <Route
             path="/profile"

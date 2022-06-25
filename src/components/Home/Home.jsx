@@ -6,7 +6,7 @@ import CurrentEvent from "../Event/Current/CurrentEvent"
 import CompletedEvent from "../Event/Completed/CompletedEvent";
 import logo from "../../images/profile_logo2.svg";
 
-function Home() {
+function Home(props) {
 
   const [event, setEvent] = useState("CurrentEvent");
 
@@ -46,8 +46,8 @@ function Home() {
             <button className={event === "CompletedEvent" ? activeColorEvent : inactiveColorEvent} onClick={handleCompletedEventClick}>Completed</button>
           </div>
         </div>
-        {event === "CurrentEvent" && <CurrentEvent />}
-        {event === "CompletedEvent" && <CompletedEvent />}
+        {event === "CurrentEvent" && <CurrentEvent currentEvent={props.currentEvent} />}
+        {event === "CompletedEvent" && <CompletedEvent completedEvent={props.completedEvent} />}
       </div>
       <Hashtags />
     </div>
