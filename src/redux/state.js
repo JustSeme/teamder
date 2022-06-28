@@ -124,4 +124,15 @@ let state = {
   }
 };
 
+export let addPost = (message) => {
+  debugger;
+  let newPost = {
+    avatar: profile,
+    name: "Rodion Strelkov",
+    login: "@oldmilky",
+    message: message,
+  };
+  state.profilePage.profilePosts.push(newPost);
+}
+
 export default state;

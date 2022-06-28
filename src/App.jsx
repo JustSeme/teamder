@@ -28,6 +28,7 @@ function App(props) {
               <Profile
                 profilePosts={props.state.profilePage.profilePosts}
                 myPosts={props.state.profilePage.myPosts}
+                addPost={props.addPost}
               />
             }
             exact

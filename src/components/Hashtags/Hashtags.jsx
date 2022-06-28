@@ -2,6 +2,7 @@ import React from 'react';
 import './Hashtags.css';
 
 function Hashtags() {
+
   return (
     <div className="hashtags">
       <div className="hashtags__container">

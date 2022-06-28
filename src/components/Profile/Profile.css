@@ -136,6 +136,7 @@
 .profile__button_wrapper {
     display: flex;
     margin-top: 39px;
+    border-bottom: 1px solid #3A444C;
 }
 
 .profile__button_post {
@@ -178,4 +179,60 @@
 
 .profile__link {
     text-decoration: none;
+}
+
+.profile-create {
+    margin: 25px 0 25px 32px;
+}
+
+.profile-create__title {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 38px;
+    color: #FFFFFF;
+    margin: 0;
+}
+
+.profile-create__field {
+    background-color: #000A0B;
+    border-bottom: 1px solid #FFFFFF;
+    border-right: none;
+    border-left: none;
+    border-top: none;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 19px;
+    display: flex;
+    align-items: center;
+    letter-spacing: 0.15px;
+    color: rgba(255, 255, 255, 0.5);
+    width: 300px;
+    height: 70px;
+    outline: none;
+    text-align: start;
+}
+
+.profile-create__button {
+    width: 200px;
+    height: 50px;
+    color: #FFF;
+    background-color: #000A0B;
+    cursor: pointer;
+    border: none;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 22px;
+    text-align: center;
+    border-radius: 5px;
+    border: 1px solid #1F1F1F;
+    margin: 20px 0 0;
+}
+
+.profile-create__button:hover {
+    background-color: #2FABF1;
+    transition: linear 0.3s;
+    color: #000000;
 }
