@@ -3,6 +3,7 @@ import logo1 from "../images/profile_logo1.svg";
 import logo3 from "../images/profile_logo3.svg";
 import logo4 from "../images/profile_logo4.svg";
 import profile from "../images/profile_logo2.svg";
+import { rerender } from "../render";
 
 let state = {
   profilePage: {
@@ -125,7 +126,6 @@ let state = {
 };
 
 export let addPost = (message) => {
-  debugger;
   let newPost = {
     avatar: profile,
     name: "Rodion Strelkov",
@@ -133,6 +133,7 @@ export let addPost = (message) => {
     message: message,
   };
   state.profilePage.profilePosts.push(newPost);
+  rerender(state);
 }
 
 export default state;
