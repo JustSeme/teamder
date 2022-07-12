@@ -53,6 +53,7 @@ let state = {
         message: "I will write a cool social network!",
       },
     ],
+    newPostText : ''
   },
   eventPage: {
     currentEvent: [
@@ -125,14 +126,22 @@ let state = {
   }
 };
 
-export let addPost = (message) => {
+window.state = state;
+
+export let addPost = () => {
   let newPost = {
     avatar: profile,
     name: "Rodion Strelkov",
     login: "@oldmilky",
-    message: message,
+    message: state.profilePage.newPostText,
   };
   state.profilePage.profilePosts.push(newPost);
+  state.profilePage.newPostText = '';
+  rerender(state);
+}
+
+export let updateNewPostText = (newText) => {
+  state.profilePage.newPostText = newText;
   rerender(state);
 }
 

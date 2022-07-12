@@ -48,9 +48,14 @@ function Profile(props) {
   let newPostElement = React.createRef();
 
   let addPost = () => {
-    debugger
     let text = newPostElement.current.value;
     props.addPost(text);
+    props.updateNewPostText('');
+  }
+
+  let onPostChange = () => {
+    let text = newPostElement.current.value;
+    props.updateNewPostText(text);
   }
   
   return (
@@ -124,10 +129,10 @@ function Profile(props) {
         </div>
         <div className="profile-create">
           <p className="profile-create__title">Create a post</p>
-          <input className="profile-create__field" minLength={2} maxLength={400} placeholder="Post content..." cols={5} ref={newPostElement} />
+          <input className="profile-create__field" minLength={2} maxLength={400} placeholder="Post content..." cols={5} ref={newPostElement} onChange={onPostChange} />
           <button className="profile-create__button" onClick={addPost}>Create</button>
         </div>
-        {post === "ProfilePosts" && <ProfilePosts profilePosts={props.profilePosts} addPost={props.addPost} />}
+        {post === "ProfilePosts" && <ProfilePosts profilePosts={props.profilePosts} addPost={props.addPost} updateNewPostText={props.updateNewPostText} />}
         {post === "MyPosts" && <MyPosts myPosts={props.myPosts} />}
         {isPopup === "popupEdit" && <Popup close={setIsPopup} />}
       </div>

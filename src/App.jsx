@@ -29,6 +29,7 @@ function App(props) {
                 profilePosts={props.state.profilePage.profilePosts}
                 myPosts={props.state.profilePage.myPosts}
                 addPost={props.addPost}
+                updateNewPostText={props.updateNewPostText}
               />
             }
             exact
