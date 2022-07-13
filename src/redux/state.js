@@ -3,7 +3,10 @@ import logo1 from "../images/profile_logo1.svg";
 import logo3 from "../images/profile_logo3.svg";
 import logo4 from "../images/profile_logo4.svg";
 import profile from "../images/profile_logo2.svg";
-import { rerender } from "../render";
+
+let rerender = () => {
+  console.log('suck dick');
+}
 
 let state = {
   profilePage: {
@@ -128,7 +131,7 @@ let state = {
 
 window.state = state;
 
-export let addPost = () => {
+export const addPost = () => {
   let newPost = {
     avatar: profile,
     name: "Rodion Strelkov",
@@ -140,9 +143,13 @@ export let addPost = () => {
   rerender(state);
 }
 
-export let updateNewPostText = (newText) => {
+export const updateNewPostText = (newText) => {
   state.profilePage.newPostText = newText;
   rerender(state);
+}
+
+export const subscribe = (observer) => {
+  rerender = observer;
 }
 
 export default state;
