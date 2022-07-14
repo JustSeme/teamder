@@ -53,7 +53,7 @@ let store = {
           message: "I will write a cool social network!",
         },
       ],
-      newPostText : ''
+      newPostText: "",
     },
     eventPage: {
       currentEvent: [
@@ -64,7 +64,7 @@ let store = {
           date: "24.06",
           geo: "Astana",
           people: "28/30",
-          interest: "Programming, technologies"
+          interest: "Programming, technologies",
         },
         {
           logo: profile,
@@ -73,7 +73,7 @@ let store = {
           date: "18.06",
           geo: "Astana",
           people: "13/30",
-          interest: "Programming, technologies"
+          interest: "Programming, technologies",
         },
         {
           logo: profile,
@@ -82,7 +82,7 @@ let store = {
           date: "20.05",
           geo: "Karaganda",
           people: "1/2",
-          interest: "Programming, Frontend, Frontend"
+          interest: "Programming, Frontend, Frontend",
         },
         {
           logo: profile,
@@ -91,7 +91,7 @@ let store = {
           date: "15.04",
           geo: "Karaganda",
           people: "4/10",
-          interest: "Programming, Development, React JSX"
+          interest: "Programming, Development, React JSX",
         },
         {
           logo: profile,
@@ -100,8 +100,8 @@ let store = {
           date: "02.04",
           geo: "Almaty",
           people: "5/5",
-          interest: "Games, counter-strike"
-        }
+          interest: "Games, counter-strike",
+        },
       ],
       completedEvent: [
         {
@@ -111,7 +111,7 @@ let store = {
           date: "15.04",
           geo: "Karaganda",
           people: "4/10",
-          interest: "Programming, Development, React JSX"
+          interest: "Programming, Development, React JSX",
         },
         {
           logo: profile,
@@ -120,36 +120,40 @@ let store = {
           date: "02.04",
           geo: "Almaty",
           people: "5/5",
-          interest: "Games, counter-strike"
-        }
-      ]
+          interest: "Games, counter-strike",
+        },
+      ],
+    },
+  },
+  _callSubscriber() {
+    console.log("state changed");
+  },
+
+  getState() {
+    return this._state;
+  },
+  subscribe(observer) {
+    this._callSubscriber = observer;
+  },
+
+  dispatch(action) {
+    if (action.type === 'ADD-POST') {
+      let newPost = {
+        avatar: profile,
+        name: "Rodion Strelkov",
+        login: "@oldmilky",
+        message: this._state.profilePage.newPostText,
+      };
+      this._state.profilePage.profilePosts.push(newPost);
+      this._state.profilePage.newPostText = '';
+      this._callSubscriber(this._state);
     }
-},
-getState() {
-  return this._state
-},
-_callSubscriber() {
-  console.log('state changed');
-},
-addPost() {
-  let newPost = {
-    avatar: profile,
-    name: "Rodion Strelkov",
-    login: "@oldmilky",
-    message: this._state.profilePage.newPostText,
-  };
-  this._state.profilePage.profilePosts.push(newPost);
-  this._state.profilePage.newPostText = '';
-  this._callSubscriber(this._state);
-},
-updateNewPostText(newText) {
-  this._state.profilePage.newPostText = newText;
-  this._callSubscriber(this._state);
-},
-subscribe(observer) {
-  this._callSubscriber = observer;
-}
-}
+    else if (action.type === 'UPDATE-NEW-POST-TEXT') {
+      this._state.profilePage.newPostText = action.newText;
+      this._callSubscriber(this._state);
+    }
+  }
+};
 
 window.store = store;
 
