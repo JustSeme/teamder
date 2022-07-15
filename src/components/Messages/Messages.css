@@ -21,6 +21,7 @@
 .messages__wrapper {
     display: flex;
     align-items: center;
+    text-decoration: none;
 }
 
 .messages__arrow {
@@ -45,4 +46,87 @@
     letter-spacing: -1.35px;
     color: #FFFFFF;
     margin: 0;
+}
+
+.message__container {
+    border: 1px solid #1F1F1F;
+    width: 500px;
+    margin: 20px auto;
+    border-radius: 8px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.message__container:hover {
+    cursor: pointer;
+}
+
+.message__wrap {
+    padding: 15px 20px 15px 20px;
+    display: flex;
+}
+
+.message__logo {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.message__name {
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 22px;
+    text-align: justify;
+    color: #F2F2F2;
+    margin: 0 7px 0 0;
+}
+
+.message__message {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 20px;
+    color: #ACAAAA;
+    margin: 10px 0 0;
+}
+
+.message__time {
+    font-style: normal;
+    font-weight: 500;
+    font-size: 13px;
+    line-height: 18px;
+    display: flex;
+    align-items: center;
+    color: #3A444C;
+    margin: 0 0 10px 0;
+}
+
+.message__wrap_time {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 15px 20px 15px 0;
+}
+
+.message__button {
+    width: 100px;
+    height: 35px;
+    color: #FFF;
+    background-color: #001012;
+    cursor: pointer;
+    border: none;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 22px;
+    text-align: center;
+    border-radius: 5px;
+}
+
+.message__container:hover .message__button {
+    background-color: #002F34;
+    transition: linear 0.2s;
 }

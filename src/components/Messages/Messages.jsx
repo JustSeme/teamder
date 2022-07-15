@@ -4,9 +4,8 @@ import "./Messages.css";
 import arrow from "../../images/arrow_left.svg";
 import Navigation from "../Navigation/Navigation";
 import Hashtags from "../Hashtags/Hashtags";
-import CurrentEvent from "../Event/Current/CurrentEvent";
-import CompletedEvent from "../Event/Completed/CompletedEvent";
-import logo from "../../images/profile_logo2.svg";
+import Message from "./Message/Message";
+import logo from "../../images/profile_logo.svg";
 
 function Messages() {
   const [event, setEvent] = useState("CurrentEvent");
@@ -37,12 +36,36 @@ function Messages() {
       />
       <div className="messages__container">
         <div className="messages__navigation">
-          <div className="messages__wrapper">
+          <Link className="messages__wrapper" to="/">
             <img className="messages__arrow" src={arrow} alt="arrow" />
             <p className="messages__text">Home</p>
-          </div>
+          </Link>
           <p className="messages__title">Messages</p>
         </div>
+        <Message
+          logo={logo}
+          name="Tomasz Gajda"
+          message="I didn't come up with anything("
+          time="12:25"
+        />
+        <Message
+          logo={logo}
+          name="Tomasz Gajda"
+          message="I didn't come up with anything("
+          time="12:25"
+        />
+        <Message
+          logo={logo}
+          name="Tomasz Gajda"
+          message="I didn't come up with anything("
+          time="12:25"
+        />
+        <Message
+          logo={logo}
+          name="Tomasz Gajda"
+          message="I didn't come up with anything("
+          time="12:25"
+        />
       </div>
       <Hashtags />
     </div>

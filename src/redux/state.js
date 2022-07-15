@@ -33,26 +33,6 @@ let store = {
           message: "Where slimes?!",
         },
       ],
-      myPosts: [
-        {
-          avatar: profile,
-          name: "Rodion Strelkov",
-          login: "@oldmilky",
-          message: "I have to write a big app in react",
-        },
-        {
-          avatar: profile,
-          name: "Rodion Strelkov",
-          login: "@oldmilky",
-          message: "I already have a plan",
-        },
-        {
-          avatar: profile,
-          name: "Rodion Strelkov",
-          login: "@oldmilky",
-          message: "I will write a cool social network!",
-        },
-      ],
       newPostText: "",
     },
     eventPage: {
@@ -154,6 +134,18 @@ let store = {
     }
   }
 };
+
+export const addPostActionCreator = () => {
+  return {
+    type: 'ADD-POST'
+  }
+}
+
+export const updateNewPostTextActionCreator = (text) => {
+  return {
+    type: 'UPDATE-NEW-POST-TEXT', newText: text
+  }
+}
 
 window.store = store;
 

@@ -27,7 +27,6 @@ function App(props) {
             element={
               <Profile
                 profilePosts={props.state.profilePage.profilePosts}
-                myPosts={props.state.profilePage.myPosts}
                 dispatch={props.dispatch}
               />
             }
