@@ -6,7 +6,7 @@ function Message(props) {
     <div>
       <div className="message__container">
         <div className="message__wrap">
-          <img className="message__logo" src={props.logo} alt="logo" />
+          <img className="message__logo" src={props.avatar} alt="logo" />
           <div className="message__wrapper">
             <p className="message__name">{props.name}</p>
             <p className="message__message">{props.message}</p>

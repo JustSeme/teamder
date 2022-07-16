@@ -104,6 +104,34 @@ let store = {
         },
       ],
     },
+    messagePage: {
+      messagePost: [
+        {
+          avatar: logo4,
+          name: "White ONI",
+          message: "We wrote as you requested",
+          time: "30m"
+        },
+        {
+          avatar: logo,
+          name: "Tomasz Gajda",
+          message: "I don't know what to write here(",
+          time: "13:23"
+        },
+        {
+          avatar: logo1,
+          name: "Dakota Sience",
+          message: "Cool, you can send messages",
+          time: "15.07.22"
+        },
+        {
+          avatar: logo3,
+          name: "Jame Slime",
+          message: "Okay, I'll text you, but you're slime",
+          time: "12.07.22"
+        },
+      ]
+    }
   },
   _callSubscriber() {
     console.log("state changed");

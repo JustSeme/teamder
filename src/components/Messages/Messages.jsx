@@ -4,10 +4,10 @@ import "./Messages.css";
 import arrow from "../../images/arrow_left.svg";
 import Navigation from "../Navigation/Navigation";
 import Hashtags from "../Hashtags/Hashtags";
-import Message from "./Message/Message";
+import MessagePost from "./Message/MessagePost/MessagePost";
 import logo from "../../images/profile_logo.svg";
 
-function Messages() {
+function Messages(props) {
   const [event, setEvent] = useState("CurrentEvent");
 
   const handleCurrentEventClick = () => {
@@ -42,30 +42,7 @@ function Messages() {
           </Link>
           <p className="messages__title">Messages</p>
         </div>
-        <Message
-          logo={logo}
-          name="Tomasz Gajda"
-          message="I didn't come up with anything("
-          time="12:25"
-        />
-        <Message
-          logo={logo}
-          name="Tomasz Gajda"
-          message="I didn't come up with anything("
-          time="12:25"
-        />
-        <Message
-          logo={logo}
-          name="Tomasz Gajda"
-          message="I didn't come up with anything("
-          time="12:25"
-        />
-        <Message
-          logo={logo}
-          name="Tomasz Gajda"
-          message="I didn't come up with anything("
-          time="12:25"
-        />
+        <MessagePost messagePost={props.messagePost} />
       </div>
       <Hashtags />
     </div>

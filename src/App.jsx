@@ -21,7 +21,7 @@ function App(props) {
             }
             exact
           />
-          <Route path="/messages" element={<Messages />} exact />
+          <Route path="/messages" element={<Messages messagePost={props.state.messagePage.messagePost} />} exact />
           <Route
             path="/profile"
             element={
