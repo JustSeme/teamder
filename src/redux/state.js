@@ -130,7 +130,8 @@ let store = {
           message: "Okay, I'll text you, but you're slime",
           time: "12.07.22"
         },
-      ]
+      ],
+      newMessageText: ''
     }
   },
   _callSubscriber() {
@@ -158,6 +159,16 @@ let store = {
     }
     else if (action.type === 'UPDATE-NEW-POST-TEXT') {
       this._state.profilePage.newPostText = action.newText;
+      this._callSubscriber(this._state);
+    }
+    else if (action.type === 'UPDATE-NEW-MESSAGE-TEXT') {
+      this._state.messagePage.newMessageText = action.newText;
+      this._callSubscriber(this._state);
+    }
+    else if (action.type === 'SEND-MESSAGE') {
+      let body = this.state.messagePage.newMessageText;
+      this._state.messagePage.newMessageText = '';
+      this._state.messagePage.message.push();
       this._callSubscriber(this._state);
     }
   }
