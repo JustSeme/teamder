@@ -9,18 +9,6 @@ let store = {
     profilePage: {
       profilePosts: [
         {
-          avatar: logo4,
-          name: "White ONI",
-          login: "@whiteoni",
-          message: "I want to see more in your application ONI",
-        },
-        {
-          avatar: logo,
-          name: "Tomasz Gajda",
-          login: "@nerooc",
-          message: "I like the idea",
-        },
-        {
           avatar: logo1,
           name: "Dakota Sience",
           login: "@sience",

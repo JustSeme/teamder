@@ -1,4 +1,5 @@
 import { React, useState } from "react";
+import { Link } from "react-router-dom";
 import "../Messages.css";
 
 function Message(props) {
@@ -14,7 +15,6 @@ function Message(props) {
         </div>
         <div className="message__wrap_time">
           <p className="message__time">{props.time}</p>
-          <button className="message__button">Reply</button>
         </div>
       </div>
     </div>

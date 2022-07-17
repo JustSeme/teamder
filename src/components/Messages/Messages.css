@@ -50,19 +50,13 @@
 
 .message__container {
     border: 1px solid #1F1F1F;
-    width: 500px;
     margin: 20px auto;
-    border-radius: 8px;
     display: flex;
     justify-content: space-between;
 }
 
-.message__container:hover {
-    cursor: pointer;
-}
-
 .message__wrap {
-    padding: 15px 20px 15px 20px;
+    padding: 10px 15px 10px 15px;
     display: flex;
 }
 
@@ -100,7 +94,7 @@
     display: flex;
     align-items: center;
     color: #3A444C;
-    margin: 0 0 10px 0;
+    margin: 0;
 }
 
 .message__wrap_time {
@@ -108,7 +102,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding: 15px 20px 15px 0;
+    padding: 10px 15px 10px 0;
 }
 
 .message__button {
@@ -129,4 +123,56 @@
 .message__container:hover .message__button {
     background-color: #002F34;
     transition: linear 0.2s;
+}
+
+.message__link {
+    text-decoration: none;
+}
+
+.messages__input {
+    background-color: #000A0B;
+    border-bottom: 1px solid #FFFFFF;
+    border-right: none;
+    border-left: none;
+    border-top: none;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 19px;
+    display: flex;
+    align-items: center;
+    letter-spacing: 0.15px;
+    color: rgba(255, 255, 255, 0.5);
+    width: 300px;
+    height: 60px;
+    outline: none;
+    text-align: start;
+}
+
+.messages__button {
+    width: 75px;
+    height: 35px;
+    color: #FFF;
+    background-color: #000A0B;
+    cursor: pointer;
+    border: none;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 22px;
+    text-align: center;
+    border-radius: 5px;
+    border: 1px solid #1F1F1F;
+    margin: 20px 0 0 20px;
+}
+
+.messages__button:hover {
+    background-color: #2FABF1;
+    transition: linear 0.3s;
+    color: #000000;
+}
+
+.messages__wrapper {
+    display: flex;
+    justify-content: center;
 }
