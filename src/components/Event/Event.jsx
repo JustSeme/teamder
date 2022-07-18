@@ -1,7 +1,5 @@
 import React from "react";
 import "./Event.css";
-import Navigation from "../Navigation/Navigation";
-import Hashtags from "../Hashtags/Hashtags";
 
 import date from "../../images/date.svg";
 import geo from "../../images/geo2.svg";

@@ -26,20 +26,8 @@ function Messages(props) {
             <img className="messages__arrow" src={arrow} alt="arrow" />
             <p className="messages__text">Home</p>
           </Link>
-          <p className="messages__title">Messages</p>
+          <p className="messages__title">Group messenger</p>
         </div>
-        {/* <div className="messages__wrapper">
-          <input
-            className="messages__input"
-            minLength={2}
-            maxLength={400}
-            placeholder="Post content..."
-            // cols={5}
-            // ref={newPostElement}
-            // onChange={onPostChange}
-          />
-          <button className="messages__button">Reply</button>
-        </div> */}
         <MessagePost dispatch={props.dispatch} messagePost={props.messagePost} />
       </div>
       <Hashtags />

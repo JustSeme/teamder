@@ -4,7 +4,6 @@ import Navigation from "../Navigation/Navigation";
 import Hashtags from "../Hashtags/Hashtags";
 import CurrentEvent from "../Event/Current/CurrentEvent"
 import CompletedEvent from "../Event/Completed/CompletedEvent";
-import logo from "../../images/profile_logo2.svg";
 
 function Home(props) {
 

@@ -2,25 +2,8 @@ import { React, useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import "./Navigation.css";
 import logo from "../../images/logo.svg";
-import teams from "../../images/teams.svg";
-import notifications from "../../images/notifications.svg";
-import profile from "../../images/profile.svg";
 
 function Navigation(props) {
-
-  const [color, setColor] = useState("active");
-
-  const handleActiveClick = () => {
-    setColor("active");
-  };
-
-  const handleInactiveClick = () => {
-    setColor("inactive");
-  };
-
-  const activeColor = "navigation__button_active";
-
-  const inactiveColor = "navigation__button";
 
   return (
     <div className="navigation">
@@ -79,7 +62,7 @@ function Navigation(props) {
                 fill="#F2F2F2"
               />
             </svg>
-            Messages
+            Messanger
           </NavLink>
 
           <NavLink className={props.classProfile} to="/profile">

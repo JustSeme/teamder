@@ -134,7 +134,6 @@ let store = {
   },
 
   dispatch(action) {
-    debugger
     if (action.type === 'ADD-POST') {
       let newPost = {
         avatar: profile,
@@ -142,7 +141,7 @@ let store = {
         login: "@oldmilky",
         message: this._state.profilePage.newPostText,
       };
-      this._state.profilePage.profilePosts.push(newPost);
+      this._state.profilePage.profilePosts.unshift(newPost);
       this._state.profilePage.newPostText = '';
       this._callSubscriber(this._state);
     }
@@ -150,7 +149,7 @@ let store = {
       this._state.profilePage.newPostText = action.newText;
       this._callSubscriber(this._state);
     }
-    else if (action.type === 'UPDATE-NEW-MESSAGE-TEXT') {
+    else if (action.type === 'UPDATE-NEW-MESSAGE-BODY') {
       this._state.messagePage.newMessageBody = action.body;
       this._callSubscriber(this._state);
     }
@@ -162,7 +161,7 @@ let store = {
         time: "now"
       };
       this._state.messagePage.newMessageBody = '';
-      this._state.messagePage.messagePost.push(body);
+      this._state.messagePage.messagePost.unshift(body);
       this._callSubscriber(this._state);
     }
   }
