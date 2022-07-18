@@ -13,6 +13,7 @@ import edit from "../../images/edit.svg";
 import {addPostActionCreator, updateNewPostTextActionCreator} from "../../redux/state";
 
 function Profile(props) {
+  debugger
   const [post, setPost] = useState("ProfilePosts");
 
   const [like, setLike] = useState(42),

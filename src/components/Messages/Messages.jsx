@@ -8,7 +8,6 @@ import MessagePost from "./Message/MessagePost/MessagePost";
 import logo from "../../images/profile_logo.svg";
 
 function Messages(props) {
-
   return (
     <div className="messages">
       <Navigation
@@ -29,7 +28,7 @@ function Messages(props) {
           </Link>
           <p className="messages__title">Messages</p>
         </div>
-        <div className="messages__wrapper">
+        {/* <div className="messages__wrapper">
           <input
             className="messages__input"
             minLength={2}
@@ -40,8 +39,8 @@ function Messages(props) {
             // onChange={onPostChange}
           />
           <button className="messages__button">Reply</button>
-        </div>
-        <MessagePost messagePost={props.messagePost} />
+        </div> */}
+        <MessagePost dispatch={props.dispatch} messagePost={props.messagePost} />
       </div>
       <Hashtags />
     </div>

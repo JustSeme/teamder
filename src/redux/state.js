@@ -119,7 +119,7 @@ let store = {
           time: "12.07.22"
         },
       ],
-      newMessageText: ''
+      newMessageBody: "",
     }
   },
   _callSubscriber() {
@@ -134,6 +134,7 @@ let store = {
   },
 
   dispatch(action) {
+    debugger
     if (action.type === 'ADD-POST') {
       let newPost = {
         avatar: profile,
@@ -150,29 +151,37 @@ let store = {
       this._callSubscriber(this._state);
     }
     else if (action.type === 'UPDATE-NEW-MESSAGE-TEXT') {
-      this._state.messagePage.newMessageText = action.newText;
+      this._state.messagePage.newMessageBody = action.body;
       this._callSubscriber(this._state);
     }
     else if (action.type === 'SEND-MESSAGE') {
-      let body = this.state.messagePage.newMessageText;
-      this._state.messagePage.newMessageText = '';
-      this._state.messagePage.message.push();
+      let body = {
+        avatar: profile,
+        name: "Rodion Strelkov",
+        message: this._state.messagePage.newMessageBody,
+        time: "now"
+      };
+      this._state.messagePage.newMessageBody = '';
+      this._state.messagePage.messagePost.push(body);
       this._callSubscriber(this._state);
     }
   }
 };
 
-export const addPostActionCreator = () => {
-  return {
-    type: 'ADD-POST'
-  }
-}
-
+export const addPostActionCreator = () => ({type: 'ADD-POST'})
 export const updateNewPostTextActionCreator = (text) => {
   return {
     type: 'UPDATE-NEW-POST-TEXT', newText: text
   }
 }
+
+export const sendMessageCreator = () => ({type: 'SEND-MESSAGE'})
+export const updateNewMessageBodyCreator = (body) => {
+  return {
+    type: 'UPDATE-NEW-MESSAGE-BODY', body: body
+  }
+}
+
 
 window.store = store;
 
