@@ -10,7 +10,7 @@ import profile from "../../images/profile_logo2.svg";
 import geo from "../../images/geo.svg";
 import age from "../../images/age.svg";
 import edit from "../../images/edit.svg";
-import {addPostActionCreator, updateNewPostTextActionCreator} from "../../redux/state";
+import {addPostActionCreator, updateNewPostTextActionCreator} from "../../redux/profile-reducer";
 
 function Profile(props) {
   const [post, setPost] = useState("ProfilePosts");

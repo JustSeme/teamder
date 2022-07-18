@@ -1,7 +1,7 @@
 import { React, useState } from "react";
 import "../../Messages.css";
 import Message from "../Message";
-import {sendMessageCreator, updateNewMessageBodyCreator} from '../../../../redux/state';
+import {sendMessageCreator, updateNewMessageBodyCreator} from '../../../../redux/message-reducer';
 
 function MessagePost(props) {
 
