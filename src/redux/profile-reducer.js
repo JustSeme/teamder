@@ -1,6 +1,30 @@
 import profile from "../images/profile_logo2.svg";
+import logo from "../images/profile_logo.svg";
+import logo1 from "../images/profile_logo1.svg";
+import logo3 from "../images/profile_logo3.svg";
+import logo4 from "../images/profile_logo4.svg";
 
-const profileReducer = (state, action) => {
+let initialState = {
+  profilePage: {
+    profilePosts: [
+      {
+        avatar: logo1,
+        name: "Dakota Sience",
+        login: "@sience",
+        message: "I need the same developer!",
+      },
+      {
+        avatar: logo3,
+        name: "Jame Slime",
+        login: "@slime",
+        message: "Where slimes?!",
+      },
+    ],
+    newPostText: "",
+  },
+}
+
+const profileReducer = (state = initialState, action) => {
   switch (action.type) {
     case "ADD-POST":
       let newPost = {

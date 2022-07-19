@@ -8,7 +8,7 @@ import profileReducer from "./profile-reducer";
 import messageReducer from "./message-reducer";
 import eventReducer from "./event-reducer";
 
-let store = {
+let oldStore = {
   _state: {
     profilePage: {
       profilePosts: [
@@ -147,6 +147,4 @@ let store = {
   }
 };
 
-window.store = store;
-
-export default store;
+export default oldStore;
