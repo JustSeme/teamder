@@ -8,7 +8,7 @@ import profileReducer from "./profile-reducer";
 import messageReducer from "./message-reducer";
 import eventReducer from "./event-reducer";
 
-let oldStore = {
+let store = {
   _state: {
     profilePage: {
       profilePosts: [
@@ -133,6 +133,7 @@ let oldStore = {
   getState() {
     return this._state;
   },
+  
   subscribe(observer) {
     this._callSubscriber = observer;
   },
@@ -147,4 +148,6 @@ let oldStore = {
   }
 };
 
-export default oldStore;
+window.store = store;
+
+export default store;
