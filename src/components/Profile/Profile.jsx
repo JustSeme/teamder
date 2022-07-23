@@ -11,8 +11,10 @@ import geo from "../../images/geo.svg";
 import age from "../../images/age.svg";
 import edit from "../../images/edit.svg";
 import {addPostActionCreator, updateNewPostTextActionCreator} from "../../redux/profile-reducer";
+import { useSelector, useDispatch } from "react-redux";
 
 function Profile(props) {
+
   const [post, setPost] = useState("ProfilePosts");
 
   const [like, setLike] = useState(42),
@@ -27,11 +29,8 @@ function Profile(props) {
   };
 
   const activeColorLike = "profile__button_logo-color";
-
   const inactiveColorLike = "profile__button_logo";
-
   const activeColorPost = "profile__button_post";
-
   const inactiveColorPost = "profile__button_post-color";
 
   const [isPopup, setIsPopup] = useState(false);
@@ -42,15 +41,17 @@ function Profile(props) {
 
   let newPostElement = React.createRef();
 
-  // let addPost = () => {
-  //   props.dispatch(addPostActionCreator());
-  // };
+  const dispatch = useDispatch();
 
-  // let onPostChange = () => {
-  //   let text = newPostElement.current.value;
-  //   let action = updateNewPostTextActionCreator(text);
-  //   props.dispatch(action);
-  // };
+  let addPost = () => {
+    dispatch(addPostActionCreator());
+  };
+
+  let onPostChange = () => {
+    let text = newPostElement.current.value;
+    let action = updateNewPostTextActionCreator(text);
+    dispatch(action);
+  };
 
   return (
     <div className="profile">
@@ -131,13 +132,11 @@ function Profile(props) {
             placeholder="Post content..."
             cols={5}
             ref={newPostElement}
-            // onChange={onPostChange}
+            onChange={onPostChange}
           />
-          <button className="profile-create__button"
-          //  onClick={addPost}
-           >Create</button>
+          <button className="profile-create__button" onClick={addPost}>Create</button>
         </div>
-        {post === "ProfilePosts" && <ProfilePosts profilePosts={props.profilePosts} addPost={props.addPost} updateNewPostText={props.updateNewPostText} />}
+        {post === "ProfilePosts" && <ProfilePosts />}
         {isPopup === "popupEdit" && <Popup close={setIsPopup} />}
       </div>
       <Hashtags />

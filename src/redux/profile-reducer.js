@@ -41,9 +41,9 @@ const profileReducer = (state = initialState, action) => {
 };
 
 export const addPostActionCreator = () => ({type: 'ADD-POST'})
-export const updateNewPostTextActionCreator = (text) => {
+export const updateNewPostTextActionCreator = (payload) => {
   return {
-    type: 'UPDATE-NEW-POST-TEXT', newText: text
+    type: 'UPDATE-NEW-POST-TEXT', newText: payload
   }
 }
 
