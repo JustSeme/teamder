@@ -42,15 +42,15 @@ function Profile(props) {
 
   let newPostElement = React.createRef();
 
-  let addPost = () => {
-    props.dispatch(addPostActionCreator());
-  };
+  // let addPost = () => {
+  //   props.dispatch(addPostActionCreator());
+  // };
 
-  let onPostChange = () => {
-    let text = newPostElement.current.value;
-    let action = updateNewPostTextActionCreator(text);
-    props.dispatch(action);
-  };
+  // let onPostChange = () => {
+  //   let text = newPostElement.current.value;
+  //   let action = updateNewPostTextActionCreator(text);
+  //   props.dispatch(action);
+  // };
 
   return (
     <div className="profile">
@@ -131,9 +131,11 @@ function Profile(props) {
             placeholder="Post content..."
             cols={5}
             ref={newPostElement}
-            onChange={onPostChange}
+            // onChange={onPostChange}
           />
-          <button className="profile-create__button" onClick={addPost}>Create</button>
+          <button className="profile-create__button"
+          //  onClick={addPost}
+           >Create</button>
         </div>
         {post === "ProfilePosts" && <ProfilePosts profilePosts={props.profilePosts} addPost={props.addPost} updateNewPostText={props.updateNewPostText} />}
         {isPopup === "popupEdit" && <Popup close={setIsPopup} />}
