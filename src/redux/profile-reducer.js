@@ -29,12 +29,21 @@ const profileReducer = (state = initialState, action) => {
         login: "@oldmilky",
         message: state.newPostText,
       };
-      state.profilePosts.unshift(newPost);
-      state.newPostText = "";
-      return state;
+      // state.profilePosts.unshift(newPost);
+      // state.newPostText = "";
+      // return state;
+      return {
+        ...state,
+        profilePosts: [...state.profilePosts, newPost],
+        newPostText: ""
+      }
     case "UPDATE-NEW-POST-TEXT":
-      state.newPostText = action.newText;
-      return state;
+      // state.newPostText = action.newText;
+      // return state;
+      return {
+        ...state,
+        newPostText: action.newText
+      }
     default:
       return state;
   }

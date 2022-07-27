@@ -5,6 +5,7 @@ import eventReducer from "./event-reducer";
 
 let store = configureStore({
     reducer: {
+        eventPage: eventReducer,
         profilePage: profileReducer,
         messagePage: messageReducer,
     }

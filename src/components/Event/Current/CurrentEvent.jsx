@@ -2,9 +2,11 @@ import React from "react";
 import "../Event.css";
 import Event from "../Event";
 import logo from "../../../images/profile_logo2.svg";
+import {useSelector} from "react-redux";
 
 function CurrentEvent(props) {
-  let eventElement = props.currentEvent.map((p) => (
+  const events = useSelector(state => [...state.eventPage.currentEvent])
+  let eventElement = events.map((p) => (
     <Event
       logo={p.logo}
       name={p.name}

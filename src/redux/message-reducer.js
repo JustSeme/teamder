@@ -37,8 +37,12 @@ let initialState = {
 const messageReducer = (state = initialState, action) => {
   switch (action.type) {
     case "UPDATE-NEW-MESSAGE-BODY":
-      state.newMessageBody = action.body;
-      return state;
+      // state.newMessageBody = action.body;
+      // return state;
+      return {
+        ...state,
+        newMessageBody: action.body
+      }
     case "SEND-MESSAGE":
       let body = {
         avatar: profile,
@@ -46,9 +50,15 @@ const messageReducer = (state = initialState, action) => {
         message: state.newMessageBody,
         time: "now",
       };
-      state.newMessageBody = "";
-      state.messagePost.unshift(body);
-      return state;
+      
+      // state.newMessageBody = "";
+      // state.messagePost.unshift(body);
+      // return state;
+      return {
+        ...state, 
+        newMessageBody: "",
+        messagePost: [...state.messagePost, body]
+      }
     default:
       return state;
   }
