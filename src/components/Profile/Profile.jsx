@@ -39,7 +39,8 @@ function Profile(props) {
     setIsPopup("popupEdit");
   };
 
-  let newPostElement = React.createRef();
+  // let newPostElement = React.createRef();
+  let newPostElement = useSelector(state => state.profilePage.newPostText);
 
   const dispatch = useDispatch();
 
@@ -47,10 +48,9 @@ function Profile(props) {
     dispatch(addPostActionCreator());
   };
 
-  let onPostChange = () => {
-    let text = newPostElement.current.value;
-    let action = updateNewPostTextActionCreator(text);
-    dispatch(action);
+  let onPostChange = (e) => {
+    let text = e.target.value;
+    dispatch(updateNewPostTextActionCreator(text));
   };
 
   return (
@@ -130,8 +130,7 @@ function Profile(props) {
             minLength={2}
             maxLength={400}
             placeholder="Post content..."
-            cols={5}
-            ref={newPostElement}
+            value={newPostElement}
             onChange={onPostChange}
           />
           <button className="profile-create__button" onClick={addPost}>Create</button>

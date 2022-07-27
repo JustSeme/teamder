@@ -10,7 +10,7 @@ function MessagePost(props) {
 
   const messages = useSelector(state => state.messagePage.messagePost)
   let messageElement = messages.map((p) => <Message avatar={p.avatar} name={p.name} message={p.message} time={p.time} />);
-  let newMessageBody = props.newMessageBody;
+  let newMessageBody = useSelector(state => state.messagePage.newMessageBody);
 
   let onSendMessageClick = () => {
     dispatch(sendMessageCreator());
@@ -19,7 +19,6 @@ function MessagePost(props) {
   let onNewMessageChange = (e) => {
     let body = e.target.value;
     dispatch(updateNewMessageBodyCreator(body));
-    console.log(body)
   }
 
   return (
