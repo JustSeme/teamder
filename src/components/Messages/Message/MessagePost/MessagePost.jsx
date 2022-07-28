@@ -1,15 +1,15 @@
-import { React, useState } from "react";
+import { React } from "react";
 import "../../Messages.css";
 import Message from "../Message";
 import { useDispatch, useSelector } from "react-redux";
 import {sendMessageCreator, updateNewMessageBodyCreator} from '../../../../redux/message-reducer';
 
-function MessagePost(props) {
+function MessagePost() {
 
   const dispatch = useDispatch();
 
   const messages = useSelector(state => state.messagePage.messagePost)
-  let messageElement = messages.map((p) => <Message avatar={p.avatar} name={p.name} message={p.message} time={p.time} />);
+  let messageElement = messages.map((p, message) => <Message key={message} avatar={p.avatar} name={p.name} message={p.message} time={p.time} />);
   let newMessageBody = useSelector(state => state.messagePage.newMessageBody);
 
   let onSendMessageClick = () => {
