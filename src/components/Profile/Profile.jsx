@@ -10,11 +10,13 @@ import profile from "../../images/profile_logo2.svg";
 import geo from "../../images/geo.svg";
 import age from "../../images/age.svg";
 import edit from "../../images/edit.svg";
-import {addPostActionCreator, updateNewPostTextActionCreator} from "../../redux/profile-reducer";
+import {
+  addPostActionCreator,
+  updateNewPostTextActionCreator,
+} from "../../redux/profile-reducer";
 import { useSelector, useDispatch } from "react-redux";
 
 function Profile(props) {
-
   const [post, setPost] = useState("ProfilePosts");
 
   const [like, setLike] = useState(42),
@@ -40,7 +42,7 @@ function Profile(props) {
   };
 
   // let newPostElement = React.createRef();
-  let newPostElement = useSelector(state => state.profilePage.newPostText);
+  let newPostElement = useSelector((state) => state.profilePage.newPostText);
 
   const dispatch = useDispatch();
 
@@ -112,8 +114,8 @@ function Profile(props) {
               >
                 <path
                   className={isLike ? activeColorLike : inactiveColorLike}
-                  d="M20 8H14.388L15.511 4.633C15.713 4.025 15.611 3.351 15.236 2.831C14.861 2.311 14.253 2 13.612 2H12C11.703 2 11.422 2.132 11.231 2.36L6.531 8H4C2.897 8 2 8.897 2 10V19C2 20.103 2.897 21 4 21H17.307C17.7139 20.9986 18.1108 20.8738 18.4452 20.6421C18.7797 20.4103 19.0359 20.0825 19.18 19.702L21.937 12.351C21.9789 12.2387 22.0002 12.1198 22 12V10C22 8.897 21.103 8 20 8ZM4 10H6V19H4V10ZM20 11.819L17.307 19H8V9.362L12.468 4H13.614L12.052 8.683C12.0013 8.83331 11.9871 8.99355 12.0107 9.15043C12.0343 9.3073 12.095 9.45629 12.1877 9.58504C12.2803 9.71379 12.4024 9.8186 12.5436 9.89076C12.6849 9.96293 12.8414 10.0004 13 10H20V11.819Z"
-                  fill="#F2F2F2"
+                  d="M20 8H14.388L15.511 4.633C15.713 4.025 15.611 3.351 15.236 2.831C14.861 2.311 14.253 2 13.612 2H12C11.703 2 11.422 2.132 11.231 2.36L6.531 8H4C2.897 8 2 8.897 2 10V19C2 20.103 2.897 21 4 21H17.307C17.7139 20.9986 18.1108 20.8738 18.4452 20.6421C18.7797 20.4103 19.0359 20.0825 19.18 19.702L21.937 12.351C21.9789 12.2387 22.0002 12.1198 22 12V10C22 8.897 21.103 8 20 8ZM4 10H6V19H4V10ZM20 11.819L17.307 19H8V9.362L12.468 4H13.614L12.052 8.683C12.0013 8.83332 11.9871 8.99355 12.0107 9.15043C12.0343 9.3073 12.095 9.45629 12.1877 9.58504C12.2803 9.71379 12.4024 9.8186 12.5436 9.89076C12.6849 9.96293 12.8414 10.0004 13 10H20V11.819Z"
+                  fill="#000000"
                 />
               </svg>
               <p className="profile__button_text">{like}</p>
@@ -121,7 +123,14 @@ function Profile(props) {
           </div>
         </div>
         <div className="profile__button_wrapper">
-          <button className={post === "ProfilePosts" ? inactiveColorPost : activeColorPost} onClick={handleProfilePostsClick}>Posts on my profile</button>
+          <button
+            className={
+              post === "ProfilePosts" ? inactiveColorPost : activeColorPost
+            }
+            onClick={handleProfilePostsClick}
+          >
+            Posts on my profile
+          </button>
         </div>
         <div className="profile-create">
           <p className="profile-create__title">Create a post</p>
@@ -133,7 +142,9 @@ function Profile(props) {
             value={newPostElement}
             onChange={onPostChange}
           />
-          <button className="profile-create__button" onClick={addPost}>Create</button>
+          <button className="profile-create__button" onClick={addPost}>
+            Create
+          </button>
         </div>
         {post === "ProfilePosts" && <ProfilePosts />}
         {isPopup === "popupEdit" && <Popup close={setIsPopup} />}

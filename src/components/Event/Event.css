@@ -23,10 +23,6 @@
     margin: 40px 15px 0 0;
 }
 
-.event__wrapper_title {
-
-}
-
 .event__name {
     font-style: normal;
     font-weight: 400;
@@ -35,7 +31,7 @@
     display: flex;
     align-items: center;
     letter-spacing: -0.015em;
-    color: #F2F2F2;
+    color: #000000;
     margin: 0 0 5px 0;
 }
 
@@ -44,7 +40,7 @@
     font-weight: 700;
     font-size: 20px;
     line-height: 117.8%;
-    color: #F2F2F2;
+    color: #000000;
     margin: 0;
 }
 
@@ -54,7 +50,7 @@
 
 .event__button {
     display: flex;
-    background-color: #000A0B;
+    background-color: #DDE1E1;
     border: none;
     padding: 0 20px 0 20px;
     align-items: center;
@@ -69,7 +65,7 @@
     font-weight: 400;
     font-size: 16px;
     line-height: 117.8%;
-    color: #FFFFFF;
+    color: #000000;
     margin-left: 5px;
 }
 
@@ -88,7 +84,7 @@
     font-weight: 400;
     font-size: 16px;
     line-height: 117.8%;
-    color: #FFFFFF;
+    color: #000000;
     margin: 0 0 0 10px;
 }
 
@@ -97,12 +93,12 @@
     font-weight: 400;
     font-size: 16px;
     line-height: 117.8%;
-    color: #FFFFFF;
+    color: #000000;
     margin: 11px 0 0;
 }
 
 .event__interest_button {
-    background-color: #2FABF1;
+    background-color: #126FA4;
     border: none;
     border-radius: 4px;
     width: 107px;

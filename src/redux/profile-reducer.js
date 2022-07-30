@@ -34,7 +34,7 @@ const profileReducer = (state = initialState, action) => {
       // return state;
       return {
         ...state,
-        profilePosts: [...state.profilePosts, newPost],
+        profilePosts: [newPost, ...state.profilePosts],
         newPostText: ""
       }
     case "UPDATE-NEW-POST-TEXT":

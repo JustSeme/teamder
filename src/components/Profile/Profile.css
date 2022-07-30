@@ -34,7 +34,7 @@
     font-weight: 400;
     font-size: 20px;
     line-height: 27px;
-    color: #F2F2F2;
+    color: #000000;
     margin: 0 0 0 10px;
 }
 
@@ -44,7 +44,7 @@
     font-size: 30px;
     line-height: 38px;
     letter-spacing: -1.35px;
-    color: #FFFFFF;
+    color: #000000;
     margin: 0;
 }
 
@@ -74,7 +74,7 @@
     font-weight: 700;
     font-size: 20px;
     line-height: 27px;
-    color: #F2F2F2;
+    color: #000000;
     margin: 0 15px 0 0;
 }
 
@@ -89,7 +89,7 @@
     line-height: 22px;
     display: flex;
     align-items: center;
-    color: #F2F2F2;
+    color: #000000;
     margin: 0;
 }
 
@@ -99,7 +99,7 @@
     font-size: 16px;
     line-height: 117.8%;
     text-align: justify;
-    color: #F2F2F2;
+    color: #000000;
     margin: 20px 0 20px;
     width: 530px;
 }
@@ -109,7 +109,7 @@
 }
 
 .profile__button {
-    background-color: #000A0B;
+    background-color: #DDE1E1;
     display: flex;
     align-items: center;
     padding: 0;
@@ -129,7 +129,7 @@
     line-height: 22px;
     display: flex;
     align-items: center;
-    color: #F2F2F2;
+    color: #000000;
     margin: 0 29px 0 6px;
 }
 
@@ -147,8 +147,8 @@
     display: flex;
     align-items: center;
     letter-spacing: 0.01em;
-    color: #F2F2F2;
-    background-color: #000A0B;
+    color: #000000;
+    background-color: #DDE1E1;
     cursor: pointer;
     margin: 0;
     padding: 0 30px 17px 30px;
@@ -156,8 +156,8 @@
 }
 
 .profile__button_post:hover {
-    color: #2FABF1;
-    border-bottom: 1px solid #2FABF1;
+    color: #126FA4;
+    border-bottom: 1px solid #126FA4;
 }
 
 .profile__button_post-color {
@@ -168,13 +168,13 @@
     display: flex;
     align-items: center;
     letter-spacing: 0.01em;
-    background-color: #000A0B;
+    background-color: #DDE1E1;
     cursor: pointer;
     margin: 0;
     padding: 0 30px 17px 30px;
     border: none;
-    color: #2FABF1;
-    border-bottom: 1px solid #2FABF1;
+    color: #126FA4;
+    border-bottom: 1px solid #126FA4;
 }
 
 .profile__link {
@@ -190,13 +190,13 @@
     font-weight: 400;
     font-size: 20px;
     line-height: 38px;
-    color: #FFFFFF;
+    color: #000000;
     margin: 0;
 }
 
 .profile-create__field {
-    background-color: #000A0B;
-    border-bottom: 1px solid #FFFFFF;
+    background-color: #DDE1E1;
+    border-bottom: 1px solid #1F1F1F;
     border-right: none;
     border-left: none;
     border-top: none;
@@ -207,7 +207,7 @@
     display: flex;
     align-items: center;
     letter-spacing: 0.15px;
-    color: rgba(255, 255, 255, 0.5);
+    color: #000000;
     width: 300px;
     height: 70px;
     outline: none;
@@ -217,8 +217,8 @@
 .profile-create__button {
     width: 200px;
     height: 50px;
-    color: #FFF;
-    background-color: #000A0B;
+    color: #000000;
+    background-color: #DDE1E1;
     cursor: pointer;
     border: none;
     font-style: normal;
@@ -232,7 +232,7 @@
 }
 
 .profile-create__button:hover {
-    background-color: #2FABF1;
+    background-color: #126FA4;
     transition: linear 0.3s;
     color: #000000;
 }

@@ -16,7 +16,7 @@
 .navigation__button {
     display: flex;
     align-items: center;
-    background-color: #000A0B;
+    background-color: #DDE1E1;
     border: none;
     margin-bottom: 25px;
     text-decoration: none;
@@ -27,13 +27,13 @@
     display: flex;
     align-items: center;
     letter-spacing: -0.015em;
-    color: #F2F2F2;
+    color: #000000;
 }
 
 .navigation__button_active {
     display: flex;
     align-items: center;
-    background-color: #000A0B;
+    background-color: #DDE1E1;
     border: none;
     margin-bottom: 25px;
     text-decoration: none;
@@ -44,12 +44,12 @@
     display: flex;
     align-items: center;
     letter-spacing: -0.015em;
-    color: #2FABF1;
-    fill: #2FABF1;
+    color: #126FA4;
+    fill: #126FA4;
 }
 
 .navigation__create_button {
-    background-color: #2FABF1;
+    background-color: #126FA4;
     border: none;
     border-radius: 8px;
     width: 195px;
@@ -75,17 +75,17 @@
 }
 
 .navigation__button:hover {
-    color: #2FABF1;
+    color: #126FA4;
     transition: linear 0.2s;
 }
 
 .navigation__button:hover .navigation__inactive {
-    fill: #2FABF1;
+    fill: #126FA4;
     transition: linear 0.2s;
 }
 
 .navigation__active {
-    fill: #2FABF1;
+    fill: #126FA4;
     transition: linear 0.2s;
 }
 

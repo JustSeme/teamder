@@ -81,7 +81,7 @@
     border: 1px solid #1F1F1F;
 }
 .popup__button-save:hover {
-    background-color: #2FABF1;
+    background-color: #126FA4;
     transition: linear 0.3s;
     color: #000000;
 }

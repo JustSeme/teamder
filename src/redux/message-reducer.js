@@ -57,7 +57,7 @@ const messageReducer = (state = initialState, action) => {
       return {
         ...state, 
         newMessageBody: "",
-        messagePost: [...state.messagePost, body]
+        messagePost: [body, ...state.messagePost]
       }
     default:
       return state;

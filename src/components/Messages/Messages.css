@@ -34,7 +34,7 @@
     font-weight: 400;
     font-size: 20px;
     line-height: 27px;
-    color: #F2F2F2;
+    color: #000000;
     margin: 0 0 0 10px;
 }
 
@@ -44,12 +44,13 @@
     font-size: 30px;
     line-height: 38px;
     letter-spacing: -1.35px;
-    color: #FFFFFF;
+    color: #000000;
     margin: 0;
 }
 
 .message__container {
-    border: 1px solid #1F1F1F;
+    border-top: solid 1px #3A444C;
+    border-bottom: solid 1px #3A444C;
     margin: 20px auto;
     display: flex;
     justify-content: space-between;
@@ -73,7 +74,7 @@
     font-size: 16px;
     line-height: 22px;
     text-align: justify;
-    color: #F2F2F2;
+    color: #000000;
     margin: 0 7px 0 0;
 }
 
@@ -82,10 +83,10 @@
     font-weight: 400;
     font-size: 15px;
     line-height: 20px;
-    color: #f5f5f5;
+    color: #000000;
     margin: 10px 0 0;
     word-break: break-word;
-    background-color: #001011;
+    background-color: #D3D4D4;
     padding: 4px 6px 4px 6px;
     border-radius: 8px;
 }
@@ -133,8 +134,8 @@
 }
 
 .messages__input {
-    background-color: #000A0B;
-    border-bottom: 1px solid #FFFFFF;
+    background-color: #DDE1E1;
+    border-bottom: 1px solid #1F1F1F;
     border-right: none;
     border-left: none;
     border-top: none;
@@ -145,7 +146,7 @@
     display: flex;
     align-items: center;
     letter-spacing: 0.15px;
-    color: rgba(255, 255, 255, 0.5);
+    color: #000000;
     width: 300px;
     height: 60px;
     outline: none;
@@ -155,8 +156,8 @@
 .messages__button {
     width: 75px;
     height: 35px;
-    color: #FFF;
-    background-color: #000A0B;
+    color: #000000;
+    background-color: #DDE1E1;
     cursor: pointer;
     border: none;
     font-style: normal;
@@ -170,7 +171,7 @@
 }
 
 .messages__button:hover {
-    background-color: #2FABF1;
+    background-color: #126FA4;
     transition: linear 0.3s;
     color: #000000;
 }
