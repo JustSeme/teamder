@@ -4,6 +4,7 @@ import Navigation from "../Navigation/Navigation";
 import Hashtags from "../Hashtags/Hashtags";
 import arrow from "../../images/arrow_left.svg";
 import { Link, NavLink } from "react-router-dom";
+import Team from "./Team/Team";
 
 function Teams(props) {
   return (
@@ -26,6 +27,7 @@ function Teams(props) {
           </Link>
           <p className="teams__title">My teams</p>
         </div>
+        <Team />
       </div>
       <Hashtags />
     </div>

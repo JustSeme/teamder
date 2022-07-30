@@ -47,3 +47,136 @@
     color: #000000;
     margin: 0;
 }
+
+.team__container {
+    border-top: solid 1px #3A444C;
+    border-bottom: solid 1px #3A444C;
+    margin: 20px auto;
+    display: flex;
+    justify-content: space-between;
+}
+
+.team__wrap {
+    padding: 10px 15px 10px 15px;
+    display: flex;
+}
+
+.team__logo {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.team__name {
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 22px;
+    text-align: justify;
+    color: #000000;
+    margin: 0 7px 0 0;
+}
+
+.team__message {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 20px;
+    color: #000000;
+    margin: 10px 0 0;
+    word-break: break-word;
+    background-color: #D3D4D4;
+    padding: 4px 6px 4px 6px;
+    border-radius: 8px;
+}
+
+.team__time {
+    font-style: normal;
+    font-weight: 500;
+    font-size: 13px;
+    line-height: 18px;
+    display: flex;
+    align-items: center;
+    color: #3A444C;
+    margin: 0;
+}
+
+.team__wrap_time {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px 15px 10px 0;
+}
+
+.team__button {
+    width: 100px;
+    height: 35px;
+    color: #FFF;
+    background-color: #001012;
+    cursor: pointer;
+    border: none;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 22px;
+    text-align: center;
+    border-radius: 5px;
+}
+
+.team__container:hover .message__button {
+    background-color: #002F34;
+    transition: linear 0.2s;
+}
+
+.team__link {
+    text-decoration: none;
+}
+
+.team__input {
+    background-color: #DDE1E1;
+    border-bottom: 1px solid #1F1F1F;
+    border-right: none;
+    border-left: none;
+    border-top: none;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 19px;
+    display: flex;
+    align-items: center;
+    letter-spacing: 0.15px;
+    color: #000000;
+    width: 300px;
+    height: 60px;
+    outline: none;
+    text-align: start;
+}
+
+.team__button {
+    width: 75px;
+    height: 35px;
+    color: #000000;
+    background-color: #DDE1E1;
+    cursor: pointer;
+    border: none;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 22px;
+    text-align: center;
+    border-radius: 5px;
+    border: 1px solid #1F1F1F;
+    margin: 20px 0 0 20px;
+}
+
+.team__button:hover {
+    background-color: #126FA4;
+    transition: linear 0.3s;
+    color: #000000;
+}
+
+.team__wrapper {
+    display: flex;
+    justify-content: center;
+}
