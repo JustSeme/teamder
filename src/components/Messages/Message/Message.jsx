@@ -9,7 +9,10 @@ function Message(props) {
         <div className="message__wrap">
           <img className="message__logo" src={props.avatar} alt="logo" />
           <div className="message__wrapper">
-            <p className="message__name">{props.name}</p>
+            <div className="message__wrapper_name">
+              <p className="message__name">{props.name}</p>
+              <p className="message__status">{props.status}</p>
+            </div>
             <p className="message__message">{props.message}</p>
           </div>
         </div>

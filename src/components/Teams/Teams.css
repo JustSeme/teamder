@@ -57,13 +57,13 @@
 }
 
 .team__wrap {
-    padding: 10px 15px 10px 15px;
+    padding: 20px 25px 20px 25px;
     display: flex;
 }
 
 .team__logo {
-    width: 50px;
-    height: 50px;
+    width: 63px;
+    height: 63px;
     border-radius: 50%;
     margin-right: 10px;
 }
@@ -71,8 +71,8 @@
 .team__name {
     font-style: normal;
     font-weight: 600;
-    font-size: 16px;
-    line-height: 22px;
+    font-size: 19px;
+    line-height: 25px;
     text-align: justify;
     color: #000000;
     margin: 0 7px 0 0;
@@ -81,32 +81,40 @@
 .team__message {
     font-style: normal;
     font-weight: 400;
-    font-size: 15px;
-    line-height: 20px;
+    font-size: 17px;
+    line-height: 22px;
     color: #000000;
     margin: 10px 0 0;
     word-break: break-word;
-    background-color: #D3D4D4;
-    padding: 4px 6px 4px 6px;
     border-radius: 8px;
 }
 
-.team__time {
+.team__city {
     font-style: normal;
-    font-weight: 500;
-    font-size: 13px;
-    line-height: 18px;
-    display: flex;
-    align-items: center;
-    color: #3A444C;
-    margin: 0;
+    font-weight: 600;
+    font-size: 17px;
+    line-height: 22px;
+    text-align: justify;
+    color: #000000;
+    margin: 0 7px 0 0;
 }
 
-.team__wrap_time {
+.team__country {
+    font-style: normal;
+    font-weight: 500;
+    font-size: 15px;
+    line-height: 20px;
+    text-align: justify;
+    color: #000000;
+    margin: 0 7px 0 0;
+}
+
+.team__wrap_location {
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 10px 15px 10px 0;
+    justify-content: center;
+    padding: 20px 25px 20px 0;
 }
 
 .team__button {
@@ -176,7 +184,18 @@
     color: #000000;
 }
 
-.team__wrapper {
+.team__wrapper_name {
     display: flex;
-    justify-content: center;
+    align-items: center;
+}
+
+.team__login {
+    margin: 0;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 15px;
+    line-height: 20px;
+    display: flex;
+    align-items: center;
+    color: #3A444C;
 }

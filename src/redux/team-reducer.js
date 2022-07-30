@@ -11,7 +11,6 @@ let initialState = {
       name: "White ONI",
       desc: "I need my brothers ONI!",
       location: {city: "Tokyo", country: "Japan"},
-      status: "offline",
       id: 1
     },
     {
@@ -19,7 +18,6 @@ let initialState = {
       name: "Tomasz Gajda",
       desc: "Lala",
       location: {city: "Tokyo", country: "Japan"},
-      status: "offline",
       id: 2
     },
     {
@@ -27,7 +25,6 @@ let initialState = {
       name: "Dakota Sience",
       desc: "Yoyo",
       location: {city: "Tokyo", country: "Japan"},
-      status: "online",
       id: 3
     },
     {
@@ -35,7 +32,6 @@ let initialState = {
       name: "Jame Slime",
       desc: "Yaya",
       location: {city: "Tokyo", country: "Japan"},
-      status: "offline",
       id: 4
     },
   ],

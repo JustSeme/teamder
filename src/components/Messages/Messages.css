@@ -75,7 +75,7 @@
     line-height: 22px;
     text-align: justify;
     color: #000000;
-    margin: 0 7px 0 0;
+    margin: 0 10px 0 0;
 }
 
 .message__message {
@@ -179,4 +179,19 @@
 .messages__wrapper {
     display: flex;
     justify-content: center;
+}
+
+.message__wrapper_name {
+    display: flex;
+}
+
+.message__status {
+    font-style: normal;
+    font-weight: 500;
+    font-size: 13px;
+    line-height: 18px;
+    display: flex;
+    align-items: center;
+    color: #126FA4;
+    margin: 0;
 }

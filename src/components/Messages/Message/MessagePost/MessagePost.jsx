@@ -9,7 +9,7 @@ function MessagePost() {
   const dispatch = useDispatch();
 
   const messages = useSelector(state => state.messagePage.messagePost)
-  let messageElement = messages.map((p, message) => <Message key={message} avatar={p.avatar} name={p.name} message={p.message} time={p.time} />);
+  let messageElement = messages.map((p, message) => <Message key={message} avatar={p.avatar} name={p.name} message={p.message} time={p.time} status={p.status} />);
   let newMessageBody = useSelector(state => state.messagePage.newMessageBody);
 
   let onSendMessageClick = () => {

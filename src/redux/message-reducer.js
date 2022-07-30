@@ -10,25 +10,29 @@ let initialState = {
       avatar: logo4,
       name: "White ONI",
       message: "We wrote as you requested",
-      time: "30m"
+      time: "30m",
+      status: "online"
     },
     {
       avatar: logo,
       name: "Tomasz Gajda",
       message: "I don't know what to write here(",
-      time: "13:23"
+      time: "13:23",
+      status: "online"
     },
     {
       avatar: logo1,
       name: "Dakota Sience",
       message: "Cool, you can send messages",
-      time: "15.07.22"
+      time: "15.07.22",
+      status: "offline"
     },
     {
       avatar: logo3,
       name: "Jame Slime",
       message: "Okay, I'll text you, but you're slime",
-      time: "12.07.22"
+      time: "12.07.22",
+      status: "online"
     },
   ],
   newMessageBody: "",
@@ -49,6 +53,7 @@ const messageReducer = (state = initialState, action) => {
         name: "Rodion Strelkov",
         message: state.newMessageBody,
         time: "now",
+        status: "online"
       };
       
       // state.newMessageBody = "";
