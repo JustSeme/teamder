@@ -5,7 +5,6 @@ import arrow from "../../images/arrow_left.svg";
 import Navigation from "../Navigation/Navigation";
 import Hashtags from "../Hashtags/Hashtags";
 import MessagePost from "./Message/MessagePost/MessagePost";
-import logo from "../../images/profile_logo.svg";
 
 function Messages(props) {
   return (
@@ -28,7 +27,7 @@ function Messages(props) {
           </Link>
           <p className="messages__title">Group messenger</p>
         </div>
-        <MessagePost dispatch={props.dispatch} messagePost={props.messagePost} />
+        <MessagePost />
       </div>
       <Hashtags />
     </div>

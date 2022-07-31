@@ -9,66 +9,72 @@ let initialState = {
     {
       avatar: logo4,
       name: "White ONI",
+      login: "@whiteoni",
       desc: "I need my brothers ONI!",
-      location: {city: "Tokyo", country: "Japan"},
-      id: 1
+      id: 1,
+      followed: true,
     },
     {
       avatar: logo,
       name: "Tomasz Gajda",
+      login: "@nerooc",
       desc: "Lala",
-      location: {city: "Tokyo", country: "Japan"},
-      id: 2
+      id: 2,
+      followed: false,
     },
     {
       avatar: logo1,
       name: "Dakota Sience",
+      login: "@sience",
       desc: "Yoyo",
-      location: {city: "Tokyo", country: "Japan"},
-      id: 3
+      id: 3,
+      followed: false,
     },
     {
       avatar: logo3,
       name: "Jame Slime",
+      login: "@slimeee",
       desc: "Yaya",
-      location: {city: "Tokyo", country: "Japan"},
-      id: 4
+      id: 4,
+      followed: true,
     },
   ],
 };
 
 const teamReducer = (state = initialState, action) => {
   switch (action.type) {
-    case "ADD-POST":
-      let newPost = {
-        avatar: profile,
-        name: "Rodion Strelkov",
-        login: "@oldmilky",
-        message: state.newPostText,
-      };
+    case "FOLLOW":
       return {
         ...state,
-        profilePosts: [newPost, ...state.profilePosts],
-        newPostText: "",
+        teams: state.teams.map((t) => {
+          if (t.id === action.teamID) {
+            return { ...t, followed: true };
+          }
+          return t;
+        }),
       };
-    case "UPDATE-NEW-POST-TEXT":
-      // state.newPostText = action.newText;
-      // return state;
+    case "UNFOLLOW":
       return {
         ...state,
-        newPostText: action.newText,
+        teams: state.teams.map((t) => {
+          if (t.id === action.teamID) {
+            return { ...t, followed: false };
+          }
+          return t;
+        }),
       };
+      case "SET-TEAMS":
+        return {
+          ...state,
+          teams: [...state.users, ...action.users]
+        }
     default:
       return state;
   }
 };
 
-export const addPostActionCreator = () => ({ type: "ADD-POST" });
-export const updateNewPostTextActionCreator = (payload) => {
-  return {
-    type: "UPDATE-NEW-POST-TEXT",
-    newText: payload,
-  };
-};
+export const followActionCreator = (teamID) => ({ type: "FOLLOW", teamID });
+export const unfollowActionCreator = (teamID) => ({ type: "UNFOLLOW", teamID });
+export const setTeamsActionCreator = (teams) => ({type: "SET-TEAMS", teams});
 
 export default teamReducer;
