@@ -8,23 +8,20 @@ import {
 } from "../../../redux/team-reducer";
 
 function Team(props) {
+
   const dispatch = useDispatch();
+  
+  const follow = (teamID) => {
+    dispatch(followActionCreator(teamID));
+  }
+  const unfollow = (teamID) => {
+    dispatch(unfollowActionCreator(teamID));
+  }
+  const setTeams = (teams) => {
+    dispatch(setTeamsActionCreator(teams));
+  }
 
-  let toggleFollow = () => {
-    return {
-      follow: (teamID) => {
-        dispatch(followActionCreator(teamID));
-      },
-      unfollow: (teamID) => {
-        dispatch(unfollowActionCreator(teamID));
-      },
-      setTeams: (teams) => {
-        dispatch(setTeamsActionCreator(teams));
-      },
-    };
-  };
-
-  const teams = useSelector((state) => state.teamPage.teams);
+  const teams = useSelector(state => state.teamPage.teams);
 
   return (
     <div>
@@ -43,11 +40,10 @@ function Team(props) {
                 </div>
               </div>
               <div className="team__wrap_location">
-                {
-                t.followed ? 
-                <button className="team__follow_button">Follow</button>
+                {!t.followed ? 
+                <button onClick={() => {follow(t.id)}} className="team__follow_button">Follow</button>
                 :
-                <button className="team__unfollow_button">Unfollow</button>
+                <button onClick={() => {unfollow(t.id)}} className="team__unfollow_button">Unfollow</button>
                 }
               </div>
             </div>

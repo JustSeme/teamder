@@ -200,23 +200,6 @@
     color: #3A444C;
 }
 
-.team__follow_button {
-    background-color: #126FA4;
-    border: none;
-    border-radius: 8px;
-    width: 80px;
-    height: 40px;
-    font-style: normal;
-    font-weight: 500;
-    font-size: 14px;
-    line-height: 24px;
-    letter-spacing: 0.4px;
-    text-transform: uppercase;
-    color: #FFFFFF;
-    margin: 0;
-    cursor: pointer;
-}
-
 .teammap__wrap {
     display: flex;
     flex-direction: column;
@@ -247,12 +230,12 @@
     color: #FFFFFF;
 }
 
-.team__unfollow_button {
-    background-color: #D3D4D4;
+.team__follow_button {
+    background-color: #126FA4;
     border: none;
     border-radius: 8px;
-    width: 80px;
-    height: 40px;
+    width: 90px;
+    height: 45px;
     font-style: normal;
     font-weight: 500;
     font-size: 14px;
@@ -262,4 +245,23 @@
     color: #FFFFFF;
     margin: 0;
     cursor: pointer;
+    transition: 0.5s;
+}
+
+.team__unfollow_button {
+    background-color: #D3D4D4;
+    border: none;
+    border-radius: 8px;
+    width: 90px;
+    height: 45px;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 24px;
+    letter-spacing: 0.4px;
+    text-transform: uppercase;
+    color: #000000;
+    margin: 0;
+    cursor: pointer;
+    transition: 0.5s;
 }
