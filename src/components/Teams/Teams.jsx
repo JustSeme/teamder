@@ -4,9 +4,7 @@ import Navigation from "../Navigation/Navigation";
 import Hashtags from "../Hashtags/Hashtags";
 import arrow from "../../images/arrow_left.svg";
 import { Link, NavLink } from "react-router-dom";
-import TeamMap from "./Team/TeamMap/TeamMap";
 import Team from "./Team/Team";
-import {useDispatch, useSelector} from "react-redux";
 
 function Teams(props) {
 

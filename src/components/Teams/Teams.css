@@ -66,6 +66,8 @@
     height: 63px;
     border-radius: 50%;
     margin-right: 10px;
+    border: 1px solid #3A444C;
+    padding: 7px;
 }
 
 .team__name {
@@ -264,4 +266,29 @@
     margin: 0;
     cursor: pointer;
     transition: 0.5s;
+}
+
+.team__pagination {
+    margin: 0 0 30px 0;
+}
+
+.team__pagination_number {
+    font-style: normal;
+    font-weight: 500;
+    font-size: 19px;
+    line-height: 25px;
+    text-align: justify;
+    color: #000000;
+    margin: 0 7px 0 0;
+}
+
+.team__pagination_number-active {
+    font-style: normal;
+    font-weight: 500;
+    font-size: 19px;
+    line-height: 25px;
+    text-align: justify;
+    color: #000000;
+    margin: 0 7px 0 0;
+    border-bottom: 1px solid #000000;
 }

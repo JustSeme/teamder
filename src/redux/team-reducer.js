@@ -6,38 +6,38 @@ import logo4 from "../images/profile_logo4.svg";
 
 let initialState = {
   teams: [
-    {
-      avatar: logo4,
-      name: "White ONI",
-      login: "@whiteoni",
-      desc: "I need brothers ONI!",
-      id: 1,
-      followed: true,
-    },
-    {
-      avatar: logo,
-      name: "Tomasz Gajda",
-      login: "@nerooc",
-      desc: "Hello, I'm from Poland",
-      id: 2,
-      followed: false,
-    },
-    {
-      avatar: logo1,
-      name: "Dakota Sience",
-      login: "@sience",
-      desc: "Looking for a developer!",
-      id: 3,
-      followed: false,
-    },
-    {
-      avatar: logo3,
-      name: "Jame Slime",
-      login: "@slimeee",
-      desc: "I need more slimes",
-      id: 4,
-      followed: true,
-    },
+    // {
+    //   avatar: logo4,
+    //   name: "White ONI",
+    //   login: "@whiteoni",
+    //   desc: "I need brothers ONI!",
+    //   id: 1,
+    //   followed: true,
+    // },
+    // {
+    //   avatar: logo,
+    //   name: "Tomasz Gajda",
+    //   login: "@nerooc",
+    //   desc: "Hello, I'm from Poland",
+    //   id: 2,
+    //   followed: false,
+    // },
+    // {
+    //   avatar: logo1,
+    //   name: "Dakota Sience",
+    //   login: "@sience",
+    //   desc: "Looking for a developer!",
+    //   id: 3,
+    //   followed: false,
+    // },
+    // {
+    //   avatar: logo3,
+    //   name: "Jame Slime",
+    //   login: "@slimeee",
+    //   desc: "I need more slimes",
+    //   id: 4,
+    //   followed: true,
+    // },
   ],
 };
 
@@ -65,8 +65,7 @@ const teamReducer = (state = initialState, action) => {
       };
       case "SET-TEAMS":
         return {
-          ...state,
-          teams: [...state.users, ...action.users]
+           ...state, teams: action.teams
         }
     default:
       return state;
