@@ -60,7 +60,7 @@
 }
 
 .popup__input:first-of-type {
-    margin: 54px 0 30px;
+    margin: 54px 0 40px;
 }
 
 .popup__button-save {
@@ -105,4 +105,23 @@
 .popup__button-close:hover {
   opacity: 0.6;
   transition: linear 0.2s;
+}
+
+.popup__input_wrap {
+    display: flex;
+    justify-content: space-between;
+}
+
+.popup__input_wrapper {
+    border: none;
+    border-bottom: 1px solid #1F1F1F;
+    outline: none;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 17px;
+    color: #000000;
+    padding-bottom: 13px;
+    margin: 0 0 40px;
+    background-color: #DDE1E1;
 }

@@ -61,6 +61,12 @@
     display: flex;
 }
 
+.team__wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .team__logo {
     width: 63px;
     height: 63px;

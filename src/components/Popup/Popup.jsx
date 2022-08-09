@@ -1,7 +1,7 @@
 import { React, useState } from "react";
 import "./Popup.css";
 
-function Popup({close}) {
+function Popup({ close }) {
   const [popup, setPopup] = useState(false);
 
   const inactive = "popup";
@@ -9,7 +9,7 @@ function Popup({close}) {
 
   return (
     <div className={popup ? active : inactive} onClick={() => close(false)}>
-      <div className="popup__container" onClick={e => e.stopPropagation()}>
+      <div className="popup__container" onClick={(e) => e.stopPropagation()}>
         <h2 className="popup__title">Edit profile</h2>
         <form className="popup__form" name="edit-Profile">
           <input
@@ -24,18 +24,20 @@ function Popup({close}) {
             className="popup__input popup__input_name_profession"
             name="profession"
           />
-          <input
-            placeholder="Enter your geo"
-            type="text"
-            className="popup__input popup__input_geo"
-            name="geo"
-          />
-          <input
-            placeholder="Enter your date of birth"
-            type="text"
-            className="popup__input popup__input_date"
-            name="date"
-          />
+          <div className="popup__input_wrap">
+            <input
+              placeholder="Enter your geo"
+              type="text"
+              className="popup__input_wrapper popup__input_geo"
+              name="geo"
+            />
+            <input
+              placeholder="Enter your date of birth"
+              type="text"
+              className="popup__input_wrapper popup__input_date"
+              name="date"
+            />
+          </div>
           <input
             type="submit"
             className="popup__button-save"
@@ -43,7 +45,11 @@ function Popup({close}) {
             name="submit"
           />
         </form>
-        <button type="button" className="popup__button-close" onClick={() => close(false)}/>
+        <button
+          type="button"
+          className="popup__button-close"
+          onClick={() => close(false)}
+        />
       </div>
     </div>
   );

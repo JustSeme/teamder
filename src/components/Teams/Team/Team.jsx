@@ -57,6 +57,8 @@ function Team(props) {
       });
   };
 
+  const [lala, setLala] = useState(true);
+
   const activeColor = "team__pagination_number-active"
   const inactiveColor = "team__pagination_number"
 
@@ -69,11 +71,7 @@ function Team(props) {
               <div className="team__wrap">
                 <img className="team__logo" src={t.photos.small != null ? t.photos.small : avatar} alt="logo" />
                 <div className="team__wrapper">
-                  <div className="team__wrapper_name">
-                    <p className="team__name">{t.name}</p>
-                    <p className="team__login">{t.login}</p>
-                  </div>
-                  <p className="team__message">{t.desc}</p>
+                  <p className="team__name">{t.name}</p>
                 </div>
               </div>
               <div className="team__wrap_location">
