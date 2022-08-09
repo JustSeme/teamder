@@ -25,6 +25,18 @@ function Popup({close}) {
             name="profession"
           />
           <input
+            placeholder="Enter your geo"
+            type="text"
+            className="popup__input popup__input_geo"
+            name="geo"
+          />
+          <input
+            placeholder="Enter your date of birth"
+            type="text"
+            className="popup__input popup__input_date"
+            name="date"
+          />
+          <input
             type="submit"
             className="popup__button-save"
             value="Save"

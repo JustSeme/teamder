@@ -3,6 +3,7 @@ import "../Teams.css";
 import { useDispatch, useSelector } from "react-redux";
 import {
   followActionCreator,
+  setCurrentPageActionCreator,
   setTeamsActionCreator,
   unfollowActionCreator,
 } from "../../../redux/team-reducer";
@@ -21,18 +22,43 @@ function Team(props) {
   const setTeams = (teams) => {
     dispatch(setTeamsActionCreator(teams));
   };
+  const setCurrentPage = (pageNumber) => {
+    dispatch(setCurrentPageActionCreator(pageNumber))
+  }
 
   const teams = useSelector((state) => state.teamPage.teams);
+  const pagesSize = useSelector((state) => state.teamPage.pagesSize);
+  const totalTeamsCount = useSelector((state) => state.teamPage.totalTeamsCount);
+  const currentPage = useSelector((state) => state.teamPage.currentPage);
 
   // const showMoreTeams = () => {
-    if (teams.length === 0) {
-      axios
-        .get("https://social-network.samuraijs.com/api/1.0/users")
-        .then((res) => {
-          setTeams(res.data.items);
-        });
-    }
+  if (teams.length === 0) {
+    axios
+      .get(`https://social-network.samuraijs.com/api/1.0/users?page=${currentPage}&count=${pagesSize}`)
+      .then((res) => {
+        setTeams(res.data.items);
+      });
+  }
   // }
+
+  const pagesCount = Math.ceil(totalTeamsCount / pagesSize);
+
+  const pages = [];
+  for (let i = 1; i <= pagesCount; i++) {
+    pages.push(i);
+  }
+
+  const onPageChanged = (pageNumber) => {
+    setCurrentPage(pageNumber);
+    axios
+      .get(`https://social-network.samuraijs.com/api/1.0/users?page=${pageNumber}&count=${pagesSize}`)
+      .then((res) => {
+        setTeams(res.data.items);
+      });
+  };
+
+  const activeColor = "team__pagination_number-active"
+  const inactiveColor = "team__pagination_number"
 
   return (
     <div>
@@ -41,7 +67,7 @@ function Team(props) {
           <div>
             <div className="team__container">
               <div className="team__wrap">
-                <img className="team__logo" src={ t.photos.small != null ? t.photos.small : avatar} alt="logo" />
+                <img className="team__logo" src={t.photos.small != null ? t.photos.small : avatar} alt="logo" />
                 <div className="team__wrapper">
                   <div className="team__wrapper_name">
                     <p className="team__name">{t.name}</p>
@@ -53,22 +79,9 @@ function Team(props) {
               <div className="team__wrap_location">
                 {!t.followed ? (
                   <button
-                    onClick={() => {
-                      follow(t.id);
-                    }}
-                    className="team__follow_button"
-                  >
-                    Follow
-                  </button>
+                    onClick={() => {follow(t.id)}} className="team__follow_button">Follow</button>
                 ) : (
-                  <button
-                    onClick={() => {
-                      unfollow(t.id);
-                    }}
-                    className="team__unfollow_button"
-                  >
-                    Unfollow
-                  </button>
+                  <button onClick={() => {unfollow(t.id)}}className="team__unfollow_button">Unfollow</button>
                 )}
               </div>
             </div>
@@ -76,15 +89,14 @@ function Team(props) {
         </>
       ))}
       <div className="teammap__wrap">
-        {/* <button className="teammap__button_show" onClick={showMoreTeams}>
-          Show more
-        </button> */}
         <div className="team__pagination">
-          <span className="team__pagination_number">1</span>
-          <span className="team__pagination_number">2</span>
-          <span className="team__pagination_number">3</span>
-          <span className="team__pagination_number">4</span>
-          <span className="team__pagination_number">5</span>
+          {pages.map((p) => {
+            return (
+              <span className="team__pagination_number"
+                onClick={() => {onPageChanged(p)}}>{p}
+              </span>
+            );
+          })}
         </div>
       </div>
     </div>

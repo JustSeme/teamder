@@ -234,5 +234,6 @@
 .profile-create__button:hover {
     background-color: #126FA4;
     transition: linear 0.3s;
-    color: #000000;
+    color: #FFFFFF;
+    border: none;
 }

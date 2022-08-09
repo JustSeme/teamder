@@ -39,6 +39,9 @@ let initialState = {
     //   followed: true,
     // },
   ],
+  pagesSize: 5,
+  totalTeamsCount: 20,
+  currentPage: 1
 };
 
 const teamReducer = (state = initialState, action) => {
@@ -63,10 +66,16 @@ const teamReducer = (state = initialState, action) => {
           return t;
         }),
       };
-      case "SET-TEAMS":
-        return {
-           ...state, teams: action.teams
-        }
+    case "SET-TEAMS":
+      return {
+        ...state,
+        teams: action.teams,
+      };
+    case "SET-CURRENT-PAGE":
+      return {
+        ...state,
+        currentPage: action.currentPage
+      };
     default:
       return state;
   }
@@ -75,5 +84,6 @@ const teamReducer = (state = initialState, action) => {
 export const followActionCreator = (teamID) => ({ type: "FOLLOW", teamID });
 export const unfollowActionCreator = (teamID) => ({ type: "UNFOLLOW", teamID });
 export const setTeamsActionCreator = (teams) => ({type: "SET-TEAMS", teams});
+export const setCurrentPageActionCreator = (page) => ({type: "SET-CURRENT-PAGE", page})
 
 export default teamReducer;
