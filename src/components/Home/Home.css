@@ -6,7 +6,7 @@
 
 .home__container {
     border: solid 1px #3A444C;
-    margin-left: 50px;
+    margin: 0 0 50px 50px;
     border-radius: 8px;
 }
 

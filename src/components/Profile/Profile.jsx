@@ -6,18 +6,22 @@ import arrow from "../../images/arrow_left.svg";
 import Navigation from "../Navigation/Navigation";
 import Hashtags from "../Hashtags/Hashtags";
 import ProfilePosts from "./Posts/Profile/ProfilePosts";
+import Media from "./Media/Media";
 import profile from "../../images/profile_logo2.svg";
 import geo from "../../images/geo.svg";
 import age from "../../images/age.svg";
 import edit from "../../images/edit.svg";
-import {
-  addPostActionCreator,
-  updateNewPostTextActionCreator,
-} from "../../redux/profile-reducer";
-import { useSelector, useDispatch } from "react-redux";
 
 function Profile(props) {
   const [post, setPost] = useState("ProfilePosts");
+
+  const handleProfilePostsClick = () => {
+    setPost("ProfilePosts");
+  };
+
+  const handleProfileMediaClick = () => {
+    setPost("SocialMedia");
+  };
 
   const [like, setLike] = useState(42),
     [isLike, setIsLike] = useState(false),
@@ -25,10 +29,6 @@ function Profile(props) {
       setLike(like + (isLike ? -1 : 1));
       setIsLike(!isLike);
     };
-
-  const handleProfilePostsClick = () => {
-    setPost("ProfilePosts");
-  };
 
   const activeColorLike = "profile__button_logo-color";
   const inactiveColorLike = "profile__button_logo";
@@ -39,20 +39,6 @@ function Profile(props) {
 
   const handlePopupClick = () => {
     setIsPopup("popupEdit");
-  };
-
-  // let newPostElement = React.createRef();
-  let newPostElement = useSelector((state) => state.profilePage.newPostText);
-
-  const dispatch = useDispatch();
-
-  let addPost = () => {
-    dispatch(addPostActionCreator());
-  };
-
-  let onPostChange = (e) => {
-    let text = e.target.value;
-    dispatch(updateNewPostTextActionCreator(text));
   };
 
   return (
@@ -124,29 +110,16 @@ function Profile(props) {
         </div>
         <div className="profile__button_wrapper">
           <button
-            className={
-              post === "ProfilePosts" ? inactiveColorPost : activeColorPost
-            }
+            className={post === "ProfilePosts" ? inactiveColorPost : activeColorPost}
             onClick={handleProfilePostsClick}
-          >
-            Posts on my profile
-          </button>
-        </div>
-        <div className="profile-create">
-          <p className="profile-create__title">Create a post</p>
-          <input
-            className="profile-create__field"
-            minLength={2}
-            maxLength={400}
-            placeholder="Post content..."
-            value={newPostElement}
-            onChange={onPostChange}
-          />
-          <button className="profile-create__button" onClick={addPost}>
-            Create
-          </button>
+          >Page posts</button>
+          <button
+            className={post === "SocialMedia" ? inactiveColorPost : activeColorPost}
+            onClick={handleProfileMediaClick}
+          >Social Media</button>
         </div>
         {post === "ProfilePosts" && <ProfilePosts />}
+        {post === "SocialMedia" && <Media />}
         {isPopup === "popupEdit" && <Popup close={setIsPopup} />}
       </div>
       <Hashtags />

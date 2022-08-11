@@ -1,6 +1,7 @@
 .posts {
     width: 600px;
     border-top: 1px solid #3A444C;
+    padding: 0 0 10px 0;
 }
 
 .post__container {

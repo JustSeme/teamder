@@ -6,9 +6,11 @@ import {
   setCurrentPageActionCreator,
   setTeamsActionCreator,
   unfollowActionCreator,
+  toggleIsFetchingActionCreator
 } from "../../../redux/team-reducer";
 import * as axios from "axios";
 import avatar from "../../../images/nonameAvatar.svg";
+import Preloader from "../../Preloader/Preloader";
 
 function Team(props) {
   const dispatch = useDispatch();
@@ -25,21 +27,25 @@ function Team(props) {
   const setCurrentPage = (pageNumber) => {
     dispatch(setCurrentPageActionCreator(pageNumber))
   }
+  const toggleIsFetching = (isFetching) => {
+    dispatch(toggleIsFetchingActionCreator(isFetching))
+  }
 
   const teams = useSelector((state) => state.teamPage.teams);
   const pagesSize = useSelector((state) => state.teamPage.pagesSize);
   const totalTeamsCount = useSelector((state) => state.teamPage.totalTeamsCount);
   const currentPage = useSelector((state) => state.teamPage.currentPage);
+  const isFetching = useSelector((state) => state.teamPage.isFetching);
 
-  // const showMoreTeams = () => {
   if (teams.length === 0) {
+    toggleIsFetching(true)
     axios
       .get(`https://social-network.samuraijs.com/api/1.0/users?page=${currentPage}&count=${pagesSize}`)
       .then((res) => {
+        toggleIsFetching(false);
         setTeams(res.data.items);
       });
   }
-  // }
 
   const pagesCount = Math.ceil(totalTeamsCount / pagesSize);
 
@@ -49,20 +55,19 @@ function Team(props) {
   }
 
   const onPageChanged = (pageNumber) => {
+    toggleIsFetching(true);
     setCurrentPage(pageNumber);
     axios
       .get(`https://social-network.samuraijs.com/api/1.0/users?page=${pageNumber}&count=${pagesSize}`)
       .then((res) => {
+        toggleIsFetching(false);
         setTeams(res.data.items);
       });
   };
 
-  const [lala, setLala] = useState(true);
-
-  const activeColor = "team__pagination_number-active"
-  const inactiveColor = "team__pagination_number"
-
   return (
+    <>
+    {isFetching ? <Preloader /> : null}
     <div>
       {teams.map((t, show) => (
         <>
@@ -98,6 +103,7 @@ function Team(props) {
         </div>
       </div>
     </div>
+    </>
   );
 }
 

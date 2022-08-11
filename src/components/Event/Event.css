@@ -1,7 +1,6 @@
 .event {
     width: 600px;
     border-top: 1px solid #3A444C;
-    border-bottom: 1px solid #3A444C;
     display: flex;
     justify-content: center;
     align-items: flex-start;
@@ -108,4 +107,8 @@
     font-size: 14px;
     line-height: 117.8%;
     color: #FFFFFF;
+}
+
+.event__element {
+    margin: 0 0 50px 0;
 }

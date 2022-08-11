@@ -2,7 +2,8 @@ let initialState = {
   teams: [],
   pagesSize: 5,
   totalTeamsCount: 20,
-  currentPage: 1
+  currentPage: 1,
+  isFetching: false,
 };
 
 const teamReducer = (state = initialState, action) => {
@@ -35,7 +36,12 @@ const teamReducer = (state = initialState, action) => {
     case "SET-CURRENT-PAGE":
       return {
         ...state,
-        currentPage: action.currentPage
+        currentPage: action.currentPage,
+      };
+    case "TOGGLE-IS-FETCHING":
+      return {
+        ...state,
+        isFetching: action.isFetching
       };
     default:
       return state;
@@ -44,7 +50,8 @@ const teamReducer = (state = initialState, action) => {
 
 export const followActionCreator = (teamID) => ({ type: "FOLLOW", teamID });
 export const unfollowActionCreator = (teamID) => ({ type: "UNFOLLOW", teamID });
-export const setTeamsActionCreator = (teams) => ({type: "SET-TEAMS", teams});
-export const setCurrentPageActionCreator = (page) => ({type: "SET-CURRENT-PAGE", page})
+export const setTeamsActionCreator = (teams) => ({ type: "SET-TEAMS", teams });
+export const setCurrentPageActionCreator = (page) => ({type: "SET-CURRENT-PAGE", page});
+export const toggleIsFetchingActionCreator = (isFetching) => ({type: "TOGGLE-IS-FETCHING", isFetching});
 
 export default teamReducer;
