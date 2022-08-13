@@ -12,4 +12,7 @@ let store = configureStore({
         teamPage: teamReducer
     }
 });
+
+window.store = store;
+
 export default store;

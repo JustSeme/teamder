@@ -1,4 +1,5 @@
 import { React, useState } from "react";
+import { NavLink } from "react-router-dom";
 import "../Teams.css";
 import { useDispatch, useSelector } from "react-redux";
 import {
@@ -74,7 +75,9 @@ function Team(props) {
           <div>
             <div className="team__container">
               <div className="team__wrap">
-                <img className="team__logo" src={t.photos.small != null ? t.photos.small : avatar} alt="logo" />
+                <NavLink className="team__link" to={'/profile/' + t.id}>
+                  <img className="team__logo" src={t.photos.small != null ? t.photos.small : avatar} alt="logo" />
+                </NavLink>
                 <div className="team__wrapper">
                   <p className="team__name">{t.name}</p>
                 </div>

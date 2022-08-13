@@ -11,6 +11,9 @@ import profile from "../../images/profile_logo2.svg";
 import geo from "../../images/geo.svg";
 import age from "../../images/age.svg";
 import edit from "../../images/edit.svg";
+import { useDispatch, useSelector } from "react-redux";
+import setUserProfileActionCreator from "../../redux/profile-reducer";
+import * as axios from "axios";
 
 function Profile(props) {
   const [post, setPost] = useState("ProfilePosts");
@@ -41,6 +44,18 @@ function Profile(props) {
     setIsPopup("popupEdit");
   };
 
+  const dispatch = useDispatch();
+
+  const setUserProfile = () => {
+    dispatch(setUserProfileActionCreator);
+  };
+
+    axios
+      .get(`https://social-network.samuraijs.com/api/1.0/profile/2`)
+      .then((res) => {
+        setUserProfile(res.data)
+      })
+
   return (
     <div className="profile">
       <Navigation
@@ -48,6 +63,7 @@ function Profile(props) {
         classTeams={`${"navigation__button"}`}
         classMessages={`${"navigation__button"}`}
         classProfile={`${"navigation__button_active"}`}
+
         classHomePath={`${"navigation__inactive"}`}
         classTeamsPath={`${"navigation__inactive"}`}
         classMessagesPath={`${"navigation__inactive"}`}

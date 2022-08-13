@@ -18,6 +18,7 @@ let initialState = {
       },
     ],
     newPostText: "",
+    profile: null
 }
 
 const profileReducer = (state = initialState, action) => {
@@ -29,31 +30,28 @@ const profileReducer = (state = initialState, action) => {
         login: "@oldmilky",
         message: state.newPostText,
       };
-      // state.profilePosts.unshift(newPost);
-      // state.newPostText = "";
-      // return state;
       return {
         ...state,
         profilePosts: [newPost, ...state.profilePosts],
-        newPostText: ""
-      }
+        newPostText: "",
+      };
     case "UPDATE-NEW-POST-TEXT":
-      // state.newPostText = action.newText;
-      // return state;
       return {
         ...state,
-        newPostText: action.newText
-      }
+        newPostText: action.newText,
+      };
+    case "SET-USER-PROFILE":
+      return {
+        ...state,
+        profile: action.profile
+      };
     default:
       return state;
   }
 };
 
 export const addPostActionCreator = () => ({type: 'ADD-POST'})
-export const updateNewPostTextActionCreator = (payload) => {
-  return {
-    type: 'UPDATE-NEW-POST-TEXT', newText: payload
-  }
-}
+export const updateNewPostTextActionCreator = (payload) => ({type: 'UPDATE-NEW-POST-TEXT', newText: payload})
+export const setUserProfileActionCreator = (profile) => ({type: 'SET-USER-PROFILE', profile})
 
 export default profileReducer;
