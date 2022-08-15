@@ -14,7 +14,7 @@ function App(props) {
           <Route path="/" element={<Home />} exact />
           <Route path="/myteams" element={<Teams />} exact />
           <Route path="/messages" element={<Messages />} exact />
-          <Route path="/profile" element={<Profile />} exact />
+          <Route path="/profile/*" element={<Profile />} exact />
         </Routes>
       </BrowserRouter>
     </div>

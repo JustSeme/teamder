@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./Profile.css";
 import { Link, NavLink } from "react-router-dom";
 import Popup from "../Popup/Popup";
@@ -12,8 +12,9 @@ import geo from "../../images/geo.svg";
 import age from "../../images/age.svg";
 import edit from "../../images/edit.svg";
 import { useDispatch, useSelector } from "react-redux";
-import setUserProfileActionCreator from "../../redux/profile-reducer";
+import { setUserProfileActionCreator } from "../../redux/profile-reducer";
 import * as axios from "axios";
+import Preloader from "../Preloader/Preloader";
 
 function Profile(props) {
   const [post, setPost] = useState("ProfilePosts");
@@ -46,15 +47,21 @@ function Profile(props) {
 
   const dispatch = useDispatch();
 
-  const setUserProfile = () => {
-    dispatch(setUserProfileActionCreator);
+  const setUserProfile = (users) => {
+    dispatch(setUserProfileActionCreator(users));
   };
 
-    axios
-      .get(`https://social-network.samuraijs.com/api/1.0/profile/2`)
+  const profileUser = useSelector((state) => state.profilePage.profile);
+
+  useEffect(() => {
+    if (profileUser.length === 0) {
+      axios
+      .get("https://social-network.samuraijs.com/api/1.0/profile/2")
       .then((res) => {
         setUserProfile(res.data)
       })
+    }
+  })
 
   return (
     <div className="profile">
@@ -79,10 +86,10 @@ function Profile(props) {
         </div>
         <div className="profile__information_wrap">
           <div className="profile__information_wrapper">
-            <img className="profile__logo" src={profile} alt="logo" />
+            <img className="profile__logo" src={profileUser && profileUser.photos && profileUser.photos.small} alt="logo" />
             <div className="profile__wrap_name">
               <div className="profile__wrapper_name">
-                <p className="profile__name_title">Rodion Strelkov</p>
+                <p className="profile__name_title">{profileUser.fullName}</p>
                 <img
                   className="profile__name_logo"
                   src={edit}
@@ -90,13 +97,10 @@ function Profile(props) {
                   onClick={handlePopupClick}
                 />
               </div>
-              <p className="profile__name_subtitle">@oldmilky</p>
+              <p className="profile__name_subtitle">@{profileUser.userId}</p>
             </div>
           </div>
-          <p className="profile__information_text">
-            Web developer, doing front-end for more than 1 year. Wrote many
-            different interesting projects, including this one.
-          </p>
+          <p className="profile__information_text">{profileUser.aboutMe}</p>
           <div className="profile__buttons_wrap">
             <button className="profile__button">
               <img className="profile__button_logo" src={geo} alt="geo" />
@@ -135,7 +139,10 @@ function Profile(props) {
           >Social Media</button>
         </div>
         {post === "ProfilePosts" && <ProfilePosts />}
-        {post === "SocialMedia" && <Media />}
+        {post === "SocialMedia" && <Media 
+        instagram={profileUser.contacts.instagram} 
+        twitter={profileUser.contacts.twitter} 
+        telegram={profileUser.contacts.telegram}/>}
         {isPopup === "popupEdit" && <Popup close={setIsPopup} />}
       </div>
       <Hashtags />

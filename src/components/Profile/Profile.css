@@ -64,6 +64,8 @@
 
 .profile__logo {
     border-radius: 50%;
+    width: 132px;
+    height: 132px;
 }
 
 .profile__wrapper_name {

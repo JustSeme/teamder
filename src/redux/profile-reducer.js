@@ -3,23 +3,23 @@ import logo1 from "../images/profile_logo1.svg";
 import logo3 from "../images/profile_logo3.svg";
 
 let initialState = {
-    profilePosts: [
-      {
-        avatar: logo1,
-        name: "Dakota Sience",
-        login: "@sience",
-        message: "I need the same developer!",
-      },
-      {
-        avatar: logo3,
-        name: "Jame Slime",
-        login: "@slime",
-        message: "Where slimes?!",
-      },
-    ],
-    newPostText: "",
-    profile: null
-}
+  profilePosts: [
+    {
+      avatar: logo1,
+      name: "Dakota Sience",
+      login: "@sience",
+      message: "I need the same developer!",
+    },
+    {
+      avatar: logo3,
+      name: "Jame Slime",
+      login: "@slime",
+      message: "Where slimes?!",
+    },
+  ],
+  newPostText: "",
+  profile: []
+};
 
 const profileReducer = (state = initialState, action) => {
   switch (action.type) {
