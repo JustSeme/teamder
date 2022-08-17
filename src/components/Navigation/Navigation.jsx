@@ -2,6 +2,7 @@ import React, { useEffect, useParams } from "react";
 import { Link, NavLink } from "react-router-dom";
 import "./Navigation.css";
 import logo from "../../images/logo.svg";
+import logout from "../../images/logout.svg";
 import loginImg from "../../images/login.svg";
 import profileLogo from "../../images/profile_logo2.svg";
 import * as axios from "axios";
@@ -69,8 +70,11 @@ function Navigation(props) {
         {getAuth 
         ?
         <div className="login__wrap">
-          <img className="login__logo" src={profileLogo} alt="login" />
-          <p className="login__title">{getLogin}</p>
+          <Link className="login__link" to="/profile">
+            <img className="login__logo" src={profileLogo} alt="login" />
+            <p className="login__title">{getLogin}</p>
+          </Link>
+          <img className="login__logout" src={logout} alt="logout" />
         </div>
         :
         <Link className="login__wrapper" to="/login">

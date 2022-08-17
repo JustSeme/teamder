@@ -7,7 +7,6 @@ import { Link, NavLink } from "react-router-dom";
 import Team from "./Team/Team";
 
 function Teams(props) {
-
   return (
     <div className="teams">
       <Navigation

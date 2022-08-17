@@ -41,7 +41,9 @@ function Team(props) {
   if (teams.length === 0) {
     toggleIsFetching(true)
     axios
-      .get(`https://social-network.samuraijs.com/api/1.0/users?page=${currentPage}&count=${pagesSize}`)
+      .get(`https://social-network.samuraijs.com/api/1.0/users?page=${currentPage}&count=${pagesSize}`, {
+        withCredentials: true
+      })
       .then((res) => {
         toggleIsFetching(false);
         setTeams(res.data.items);
@@ -59,7 +61,9 @@ function Team(props) {
     toggleIsFetching(true);
     setCurrentPage(pageNumber);
     axios
-      .get(`https://social-network.samuraijs.com/api/1.0/users?page=${pageNumber}&count=${pagesSize}`)
+      .get(`https://social-network.samuraijs.com/api/1.0/users?page=${pageNumber}&count=${pagesSize}`, {
+        withCredentials: true
+      })
       .then((res) => {
         toggleIsFetching(false);
         setTeams(res.data.items);
@@ -70,7 +74,7 @@ function Team(props) {
     <>
     {isFetching ? <Preloader /> : null}
     <div>
-      {teams.map((t, show) => (
+      {teams.map((t) => (
         <>
           <div>
             <div className="team__container">
@@ -84,10 +88,41 @@ function Team(props) {
               </div>
               <div className="team__wrap_location">
                 {!t.followed ? (
-                  <button
-                    onClick={() => {follow(t.id)}} className="team__follow_button">Follow</button>
+                  <button className="team__follow_button"
+                    onClick={() => {
+
+                      axios
+                      .post(`https://social-network.samuraijs.com/api/1.0/follow/${t.id}`, {}, {
+                        withCredentials: true,
+                        headers: {
+                          "API-KEY": "d4878b37-1aef-4815-a34a-d57f7a9e40c9"
+                        }
+                      })
+                      .then((res) => {
+                        if(res.data.resultCode === 0) {
+                          follow(t.id);
+                        }
+                      })
+
+                    }}>Follow</button>
                 ) : (
-                  <button onClick={() => {unfollow(t.id)}}className="team__unfollow_button">Unfollow</button>
+                  <button className="team__unfollow_button"
+                    onClick={() => {
+                      
+                      axios
+                      .delete(`https://social-network.samuraijs.com/api/1.0/follow/${t.id}`, {
+                        withCredentials: true,
+                        headers: {
+                          "API-KEY": "d4878b37-1aef-4815-a34a-d57f7a9e40c9"
+                        }
+                      })
+                      .then((res) => {
+                        if(res.data.resultCode === 0) {
+                          unfollow(t.id);
+                        }
+                      })
+
+                  }}>Unfollow</button>
                 )}
               </div>
             </div>
