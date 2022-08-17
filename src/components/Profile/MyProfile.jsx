@@ -1,19 +1,16 @@
-import React, { useState, useEffect } from "react";
+import React, { useState} from "react";
 import "./Profile.css";
-import { Link, useParams } from "react-router-dom";
+import { Link } from "react-router-dom";
 import Popup from "../Popup/Popup";
 import arrow from "../../images/arrow_left.svg";
 import Navigation from "../Navigation/Navigation";
 import Hashtags from "../Hashtags/Hashtags";
 import ProfilePosts from "./Posts/Profile/ProfilePosts";
-import Media from "./Media/Media";
-import { useDispatch, useSelector } from "react-redux";
-import { setUserProfileActionCreator, toggleIsFetchingActionCreator } from "../../redux/profile-reducer";
-import * as axios from "axios";
-import Preloader from "../Preloader/Preloader";
+import profileAvatar from "../../images/profile_logo2.svg";
+import edit from "../../images/edit.svg";
+import MyMedia from "./Media/MyMedia";
 import job from "../../images/job.svg";
 import desc from "../../images/desc.svg";
-import avatar from "../../images/nonameAvatar.svg";
 
 function Profile(props) {
   const [post, setPost] = useState("ProfilePosts");
@@ -26,15 +23,6 @@ function Profile(props) {
     setPost("SocialMedia");
   };
 
-  const [like, setLike] = useState(42),
-    [isLike, setIsLike] = useState(false),
-    onLikeButtonClick = () => {
-      setLike(like + (isLike ? -1 : 1));
-      setIsLike(!isLike);
-    };
-
-  const activeColorLike = "profile__button_logo-color";
-  const inactiveColorLike = "profile__button_logo";
   const activeColorPost = "profile__button_post";
   const inactiveColorPost = "profile__button_post-color";
 
@@ -43,34 +31,6 @@ function Profile(props) {
   const handlePopupClick = () => {
     setIsPopup("popupEdit");
   };
-
-  const dispatch = useDispatch();
-
-  const setUserProfile = (users) => {
-    dispatch(setUserProfileActionCreator(users));
-  };
-
-  const toggleIsFetching = (isFetching) => {
-    dispatch(toggleIsFetchingActionCreator(isFetching));
-  }
-
-  const profileUser = useSelector((state) => state.profilePage.profile);
-  const isFetching = useSelector((state) => state.profilePage.isFetching);
-
-  const params = useParams();
-
-  useEffect(() => {
-    let userId = params.userId;
-    if (profileUser.length === 0) {
-      toggleIsFetching(true);
-      axios
-      .get("https://social-network.samuraijs.com/api/1.0/profile/" + userId)
-      .then((res) => {
-        toggleIsFetching(false);
-        setUserProfile(res.data)
-      })
-    }
-  })
 
   return (
     <div className="profile">
@@ -84,7 +44,6 @@ function Profile(props) {
         classMessagesPath={`${"navigation__inactive"}`}
         classProfilePath={`${"navigation__active"}`}
       />
-      {isFetching ? <Preloader /> : null}
       <div className="profile__container">
         <div className="profile__wrap">
           <Link to="/" className="profile__wrapper">
@@ -95,22 +54,18 @@ function Profile(props) {
         </div>
         <div className="profile__information_wrap">
           <div className="profile__information_wrapper">
-            <img
-              className="profile__logo"
-              src={
-                profileUser && profileUser.photos && profileUser.photos.small
-                  ? 
-                  profileUser && profileUser.photos && profileUser.photos.small
-                  : 
-                  avatar
-              }
-              alt="logo"
-            />
+            <img className="profile__logo" src={profileAvatar} alt="logo" />
             <div className="profile__wrap_name">
               <div className="profile__wrapper_name">
-                <p className="profile__name_title">{profileUser.fullName}</p>
+                <p className="profile__name_title">Rodion Strelkov</p>
+                <img
+                  className="profile__name_logo"
+                  src={edit}
+                  alt="edit"
+                  onClick={handlePopupClick}
+                />
               </div>
-              <p className="profile__name_subtitle">@{profileUser.userId}</p>
+              <p className="profile__name_subtitle">@1</p>
             </div>
           </div>
           <div className="profile__buttons_wrap">
@@ -119,16 +74,17 @@ function Profile(props) {
                 <img className="profile__image" src={desc} alt="Desc" />
                 <p className="profile__description_title">Description:</p>
               </div>
-              <p className="profile__description">{profileUser.aboutMe}</p>
+              <p className="profile__description">
+                {" "}
+                I'm Web-Developer, I create this app for people :)
+              </p>
             </div>
             <div className="profile__buttons_wrapper">
               <div className="profile__description_wrapper">
                 <img className="profile__image" src={job} alt="Job" />
                 <p className="profile__description_title">Job search:</p>
               </div>
-              <p className="profile__description">
-                {profileUser.lookingForAJobDescription}
-              </p>
+              <p className="profile__description">Yes, actively looking!</p>
             </div>
           </div>
         </div>
@@ -151,13 +107,7 @@ function Profile(props) {
           </button>
         </div>
         {post === "ProfilePosts" && <ProfilePosts />}
-        {post === "SocialMedia" && (
-          <Media
-            instagram={profileUser.contacts.instagram}
-            twitter={profileUser.contacts.twitter}
-            telegram={profileUser.contacts.telegram}
-          />
-        )}
+        {post === "SocialMedia" && <MyMedia />}
         {isPopup === "popupEdit" && <Popup close={setIsPopup} />}
       </div>
       <Hashtags />

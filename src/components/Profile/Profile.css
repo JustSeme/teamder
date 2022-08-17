@@ -63,9 +63,11 @@
 }
 
 .profile__logo {
-    border-radius: 50%;
     width: 132px;
     height: 132px;
+    border-radius: 50%;
+    border: 1px solid #3A444C;
+    padding: 7px;
 }
 
 .profile__wrapper_name {
@@ -109,6 +111,7 @@
 
 .profile__buttons_wrap {
     display: flex;
+    margin: 15px 0 0;
 }
 
 .profile__button {
@@ -140,6 +143,7 @@
     display: flex;
     margin-top: 39px;
     border-bottom: 1px solid #3A444C;
+    justify-content: center;
 }
 
 .profile__button_post {
@@ -239,4 +243,44 @@
     transition: linear 0.3s;
     color: #FFFFFF;
     border: none;
+}
+
+.profile__description {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 117.8%;
+    text-align: justify;
+    color: #000000;
+    max-width: 200px;
+    margin: 10px 0 0;
+}
+
+.profile__description_title {
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 117.8%;
+    text-align: justify;
+    color: #000000;
+    max-width: 200px;
+    margin: 0 0 0 5px;
+}
+
+.profile__buttons_wrapper {
+    margin-right: 40px;
+}
+
+.profile__buttons_wrapper:last-of-type {
+    margin: 0;
+}
+
+.profile__description_wrapper {
+    display: flex;
+    align-items: center;
+}
+
+.profile__image {
+    width: 20px;
+    height: 20px;
 }

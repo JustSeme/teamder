@@ -1,24 +1,10 @@
 import profile from "../images/profile_logo2.svg";
-import logo1 from "../images/profile_logo1.svg";
-import logo3 from "../images/profile_logo3.svg";
 
 let initialState = {
-  profilePosts: [
-    {
-      avatar: logo1,
-      name: "Dakota Sience",
-      login: "@sience",
-      message: "I need the same developer!",
-    },
-    {
-      avatar: logo3,
-      name: "Jame Slime",
-      login: "@slime",
-      message: "Where slimes?!",
-    },
-  ],
+  profilePosts: [],
   newPostText: "",
-  profile: []
+  profile: [],
+  isFetching: false,
 };
 
 const profileReducer = (state = initialState, action) => {
@@ -35,6 +21,18 @@ const profileReducer = (state = initialState, action) => {
         profilePosts: [newPost, ...state.profilePosts],
         newPostText: "",
       };
+    case "ADD-POST-USER":
+      let newPostUser = {
+        avatar: profile,
+        name: "Rodion Strelkov",
+        login: "@oldmilky",
+        message: state.newPostText,
+      };
+      return {
+        ...state,
+        profilePosts: [newPostUser, ...state.profilePostsUser],
+        newPostText: "",
+      };
     case "UPDATE-NEW-POST-TEXT":
       return {
         ...state,
@@ -43,15 +41,31 @@ const profileReducer = (state = initialState, action) => {
     case "SET-USER-PROFILE":
       return {
         ...state,
-        profile: action.profile
+        profile: action.profile,
+      };
+    case "TOGGLE-IS-FETCHING":
+      return {
+        ...state,
+        isFetching: action.isFetching,
       };
     default:
       return state;
   }
 };
 
-export const addPostActionCreator = () => ({type: 'ADD-POST'})
-export const updateNewPostTextActionCreator = (payload) => ({type: 'UPDATE-NEW-POST-TEXT', newText: payload})
-export const setUserProfileActionCreator = (profile) => ({type: 'SET-USER-PROFILE', profile})
+export const addPostActionCreator = () => ({ type: "ADD-POST" });
+export const addPostUserActionCreator = () => ({ type: "ADD-POST-USER" });
+export const updateNewPostTextActionCreator = (payload) => ({
+  type: "UPDATE-NEW-POST-TEXT",
+  newText: payload,
+});
+export const setUserProfileActionCreator = (profile) => ({
+  type: "SET-USER-PROFILE",
+  profile,
+});
+export const toggleIsFetchingActionCreator = (isFetching) => ({
+  type: "TOGGLE-IS-FETCHING",
+  isFetching,
+});
 
 export default profileReducer;

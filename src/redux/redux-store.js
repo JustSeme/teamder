@@ -3,13 +3,15 @@ import profileReducer from "./profile-reducer";
 import messageReducer from "./message-reducer";
 import eventReducer from "./event-reducer";
 import teamReducer from './team-reducer';
+import authReducer from './auth-reducer';
 
 let store = configureStore({
     reducer: {
         eventPage: eventReducer,
         profilePage: profileReducer,
         messagePage: messageReducer,
-        teamPage: teamReducer
+        teamPage: teamReducer,
+        auth: authReducer
     }
 });
 
