@@ -8,6 +8,7 @@ import profileLogo from "../../images/profile_logo2.svg";
 import * as axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
 import { setAuthUserActionCreator } from "../../redux/auth-reducer";
+import {getAuthMe} from "../../api/api";
 
 function Navigation(props) {
 
@@ -21,13 +22,10 @@ function Navigation(props) {
   }
 
   useEffect(() => {
-      axios
-      .get("https://social-network.samuraijs.com/api/1.0/auth/me", {
-        withCredentials: true
-      })
-      .then((res) => {
-        if (res.data.resultCode === 0) {
-          let {id, email, login} = res.data.data;
+      getAuthMe()
+      .then((data) => {
+        if (data.resultCode === 0) {
+          let {id, email, login} = data.data;
           setAuthUser(id, email, login);
         }
       })

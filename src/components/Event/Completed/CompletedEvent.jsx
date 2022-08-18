@@ -6,8 +6,9 @@ import {useSelector} from "react-redux";
 
 function CompletedEvent(props) {
   const events = useSelector(state => [...state.eventPage.completedEvent])
-  let eventElement = events.map((p) => (
+  let eventElement = events.map((p, e) => (
     <Event
+      key={e.key}
       logo={p.logo}
       name={p.name}
       title={p.title}
