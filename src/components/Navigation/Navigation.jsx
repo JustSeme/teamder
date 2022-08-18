@@ -1,11 +1,10 @@
-import React, { useEffect, useParams } from "react";
+import React, { useEffect} from "react";
 import { Link, NavLink } from "react-router-dom";
 import "./Navigation.css";
 import logo from "../../images/logo.svg";
 import logout from "../../images/logout.svg";
 import loginImg from "../../images/login.svg";
 import profileLogo from "../../images/profile_logo2.svg";
-import * as axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
 import { setAuthUserActionCreator } from "../../redux/auth-reducer";
 import {getAuthMe} from "../../api/api";
@@ -22,13 +21,13 @@ function Navigation(props) {
   }
 
   useEffect(() => {
-      getAuthMe()
-      .then((data) => {
-        if (data.resultCode === 0) {
-          let {id, email, login} = data.data;
-          setAuthUser(id, email, login);
-        }
-      })
+    getAuthMe()
+    .then((data) => {
+      if (data.resultCode === 0) {
+        let {id, email, login} = data.data;
+        setAuthUser(id, email, login);
+      }
+    })
   })
 
   return (

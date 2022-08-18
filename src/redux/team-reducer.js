@@ -4,6 +4,7 @@ let initialState = {
   totalTeamsCount: 20,
   currentPage: 1,
   isFetching: false,
+  followLoading: false
 };
 
 const teamReducer = (state = initialState, action) => {
@@ -43,6 +44,11 @@ const teamReducer = (state = initialState, action) => {
         ...state,
         isFetching: action.isFetching
       };
+    case "TOGGLE-FOLLOW-LOADING":
+      return {
+        ...state,
+        followLoading: action.isFetching
+      };
     default:
       return state;
   }
@@ -53,5 +59,6 @@ export const unfollowActionCreator = (teamID) => ({ type: "UNFOLLOW", teamID });
 export const setTeamsActionCreator = (teams) => ({ type: "SET-TEAMS", teams });
 export const setCurrentPageActionCreator = (page) => ({type: "SET-CURRENT-PAGE", page});
 export const toggleIsFetchingActionCreator = (isFetching) => ({type: "TOGGLE-IS-FETCHING", isFetching});
+export const toggleFollowLoadingActionCreator = (isFetching) => ({type: "TOGGLE-FOLLOW-LOADING", isFetching});
 
 export default teamReducer;

@@ -1,5 +1,4 @@
-import { React, useState } from "react";
-import { Link } from "react-router-dom";
+import React from "react";
 import "../Teams.css";
 import { useDispatch, useSelector } from "react-redux";
 import {
@@ -8,8 +7,8 @@ import {
   setTeamsActionCreator,
   unfollowActionCreator,
   toggleIsFetchingActionCreator,
+  toggleFollowLoadingActionCreator
 } from "../../../redux/team-reducer";
-import * as axios from "axios";
 import avatar from "../../../images/nonameAvatar.svg";
 import Preloader from "../../Preloader/Preloader";
 import {
@@ -38,12 +37,16 @@ function Team() {
   const toggleIsFetching = (isFetching) => {
     dispatch(toggleIsFetchingActionCreator(isFetching));
   };
+  const toggleFollowLoading = (isFetching) => {
+    dispatch(toggleFollowLoadingActionCreator(isFetching));
+  };
 
   const teams = useSelector((state) => state.teamPage.teams);
   const pagesSize = useSelector((state) => state.teamPage.pagesSize);
   const totalTeamsCount = useSelector((state) => state.teamPage.totalTeamsCount);
   const currentPage = useSelector((state) => state.teamPage.currentPage);
   const isFetching = useSelector((state) => state.teamPage.isFetching);
+  const followLoading = useSelector((state) => state.teamPage.followLoading);
 
   if (teams.length === 0) {
     toggleIsFetching(true);
@@ -92,23 +95,29 @@ function Team() {
                 <div className="team__wrap_location">
                   {!t.followed ? (
                     <button
+                      disabled={followLoading}
                       className="team__follow_button"
                       onClick={() => {
+                        toggleFollowLoading(true)
                         getFollow(t).then((data) => {
                           if (data.resultCode === 0) {
                             follow(t.id);
                           }
+                          toggleFollowLoading(false)
                         });
                       }}
                     >Follow</button>
                   ) : (
                     <button
+                      disabled={followLoading}
                       className="team__unfollow_button"
                       onClick={() => {
+                        toggleFollowLoading(true)
                         getUnfollow(t).then((data) => {
                           if (data.resultCode === 0) {
                             unfollow(t.id);
                           }
+                          toggleFollowLoading(false)
                         });
                       }}
                     >Unfollow</button>
