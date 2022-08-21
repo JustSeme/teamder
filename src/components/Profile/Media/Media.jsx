@@ -1,4 +1,4 @@
-import { React, useState } from "react";
+import { React } from "react";
 import "./Media.css";
 import instagram from "../../../images/instagram.svg";
 import twitter from "../../../images/twitter.svg";

@@ -1,6 +1,6 @@
-import { React, useState } from "react";
+import { React } from "react";
 import "./Preloader.css";
-import loader from "../../images/loader.svg";
+// import loader from "../../images/loader.svg";
 import loader2 from "../../images/loader2.svg";
 
 function Loader(props) {

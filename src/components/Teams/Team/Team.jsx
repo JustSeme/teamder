@@ -2,59 +2,30 @@ import React from "react";
 import "../Teams.css";
 import { useDispatch, useSelector } from "react-redux";
 import {
-  followActionCreator,
-  setCurrentPageActionCreator,
-  setTeamsActionCreator,
-  unfollowActionCreator,
-  toggleIsFetchingActionCreator,
-  toggleFollowLoadingActionCreator
+  getTeamsThunkCreator,
+  pageChangedThunkCreator,
+  getFollowThunkCreator,
+  getUnfollowThunkCreator,
 } from "../../../redux/team-reducer";
 import avatar from "../../../images/nonameAvatar.svg";
 import Preloader from "../../Preloader/Preloader";
-import {
-  getFollow,
-  getPageChanged,
-  getUnfollow,
-  getUsers,
-} from "../../../api/api";
+import { useEffect } from "react";
 
 function Team() {
-
   const dispatch = useDispatch();
-
-  const follow = (teamID) => {
-    dispatch(followActionCreator(teamID));
-  };
-  const unfollow = (teamID) => {
-    dispatch(unfollowActionCreator(teamID));
-  };
-  const setTeams = (teams) => {
-    dispatch(setTeamsActionCreator(teams));
-  };
-  const setCurrentPage = (pageNumber) => {
-    dispatch(setCurrentPageActionCreator(pageNumber));
-  };
-  const toggleIsFetching = (isFetching) => {
-    dispatch(toggleIsFetchingActionCreator(isFetching));
-  };
-  const toggleFollowLoading = (isFetching) => {
-    dispatch(toggleFollowLoadingActionCreator(isFetching));
-  };
 
   const teams = useSelector((state) => state.teamPage.teams);
   const pagesSize = useSelector((state) => state.teamPage.pagesSize);
-  const totalTeamsCount = useSelector((state) => state.teamPage.totalTeamsCount);
+  const totalTeamsCount = useSelector(
+    (state) => state.teamPage.totalTeamsCount
+  );
   const currentPage = useSelector((state) => state.teamPage.currentPage);
   const isFetching = useSelector((state) => state.teamPage.isFetching);
   const followLoading = useSelector((state) => state.teamPage.followLoading);
 
-  if (teams.length === 0) {
-    toggleIsFetching(true);
-    getUsers(currentPage, pagesSize).then((data) => {
-      toggleIsFetching(false);
-      setTeams(data.items);
-    });
-  }
+  useEffect(() => {
+    dispatch(getTeamsThunkCreator(currentPage, pagesSize));
+  }, [currentPage, dispatch, pagesSize]);
 
   const pagesCount = Math.ceil(totalTeamsCount / pagesSize);
 
@@ -64,12 +35,7 @@ function Team() {
   }
 
   const onPageChanged = (pageNumber) => {
-    toggleIsFetching(true);
-    setCurrentPage(pageNumber);
-    getPageChanged(pageNumber, pagesSize).then((data) => {
-      toggleIsFetching(false);
-      setTeams(data.items);
-    });
+    dispatch(pageChangedThunkCreator(pageNumber));
   };
 
   return (
@@ -82,8 +48,7 @@ function Team() {
               <div className="team__container">
                 <div className="team__wrap">
                   <a className="team__link" href={"/profile/" + t.id}>
-                    <img
-                      className="team__logo"
+                    <img className="team__logo"
                       src={t.photos.small != null ? t.photos.small : avatar}
                       alt="logo"
                     />
@@ -94,31 +59,15 @@ function Team() {
                 </div>
                 <div className="team__wrap_location">
                   {!t.followed ? (
-                    <button
-                      disabled={followLoading}
-                      className="team__follow_button"
+                    <button disabled={followLoading} className="team__follow_button"
                       onClick={() => {
-                        toggleFollowLoading(true)
-                        getFollow(t).then((data) => {
-                          if (data.resultCode === 0) {
-                            follow(t.id);
-                          }
-                          toggleFollowLoading(false)
-                        });
+                        dispatch(getFollowThunkCreator(t.id));
                       }}
                     >Follow</button>
                   ) : (
-                    <button
-                      disabled={followLoading}
-                      className="team__unfollow_button"
+                    <button disabled={followLoading} className="team__unfollow_button"
                       onClick={() => {
-                        toggleFollowLoading(true)
-                        getUnfollow(t).then((data) => {
-                          if (data.resultCode === 0) {
-                            unfollow(t.id);
-                          }
-                          toggleFollowLoading(false)
-                        });
+                        dispatch(getUnfollowThunkCreator(t.id));
                       }}
                     >Unfollow</button>
                   )}
@@ -131,12 +80,11 @@ function Team() {
           <div className="team__pagination">
             {pages.map((p) => {
               return (
-                <span
-                  className="team__pagination_number"
+                <span className="team__pagination_number"
                   onClick={() => {
                     onPageChanged(p);
-                  }}>{p}
-                </span>
+                  }}
+                >{p}</span>
               );
             })}
           </div>

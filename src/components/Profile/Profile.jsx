@@ -8,8 +8,7 @@ import Hashtags from "../Hashtags/Hashtags";
 import ProfilePosts from "./Posts/Profile/ProfilePosts";
 import Media from "./Media/Media";
 import { useDispatch, useSelector } from "react-redux";
-import { setUserProfileActionCreator, toggleIsFetchingActionCreator } from "../../redux/profile-reducer";
-import * as axios from "axios";
+import { getProfileUserThunkCreator } from "../../redux/profile-reducer";
 import Preloader from "../Preloader/Preloader";
 import job from "../../images/job.svg";
 import desc from "../../images/desc.svg";
@@ -26,33 +25,25 @@ function Profile(props) {
     setPost("SocialMedia");
   };
 
-  const [like, setLike] = useState(42),
-    [isLike, setIsLike] = useState(false),
-    onLikeButtonClick = () => {
-      setLike(like + (isLike ? -1 : 1));
-      setIsLike(!isLike);
-    };
+  // const [like, setLike] = useState(42),
+  //   [isLike, setIsLike] = useState(false),
+  //   onLikeButtonClick = () => {
+  //     setLike(like + (isLike ? -1 : 1));
+  //     setIsLike(!isLike);
+  //   };
 
-  const activeColorLike = "profile__button_logo-color";
-  const inactiveColorLike = "profile__button_logo";
+  // const activeColorLike = "profile__button_logo-color";
+  // const inactiveColorLike = "profile__button_logo";
   const activeColorPost = "profile__button_post";
   const inactiveColorPost = "profile__button_post-color";
 
   const [isPopup, setIsPopup] = useState(false);
 
-  const handlePopupClick = () => {
-    setIsPopup("popupEdit");
-  };
+  // const handlePopupClick = () => {
+  //   setIsPopup("popupEdit");
+  // };
 
   const dispatch = useDispatch();
-
-  const setUserProfile = (users) => {
-    dispatch(setUserProfileActionCreator(users));
-  };
-
-  const toggleIsFetching = (isFetching) => {
-    dispatch(toggleIsFetchingActionCreator(isFetching));
-  }
 
   const profileUser = useSelector((state) => state.profilePage.profile);
   const isFetching = useSelector((state) => state.profilePage.isFetching);
@@ -62,13 +53,7 @@ function Profile(props) {
   useEffect(() => {
     let userId = params.userId;
     if (profileUser.length === 0) {
-      toggleIsFetching(true);
-      axios
-      .get("https://social-network.samuraijs.com/api/1.0/profile/" + userId)
-      .then((res) => {
-        toggleIsFetching(false);
-        setUserProfile(res.data)
-      })
+      dispatch(getProfileUserThunkCreator(userId));
     }
   })
 
@@ -99,10 +84,10 @@ function Profile(props) {
               className="profile__logo"
               src={
                 profileUser && profileUser.photos && profileUser.photos.small
-                  ? 
-                  profileUser && profileUser.photos && profileUser.photos.small
-                  : 
-                  avatar
+                  ? profileUser &&
+                    profileUser.photos &&
+                    profileUser.photos.small
+                  : avatar
               }
               alt="logo"
             />

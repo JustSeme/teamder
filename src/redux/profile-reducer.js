@@ -1,4 +1,5 @@
 import profile from "../images/profile_logo2.svg";
+import { getProfileUser } from "../api/api";
 
 let initialState = {
   profilePosts: [],
@@ -55,17 +56,18 @@ const profileReducer = (state = initialState, action) => {
 
 export const addPostActionCreator = () => ({ type: "ADD-POST" });
 export const addPostUserActionCreator = () => ({ type: "ADD-POST-USER" });
-export const updateNewPostTextActionCreator = (payload) => ({
-  type: "UPDATE-NEW-POST-TEXT",
-  newText: payload,
-});
-export const setUserProfileActionCreator = (profile) => ({
-  type: "SET-USER-PROFILE",
-  profile,
-});
-export const toggleIsFetchingActionCreator = (isFetching) => ({
-  type: "TOGGLE-IS-FETCHING",
-  isFetching,
-});
+export const updateNewPostTextActionCreator = (payload) => ({type: "UPDATE-NEW-POST-TEXT", newText: payload});
+export const setUserProfileActionCreator = (profile) => ({type: "SET-USER-PROFILE", profile});
+export const toggleIsFetchingActionCreator = (isFetching) => ({type: "TOGGLE-IS-FETCHING", isFetching});
+
+export const getProfileUserThunkCreator = (userId) => {
+  return (dispatch) => {
+    dispatch(toggleIsFetchingActionCreator(true));
+    getProfileUser(userId).then((data) => {
+      dispatch(setUserProfileActionCreator(data));
+    })
+    .finally(dispatch(toggleIsFetchingActionCreator(false)));
+  };
+};
 
 export default profileReducer;

@@ -2,7 +2,7 @@ import { React, useState } from "react";
 import "./Popup.css";
 
 function Popup({ close }) {
-  const [popup, setPopup] = useState(false);
+  const [popup] = useState(false);
 
   const inactive = "popup";
   const active = "popup_opened";

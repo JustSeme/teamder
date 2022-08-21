@@ -13,7 +13,7 @@ export const getUsers = (currentPage = 1, pagesSize = 5) => {
     .get(`users?page=${currentPage}&count=${pagesSize}`)
     .then((res) => {
       return res.data;
-    });
+    })
 };
 
 export const getPageChanged = (pageNumber, pagesSize = 5) => {
@@ -24,20 +24,26 @@ export const getPageChanged = (pageNumber, pagesSize = 5) => {
     });
 };
 
-export const getFollow = (t) => {
-  return instance.post(`follow/${t.id}`, {}).then((res) => {
+export const getFollow = (userId) => {
+  return instance.post(`follow/${userId}`, {}).then((res) => {
     return res.data;
   });
 };
 
-export const getUnfollow = (t) => {
-  return instance.delete(`follow/${t.id}`).then((res) => {
+export const getUnfollow = (userId) => {
+  return instance.delete(`follow/${userId}`).then((res) => {
     return res.data;
   });
 };
 
 export const getAuthMe = () => {
-    return instance.get("auth/me").then((res) => {
-        return res.data;
-    })
+  return instance.get("auth/me").then((res) => {
+    return res.data;
+  });
+};
+
+export const getProfileUser = (userId) => {
+  return instance.get(`profile/${userId}`).then((res) => {
+    return res.data;
+  })
 }

@@ -3,11 +3,10 @@ import "./Teams.css";
 import Navigation from "../Navigation/Navigation";
 import Hashtags from "../Hashtags/Hashtags";
 import arrow from "../../images/arrow_left.svg";
-import { Link, NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 import Team from "./Team/Team";
-import axios from "axios";
 
-function Teams(props) {
+function Teams() {
   return (
     <div className="teams">
       <Navigation

@@ -6,8 +6,7 @@ import logout from "../../images/logout.svg";
 import loginImg from "../../images/login.svg";
 import profileLogo from "../../images/profile_logo2.svg";
 import { useDispatch, useSelector } from "react-redux";
-import { setAuthUserActionCreator } from "../../redux/auth-reducer";
-import {getAuthMe} from "../../api/api";
+import { getAuthMeThunkCreator } from "../../redux/auth-reducer";
 
 function Navigation(props) {
 
@@ -16,18 +15,8 @@ function Navigation(props) {
 
   const dispatch = useDispatch();
 
-  const setAuthUser = (userId, email, login) => {
-    dispatch(setAuthUserActionCreator(userId, email, login));
-  }
-
   useEffect(() => {
-    getAuthMe()
-    .then((data) => {
-      if (data.resultCode === 0) {
-        let {id, email, login} = data.data;
-        setAuthUser(id, email, login);
-      }
-    })
+    dispatch(getAuthMeThunkCreator());
   })
 
   return (

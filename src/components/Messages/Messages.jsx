@@ -1,12 +1,12 @@
-import { React, useState } from "react";
-import { Link, NavLink } from "react-router-dom";
+import { React } from "react";
+import { Link } from "react-router-dom";
 import "./Messages.css";
 import arrow from "../../images/arrow_left.svg";
 import Navigation from "../Navigation/Navigation";
 import Hashtags from "../Hashtags/Hashtags";
 import MessagePost from "./Message/MessagePost/MessagePost";
 
-function Messages(props) {
+function Messages() {
   return (
     <div className="messages">
       <Navigation

@@ -1,3 +1,5 @@
+import { getAuthMe } from "../api/api";
+
 const initialState = {
   userId: null,
   email: null,
@@ -21,4 +23,15 @@ const authReducer = (state = initialState, action) => {
 
 export const setAuthUserActionCreator = (userId, email, login) => ({type: "SET-AUTH-USER", data: {userId, email, login}})
 
+export const getAuthMeThunkCreator = () => {
+  return (dispatch) => {
+    getAuthMe().then((data) => {
+      if (data.resultCode === 0) {
+        let { id, email, login } = data.data;
+        dispatch(setAuthUserActionCreator(id, email, login));
+      }
+    });
+  };
+};
+ 
 export default authReducer;

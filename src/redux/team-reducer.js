@@ -1,10 +1,12 @@
+import { getUsers, getPageChanged, getFollow, getUnfollow } from "../api/api";
+
 let initialState = {
   teams: [],
   pagesSize: 5,
   totalTeamsCount: 20,
   currentPage: 1,
   isFetching: false,
-  followLoading: false
+  followLoading: false,
 };
 
 const teamReducer = (state = initialState, action) => {
@@ -42,12 +44,12 @@ const teamReducer = (state = initialState, action) => {
     case "TOGGLE-IS-FETCHING":
       return {
         ...state,
-        isFetching: action.isFetching
+        isFetching: action.isFetching,
       };
     case "TOGGLE-FOLLOW-LOADING":
       return {
         ...state,
-        followLoading: action.isFetching
+        followLoading: action.isFetching,
       };
     default:
       return state;
@@ -60,5 +62,53 @@ export const setTeamsActionCreator = (teams) => ({ type: "SET-TEAMS", teams });
 export const setCurrentPageActionCreator = (page) => ({type: "SET-CURRENT-PAGE", page});
 export const toggleIsFetchingActionCreator = (isFetching) => ({type: "TOGGLE-IS-FETCHING", isFetching});
 export const toggleFollowLoadingActionCreator = (isFetching) => ({type: "TOGGLE-FOLLOW-LOADING", isFetching});
+
+export const getTeamsThunkCreator = (currentPage, pagesSize) => {
+  return (dispatch) => {
+    dispatch(toggleIsFetchingActionCreator(true));
+
+    getUsers(currentPage, pagesSize)
+      .then((data) => {
+        // dispatch(toggleIsFetchingActionCreator(false));
+        dispatch(setTeamsActionCreator(data.items));
+      })
+      .finally(dispatch(toggleIsFetchingActionCreator(false)));
+  };
+};
+
+export const pageChangedThunkCreator = (pageNumber, pagesSize) => {
+  return (dispatch) => {
+    dispatch(toggleIsFetchingActionCreator(true));
+    dispatch(setCurrentPageActionCreator(pageNumber));
+    getPageChanged(pageNumber, pagesSize).then((data) => {
+      dispatch(toggleIsFetchingActionCreator(false));
+      dispatch(setTeamsActionCreator(data.items));
+    });
+  }
+}
+
+export const getFollowThunkCreator = (userId) => {
+  return (dispatch) => {
+    dispatch(toggleFollowLoadingActionCreator(true));
+    getFollow(userId).then((data) => {
+      if (data.resultCode === 0) {
+        dispatch(followActionCreator(userId));
+      }
+      dispatch(toggleFollowLoadingActionCreator(false));
+    });
+  };
+};
+
+export const getUnfollowThunkCreator = (userId) => {
+  return (dispatch) => {
+    dispatch(toggleFollowLoadingActionCreator(true));
+    getUnfollow(userId).then((data) => {
+      if (data.resultCode === 0) {
+        dispatch(unfollowActionCreator(userId));
+      }
+      dispatch(toggleFollowLoadingActionCreator(false));
+    });
+  };
+};
 
 export default teamReducer;

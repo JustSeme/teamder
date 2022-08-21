@@ -1,7 +1,6 @@
 import React from "react";
 import "../Event.css";
 import Event from "../Event";
-import logo from "../../../images/profile_logo2.svg";
 import {useSelector} from "react-redux";
 
 function CompletedEvent(props) {
