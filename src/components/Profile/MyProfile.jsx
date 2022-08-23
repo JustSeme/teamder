@@ -32,6 +32,9 @@ function Profile(props) {
     setIsPopup("popupEdit");
   };
 
+  let [status] = useState("Everything you can image is real!");
+  let [toggle, setToggle] = useState(false);
+
   return (
     <div className="profile">
       <Navigation
@@ -74,10 +77,28 @@ function Profile(props) {
                 <img className="profile__image" src={desc} alt="Desc" />
                 <p className="profile__description_title">Description:</p>
               </div>
-              <p className="profile__description">
-                {" "}
-                I'm Web-Developer, I create this app for people :)
-              </p>
+              {toggle ? (
+                <input
+                  className="profile__description_input"
+                  type="text"
+                  value={status}
+                  onBlur={() => {
+                    setToggle(false)
+                  }}
+                  autoFocus={true}
+                  onKeyPress={(event) => {
+                    if (event.key === "Enter") {
+                      setToggle(false);
+                    }
+                  }}
+                />
+              ) : (
+                <p
+                  className="profile__description"
+                  onClick={() => {
+                    setToggle(true);
+                  }}>{status}</p>
+              )}
             </div>
             <div className="profile__buttons_wrapper">
               <div className="profile__description_wrapper">
@@ -90,21 +111,13 @@ function Profile(props) {
         </div>
         <div className="profile__button_wrapper">
           <button
-            className={
-              post === "ProfilePosts" ? inactiveColorPost : activeColorPost
-            }
+            className={post === "ProfilePosts" ? inactiveColorPost : activeColorPost}
             onClick={handleProfilePostsClick}
-          >
-            Page posts
-          </button>
+          >Page posts</button>
           <button
-            className={
-              post === "SocialMedia" ? inactiveColorPost : activeColorPost
-            }
+            className={post === "SocialMedia" ? inactiveColorPost : activeColorPost}
             onClick={handleProfileMediaClick}
-          >
-            Social Media
-          </button>
+          >Social Media</button>
         </div>
         {post === "ProfilePosts" && <ProfilePosts />}
         {post === "SocialMedia" && <MyMedia />}

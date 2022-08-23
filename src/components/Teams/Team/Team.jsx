@@ -10,18 +10,18 @@ import {
 import avatar from "../../../images/nonameAvatar.svg";
 import Preloader from "../../Preloader/Preloader";
 import { useEffect } from "react";
+import { Navigate } from "react-router-dom";
 
 function Team() {
   const dispatch = useDispatch();
 
   const teams = useSelector((state) => state.teamPage.teams);
   const pagesSize = useSelector((state) => state.teamPage.pagesSize);
-  const totalTeamsCount = useSelector(
-    (state) => state.teamPage.totalTeamsCount
-  );
+  const totalTeamsCount = useSelector((state) => state.teamPage.totalTeamsCount);
   const currentPage = useSelector((state) => state.teamPage.currentPage);
   const isFetching = useSelector((state) => state.teamPage.isFetching);
   const followLoading = useSelector((state) => state.teamPage.followLoading);
+  const isAuth = useSelector((state) => state.auth.isAuth);
 
   useEffect(() => {
     dispatch(getTeamsThunkCreator(currentPage, pagesSize));
@@ -37,6 +37,10 @@ function Team() {
   const onPageChanged = (pageNumber) => {
     dispatch(pageChangedThunkCreator(pageNumber));
   };
+  
+  if (!isAuth) {
+    return <Navigate to="/login" />
+  }
 
   return (
     <>
@@ -48,9 +52,8 @@ function Team() {
               <div className="team__container">
                 <div className="team__wrap">
                   <a className="team__link" href={"/profile/" + t.id}>
-                    <img className="team__logo"
+                    <img className="team__logo" alt="logo"
                       src={t.photos.small != null ? t.photos.small : avatar}
-                      alt="logo"
                     />
                   </a>
                   <div className="team__wrapper">

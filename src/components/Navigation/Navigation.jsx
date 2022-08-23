@@ -55,17 +55,17 @@ function Navigation(props) {
 
         {getAuth 
         ?
-        <div className="login__wrap">
-          <Link className="login__link" to="/profile">
-            <img className="login__logo" src={profileLogo} alt="login" />
-            <p className="login__title">{getLogin}</p>
+        <div className="login-nav__wrap">
+          <Link className="login-nav__link" to="/profile">
+            <img className="login-nav__logo" src={profileLogo} alt="login" />
+            <p className="login-nav__title">{getLogin}</p>
           </Link>
-          <img className="login__logout" src={logout} alt="logout" />
+          <img className="login-nav__logout" src={logout} alt="logout" />
         </div>
         :
-        <Link className="login__wrapper" to="/login">
-          <img className="login__img" src={loginImg} alt="login" />
-          <p className="login__title">Login</p>
+        <Link className="login-nav__wrapper" to="/login">
+          <img className="login-nav__img" src={loginImg} alt="login" />
+          <p className="login-nav__title">Login</p>
         </Link>
         }
       </div>

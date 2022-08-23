@@ -254,6 +254,7 @@
     color: #000000;
     max-width: 200px;
     margin: 10px 0 0;
+    cursor: pointer;
 }
 
 .profile__description_title {
@@ -283,4 +284,12 @@
 .profile__image {
     width: 20px;
     height: 20px;
+}
+
+.profile__description_input {
+    background-color: #DDE1E1;
+    border: none;
+    border-bottom: 1px solid #1F1F1F;
+    outline: none;
+    margin-top: 10px;
 }
