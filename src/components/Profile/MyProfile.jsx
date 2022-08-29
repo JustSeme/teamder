@@ -12,7 +12,7 @@ import MyMedia from "./Media/MyMedia";
 import job from "../../images/job.svg";
 import desc from "../../images/desc.svg";
 
-function Profile(props) {
+function Profile() {
   const [post, setPost] = useState("ProfilePosts");
 
   const handleProfilePostsClick = () => {

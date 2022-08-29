@@ -4,7 +4,8 @@ const initialState = {
   userId: null,
   email: null,
   login: null,
-  isAuth: false
+  isAuth: false,
+  isFetching: false,
 };
 
 const authReducer = (state = initialState, action) => {
@@ -13,7 +14,12 @@ const authReducer = (state = initialState, action) => {
       return {
         ...state,
         ...action.data,
-        isAuth: true
+        isAuth: true,
+      };
+    case "TOGGLE-IS-FETCHING":
+      return {
+        ...state,
+        isFetching: action.isFetching,
       };
 
     default:
@@ -21,7 +27,8 @@ const authReducer = (state = initialState, action) => {
   }
 };
 
-export const setAuthUserActionCreator = (userId, email, login) => ({type: "SET-AUTH-USER", data: {userId, email, login}})
+export const setAuthUserActionCreator = (userId, email, login) => ({type: "SET-AUTH-USER", data: { userId, email, login }});
+export const toggleIsFetchingActionCreator = (isFetching) => ({type: "TOGGLE-IS-FETCHING", isFetching});
 
 export const getAuthMeThunkCreator = () => {
   return (dispatch) => {
@@ -30,8 +37,8 @@ export const getAuthMeThunkCreator = () => {
         let { id, email, login } = data.data;
         dispatch(setAuthUserActionCreator(id, email, login));
       }
-    });
+    })
   };
 };
- 
+
 export default authReducer;

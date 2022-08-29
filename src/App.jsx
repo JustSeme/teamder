@@ -8,7 +8,7 @@ import Teams from "./components/Teams/Teams";
 import MyProfile from "./components/Profile/MyProfile";
 import Login from "./components/Login/Login";
 
-function App(props) {
+function App() {
   return (
     <div className="page">
       <BrowserRouter>

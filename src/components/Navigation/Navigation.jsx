@@ -53,8 +53,7 @@ function Navigation(props) {
 
         <button className="navigation__create_button">CREATE A TEAM</button>
 
-        {getAuth 
-        ?
+        {getAuth ?
         <div className="login-nav__wrap">
           <Link className="login-nav__link" to="/profile">
             <img className="login-nav__logo" src={profileLogo} alt="login" />
