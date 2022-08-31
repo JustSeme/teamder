@@ -20,7 +20,7 @@ function Login() {
         onSubmit={onSubmit}
         validate={validate}
         render={({ handleSubmit }) => (
-          <form className="login__wrap">
+          <form className="login__wrap" onSubmit={handleSubmit}>
             <Link to="/">
               <img className="login__logo" src={logoLarge} alt="login_logo" />
             </Link>
@@ -34,7 +34,7 @@ function Login() {
               </div>
               <Link className="login__text" to="/">Forgot Password?</Link>
             </div>
-            <button className="login__button" onSubmit={handleSubmit}>Login now</button>
+            <button className="login__button">Login now</button>
           </form>
         )}
       />

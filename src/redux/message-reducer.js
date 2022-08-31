@@ -34,34 +34,21 @@ let initialState = {
       time: "12.07.22",
       status: "online"
     },
-  ],
-  newMessageBody: "",
+  ]
 }
 
 const messageReducer = (state = initialState, action) => {
   switch (action.type) {
-    case "UPDATE-NEW-MESSAGE-BODY":
-      // state.newMessageBody = action.body;
-      // return state;
-      return {
-        ...state,
-        newMessageBody: action.body
-      }
     case "SEND-MESSAGE":
       let body = {
         avatar: profile,
         name: "Rodion Strelkov",
-        message: state.newMessageBody,
+        message: action.payload,
         time: "now",
         status: "online"
       };
-      
-      // state.newMessageBody = "";
-      // state.messagePost.unshift(body);
-      // return state;
       return {
-        ...state, 
-        newMessageBody: "",
+        ...state,
         messagePost: [body, ...state.messagePost]
       }
     default:
@@ -69,11 +56,6 @@ const messageReducer = (state = initialState, action) => {
   }
 };
 
-export const sendMessageCreator = () => ({type: 'SEND-MESSAGE'})
-export const updateNewMessageBodyCreator = (body) => {
-  return {
-    type: 'UPDATE-NEW-MESSAGE-BODY', body: body
-  }
-}
+export const sendMessageActionCreator = (payload) => ({type: 'SEND-MESSAGE', payload})
 
 export default messageReducer;
