@@ -3,7 +3,6 @@ import { getProfileUser } from "../api/api";
 
 let initialState = {
   profilePosts: [],
-  newPostText: "",
   profile: [],
   isFetching: false,
 };
@@ -15,29 +14,12 @@ const profileReducer = (state = initialState, action) => {
         avatar: profile,
         name: "Rodion Strelkov",
         login: "@oldmilky",
-        message: state.newPostText,
+        message: action.payload,
       };
       return {
         ...state,
         profilePosts: [newPost, ...state.profilePosts],
         newPostText: "",
-      };
-    case "ADD-POST-USER":
-      let newPostUser = {
-        avatar: profile,
-        name: "Rodion Strelkov",
-        login: "@oldmilky",
-        message: state.newPostText,
-      };
-      return {
-        ...state,
-        profilePosts: [newPostUser, ...state.profilePostsUser],
-        newPostText: "",
-      };
-    case "UPDATE-NEW-POST-TEXT":
-      return {
-        ...state,
-        newPostText: action.newText,
       };
     case "SET-USER-PROFILE":
       return {
@@ -54,9 +36,7 @@ const profileReducer = (state = initialState, action) => {
   }
 };
 
-export const addPostActionCreator = () => ({ type: "ADD-POST" });
-export const addPostUserActionCreator = () => ({ type: "ADD-POST-USER" });
-export const updateNewPostTextActionCreator = (payload) => ({type: "UPDATE-NEW-POST-TEXT", newText: payload});
+export const addPostActionCreator = (payload) => ({ type: "ADD-POST", payload });
 export const setUserProfileActionCreator = (profile) => ({type: "SET-USER-PROFILE", profile});
 export const toggleIsFetchingActionCreator = (isFetching) => ({type: "TOGGLE-IS-FETCHING", isFetching});
 

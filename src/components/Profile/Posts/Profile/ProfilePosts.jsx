@@ -1,8 +1,9 @@
 import React from "react";
 import "../Posts.css";
 import Post from "../Post";
-import {addPostActionCreator, updateNewPostTextActionCreator} from "../../../../redux/profile-reducer";
+import {addPostActionCreator} from "../../../../redux/profile-reducer";
 import { useSelector, useDispatch } from "react-redux";
+import { Form, Field } from "react-final-form";
 
 function ProfilePosts() {
   const posts = useSelector((state) => [...state.profilePage.profilePosts]);
@@ -16,35 +17,35 @@ function ProfilePosts() {
     />
   ));
 
-  let newPostElement = useSelector((state) => state.profilePage.newPostText);
-
   const dispatch = useDispatch();
 
-  let addPost = () => {
-    dispatch(addPostActionCreator());
+  let addPost = (payload) => {
+    dispatch(addPostActionCreator(payload));
   };
 
-  let onPostChange = (e) => {
-    let text = e.target.value;
-    dispatch(updateNewPostTextActionCreator(text));
-  };
+  const onSubmit = (values) => {
+    addPost(values.ProfileForm);
+  }
+  const validate = () => {}
 
   return (
     <div className="posts">
-      <div className="profile-create">
-          <p className="profile-create__title">Create a post</p>
-          <input
-            className="profile-create__field"
-            minLength={2}
-            maxLength={400}
-            placeholder="Post content..."
-            value={newPostElement}
-            onChange={onPostChange}
-          />
-          <button className="profile-create__button" onClick={addPost}>
-            Create
-          </button>
-        </div>
+      <Form
+        onSubmit={onSubmit}
+        validate={validate}
+        render={({ handleSubmit }) => (
+          <form className="profile-create" onSubmit={handleSubmit}>
+            <p className="profile-create__title">Create a post</p>
+            <Field
+              className="profile-create__field"
+              component="input"
+              placeholder="Post content..."
+              name="ProfileForm"
+            />
+            <button className="profile-create__button" type="submit">Create</button>
+          </form>
+        )}
+      />
       <div className="posts__container">{postElement}</div>
     </div>
   );

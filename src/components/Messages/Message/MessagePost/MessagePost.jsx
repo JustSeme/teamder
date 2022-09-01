@@ -4,6 +4,7 @@ import Message from "../Message";
 import { useDispatch, useSelector } from "react-redux";
 import {sendMessageActionCreator} from "../../../../redux/message-reducer";
 import { Form, Field } from "react-final-form";
+import { required} from "../../../../utils/validators";
 
 function MessagePost() {
   const dispatch = useDispatch();
@@ -25,23 +26,25 @@ function MessagePost() {
   };
 
   const onSubmit = (values) => {
-    onSendMessageClick(values.sendMessage)
-    console.log(values)
+    onSendMessageClick(values.messageForm)
   }
-  const validate = (e) => {}
+
+  const composeValidators = (...validators) => value =>
+  validators.reduce((error, validator) => error || validator(value), undefined)
+
 
   return (
     <div>
       <Form
         onSubmit={onSubmit}
-        validate={validate}
         render={({ handleSubmit }) => (
           <form className="messages__wrapper" onSubmit={handleSubmit}>
             <Field
               className="messages__input"
               component="input"
-              name="sendMessage"
+              name="messageForm"
               placeholder="Start a new message"
+              validate={composeValidators(required)}
             />
             <button className="messages__button" type="submit">Reply</button>
           </form>
