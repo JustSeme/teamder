@@ -24,6 +24,17 @@
     text-decoration: none;
 }
 
+.messages__wrap {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.messages__form {
+    display: flex;
+    flex-direction: column;
+}
+
 .messages__arrow {
     width: 14px;
     height: 13px;
@@ -175,11 +186,6 @@
     transition: linear 0.3s;
     color: #FFFFFF;
     border: none;
-}
-
-.messages__wrapper {
-    display: flex;
-    justify-content: center;
 }
 
 .message__wrapper_name {

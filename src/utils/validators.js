@@ -9,7 +9,16 @@ export const required = (value) => {
 
 export const maxLengthCreator = (maxLength) => (value) => {
   if (value.length > maxLength) {
-    return `Max length is ${maxLength} symbols`;
+    return `Maximum length is ${maxLength} symbols`;
+  } 
+  else {
+    return undefined;
+  }
+};
+
+export const minLengthCreator = (minLength) => (value) => {
+  if (value.length < minLength) {
+    return `Minimum length is ${minLength} symbols`;
   } 
   else {
     return undefined;

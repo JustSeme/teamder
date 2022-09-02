@@ -4,13 +4,15 @@ import "./Login.css";
 import loginImage from "../../images/login_image.svg";
 import logoLarge from "../../images/logo_large.svg";
 import { Form, Field } from "react-final-form";
-import { maxLengthCreator, required } from "../../utils/validators";
+import { maxLengthCreator, required, minLengthCreator } from "../../utils/validators";
 
 function Login() {
 
   const onSubmit = (e) => {};
 
-  const maxLength10 = maxLengthCreator(10);
+  const maxLength20 = maxLengthCreator(20);
+
+  const minLength3 = minLengthCreator(3);
 
   const composeValidators = (...validators) => value =>
   validators.reduce((error, validator) => error || validator(value), undefined)
@@ -28,20 +30,28 @@ function Login() {
               <img className="login__logo" src={logoLarge} alt="login_logo" />
             </Link>
             <p className="login__title">Welcome, login to your account!</p>
-            <Field 
-              className="login__input" 
+            <Field
               name="login" 
-              component="input" 
-              placeholder="Login" 
-              validate={composeValidators(required, maxLength10)} 
-            />
-            <Field 
-              className="login__input" 
+              validate={composeValidators(required, maxLength20, minLength3)}
+            >
+              {({ input, meta }) => (
+                <>
+                  <input {...input} className="login__input" placeholder="Login" type="text" />
+                  {meta.error && meta.touched && <span className="error__span">{meta.error}</span>}
+                </>
+              )}
+            </Field>
+            <Field
               name="password" 
-              component="input" 
-              placeholder="Password" 
-              validate={required}
-            />
+              validate={composeValidators(required, minLength3)}
+            >
+              {({ input, meta }) => (
+                <>
+                  <input {...input} className="login__input" placeholder="Password" type="text" />
+                  {meta.error && meta.touched && <span className="error__span">{meta.error}</span>}
+                </>
+              )}
+            </Field>
             <div className="login__wrapper_submit">
               <div className="login__wrapper_remember">
                 <Field className="login__remember" name="rememberMe" component="input" type="checkbox" />
