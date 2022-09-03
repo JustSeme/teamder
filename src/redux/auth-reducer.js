@@ -1,11 +1,10 @@
-import { getAuthMe } from "../api/api";
+import { authMeAPI, loginAPI, logoutAPI } from "../api/api";
 
 const initialState = {
   userId: null,
   email: null,
   login: null,
   isAuth: false,
-  isFetching: false,
 };
 
 const authReducer = (state = initialState, action) => {
@@ -13,13 +12,7 @@ const authReducer = (state = initialState, action) => {
     case "SET-AUTH-USER":
       return {
         ...state,
-        ...action.data,
-        isAuth: true,
-      };
-    case "TOGGLE-IS-FETCHING":
-      return {
-        ...state,
-        isFetching: action.isFetching,
+        ...action.payload
       };
 
     default:
@@ -27,15 +20,34 @@ const authReducer = (state = initialState, action) => {
   }
 };
 
-export const setAuthUserActionCreator = (userId, email, login) => ({type: "SET-AUTH-USER", data: { userId, email, login }});
-export const toggleIsFetchingActionCreator = (isFetching) => ({type: "TOGGLE-IS-FETCHING", isFetching});
+export const setAuthUserActionCreator = (userId, email, login, isAuth) => ({type: "SET-AUTH-USER", payload: { userId, email, login, isAuth }});
 
-export const getAuthMeThunkCreator = () => {
+export const authMeThunkCreator = () => {
   return (dispatch) => {
-    getAuthMe().then((data) => {
+    authMeAPI().then((data) => {
       if (data.resultCode === 0) {
         let { id, email, login } = data.data;
-        dispatch(setAuthUserActionCreator(id, email, login));
+        dispatch(setAuthUserActionCreator(id, email, login, true));
+      }
+    })
+  };
+};
+
+export const loginThunkCreator = (email, password, rememberMe) => {
+  return (dispatch) => {
+    loginAPI(email, password, rememberMe).then((res) => {
+      if (res.data.resultCode === 0) {
+        dispatch(authMeThunkCreator());
+      }
+    })
+  };
+};
+
+export const logoutThunkCreator = () => {
+  return (dispatch) => {
+    logoutAPI().then((res) => {
+      if (res.data.resultCode === 0) {
+        dispatch(authMeThunkCreator(null, null, null, false));
       }
     })
   };

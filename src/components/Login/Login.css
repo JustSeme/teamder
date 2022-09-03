@@ -52,6 +52,13 @@
     color: #000000;
     margin: 0;
 }
+.login__input:active {
+    background-color: #DDE1E1;
+}
+
+input:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0px 1000px #DDE1E1 inset;
+}
 
 .login__input:last-of-type {
     margin: 50px 0 0;

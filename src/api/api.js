@@ -36,14 +36,22 @@ export const getUnfollow = (userId) => {
   });
 };
 
-export const getAuthMe = () => {
+export const getProfileUser = (userId) => {
+  return instance.get(`profile/${userId}`).then((res) => {
+    return res.data;
+  });
+};
+
+export const authMeAPI = () => {
   return instance.get("auth/me").then((res) => {
     return res.data;
   });
 };
 
-export const getProfileUser = (userId) => {
-  return instance.get(`profile/${userId}`).then((res) => {
-    return res.data;
-  })
-}
+export const loginAPI = (email, password, rememberMe = false) => {
+  return instance.post(`auth/login`, { email, password, rememberMe });
+};
+
+export const logoutAPI = () => {
+  return instance.delete(`auth/login`);
+};

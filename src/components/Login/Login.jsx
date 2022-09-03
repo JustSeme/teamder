@@ -1,14 +1,26 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, Navigate } from "react-router-dom";
 import "./Login.css";
 import loginImage from "../../images/login_image.svg";
 import logoLarge from "../../images/logo_large.svg";
 import { Form, Field } from "react-final-form";
 import { maxLengthCreator, required, minLengthCreator } from "../../utils/validators";
+import { loginThunkCreator } from "../../redux/auth-reducer";
+import { useDispatch, useSelector } from "react-redux";
 
 function Login() {
 
-  const onSubmit = (e) => {};
+  const dispatch = useDispatch();
+
+  const loginPost = (email, password, rememberMe) => {
+    dispatch(loginThunkCreator(email, password, rememberMe));
+  };
+
+  const isAuth = useSelector((state) => state.auth.isAuth);
+
+  const onSubmit = (values) => {
+    loginPost(values.email, values.password, values.rememberMe);
+  };
 
   const maxLength20 = maxLengthCreator(20);
 
@@ -16,6 +28,10 @@ function Login() {
 
   const composeValidators = (...validators) => value =>
   validators.reduce((error, validator) => error || validator(value), undefined)
+
+  if (isAuth) {
+    return <Navigate to="/" />
+  };
 
   return (
     <div className="login">
@@ -31,12 +47,12 @@ function Login() {
             </Link>
             <p className="login__title">Welcome, login to your account!</p>
             <Field
-              name="login" 
+              name="email" 
               validate={composeValidators(required, maxLength20, minLength3)}
             >
               {({ input, meta }) => (
                 <>
-                  <input {...input} className="login__input" placeholder="Login" type="text" />
+                  <input {...input} className="login__input" placeholder="Email" type="text" />
                   {meta.error && meta.touched && <span className="error__span">{meta.error}</span>}
                 </>
               )}
@@ -47,7 +63,7 @@ function Login() {
             >
               {({ input, meta }) => (
                 <>
-                  <input {...input} className="login__input" placeholder="Password" type="text" />
+                  <input {...input} className="login__input" placeholder="Password" type="password" />
                   {meta.error && meta.touched && <span className="error__span">{meta.error}</span>}
                 </>
               )}

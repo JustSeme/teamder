@@ -1,23 +1,31 @@
 import React, { useEffect} from "react";
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, Navigate } from "react-router-dom";
 import "./Navigation.css";
 import logo from "../../images/logo.svg";
-import logout from "../../images/logout.svg";
+import logoutImg from "../../images/logout.svg";
 import loginImg from "../../images/login.svg";
 import profileLogo from "../../images/profile_logo2.svg";
 import { useDispatch, useSelector } from "react-redux";
-import { getAuthMeThunkCreator } from "../../redux/auth-reducer";
+import { authMeThunkCreator, logoutThunkCreator } from "../../redux/auth-reducer";
 
 function Navigation(props) {
 
-  const getAuth = useSelector((state) => state.auth.isAuth);
+  const isAuth = useSelector((state) => state.auth.isAuth);
   const getLogin = useSelector((state) => state.auth.login);
 
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(getAuthMeThunkCreator());
+    dispatch(authMeThunkCreator());
   })
+
+  const logout = () => {
+    dispatch(logoutThunkCreator());
+  }
+
+  if(!isAuth) {
+    return <Navigate to="/login" />
+  }
 
   return (
     <div className="navigation">
@@ -53,13 +61,13 @@ function Navigation(props) {
 
         <button className="navigation__create_button">CREATE A TEAM</button>
 
-        {getAuth ?
+        {isAuth ?
         <div className="login-nav__wrap">
           <Link className="login-nav__link" to="/profile">
             <img className="login-nav__logo" src={profileLogo} alt="login" />
             <p className="login-nav__title">{getLogin}</p>
           </Link>
-          <img className="login-nav__logout" src={logout} alt="logout" />
+          <img className="login-nav__logout" src={logoutImg} alt="logout" onClick={logout} />
         </div>
         :
         <Link className="login-nav__wrapper" to="/login">

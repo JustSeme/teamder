@@ -10,7 +10,7 @@ import {
 import avatar from "../../../images/nonameAvatar.svg";
 import Preloader from "../../Preloader/Preloader";
 import { useEffect } from "react";
-import { Navigate } from "react-router-dom";
+// import { Navigate } from "react-router-dom";
 
 function Team() {
   const dispatch = useDispatch();
@@ -21,7 +21,7 @@ function Team() {
   const currentPage = useSelector((state) => state.teamPage.currentPage);
   const isFetching = useSelector((state) => state.teamPage.isFetching);
   const followLoading = useSelector((state) => state.teamPage.followLoading);
-  const isAuth = useSelector((state) => state.auth.isAuth);
+  // const isAuth = useSelector((state) => state.auth.isAuth);
 
   useEffect(() => {
     dispatch(getTeamsThunkCreator(currentPage, pagesSize));
@@ -38,9 +38,9 @@ function Team() {
     dispatch(pageChangedThunkCreator(pageNumber));
   };
   
-  if (!isAuth) {
-    return <Navigate to="/login" />
-  }
+  // if (!isAuth) {
+  //   return <Navigate to="/login" />
+  // }
 
   return (
     <>

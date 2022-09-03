@@ -14,7 +14,7 @@ import job from "../../images/job.svg";
 import desc from "../../images/desc.svg";
 import avatar from "../../images/nonameAvatar.svg";
 
-function Profile(props) {
+function Profile() {
   const [post, setPost] = useState("ProfilePosts");
 
   const handleProfilePostsClick = () => {
@@ -25,23 +25,10 @@ function Profile(props) {
     setPost("SocialMedia");
   };
 
-  // const [like, setLike] = useState(42),
-  //   [isLike, setIsLike] = useState(false),
-  //   onLikeButtonClick = () => {
-  //     setLike(like + (isLike ? -1 : 1));
-  //     setIsLike(!isLike);
-  //   };
-
-  // const activeColorLike = "profile__button_logo-color";
-  // const inactiveColorLike = "profile__button_logo";
   const activeColorPost = "profile__button_post";
   const inactiveColorPost = "profile__button_post-color";
 
   const [isPopup, setIsPopup] = useState(false);
-
-  // const handlePopupClick = () => {
-  //   setIsPopup("popupEdit");
-  // };
 
   const dispatch = useDispatch();
 
