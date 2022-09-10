@@ -20,7 +20,7 @@
 }
 
 .media__link:hover {
-    border-bottom: 1px solid #000000;
+    border-bottom: 1px solid var(--text-color);
     cursor: pointer;
 }
 
@@ -30,7 +30,29 @@
     font-size: 16px;
     line-height: 22px;
     text-align: justify;
-    color: #000000;
+    color: var(--text-color);
     margin: 0 0 0 16px;
     text-decoration: none;
+    transition: color 400ms linear;
+}
+
+.media__image_inst {
+    width: 30px;
+    height: 30px;
+    background-image: var(--image-media-inst);
+    transition: background-image 400ms linear;
+}
+
+.media__image_twt {
+    width: 30px;
+    height: 30px;
+    background-image: var(--image-media-twitter);
+    transition: background-image 400ms linear;
+}
+
+.media__image_tg {
+    width: 30px;
+    height: 30px;
+    background-image: var(--image-media-telegram);
+    transition: background-image 400ms linear;
 }

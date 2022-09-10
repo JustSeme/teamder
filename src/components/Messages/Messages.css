@@ -45,8 +45,9 @@
     font-weight: 400;
     font-size: 20px;
     line-height: 27px;
-    color: #000000;
+    color: var(--text-color);
     margin: 0 0 0 10px;
+    transition: color 400ms linear;
 }
 
 .messages__title {
@@ -55,8 +56,9 @@
     font-size: 30px;
     line-height: 38px;
     letter-spacing: -1.35px;
-    color: #000000;
+    color: var(--text-color);
     margin: 0;
+    transition: color 400ms linear;
 }
 
 .message__container {
@@ -85,8 +87,9 @@
     font-size: 16px;
     line-height: 22px;
     text-align: justify;
-    color: #000000;
+    color: var(--text-color);
     margin: 0 10px 0 0;
+    transition: color 400ms linear;
 }
 
 .message__message {
@@ -94,12 +97,13 @@
     font-weight: 400;
     font-size: 15px;
     line-height: 20px;
-    color: #000000;
+    color: var(--text-color);
     margin: 10px 0 0;
     word-break: break-word;
-    background-color: #D3D4D4;
+    background-color: var(--background-color-hover);
     padding: 4px 6px 4px 6px;
     border-radius: 8px;
+    transition: background-color 400ms linear, color 400ms linear;
 }
 
 .message__time {
@@ -120,32 +124,12 @@
     padding: 10px 15px 10px 0;
 }
 
-.message__button {
-    width: 100px;
-    height: 35px;
-    color: #FFF;
-    background-color: #001012;
-    cursor: pointer;
-    border: none;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 18px;
-    line-height: 22px;
-    text-align: center;
-    border-radius: 5px;
-}
-
-.message__container:hover .message__button {
-    background-color: #002F34;
-    transition: linear 0.2s;
-}
-
 .message__link {
     text-decoration: none;
 }
 
 .messages__input {
-    background-color: #DDE1E1;
+    background-color: var(--background-color-hover2);
     border-bottom: 1px solid #1F1F1F;
     border-right: none;
     border-left: none;
@@ -157,18 +141,19 @@
     display: flex;
     align-items: center;
     letter-spacing: 0.15px;
-    color: #000000;
+    color: var(--text-color);
     width: 300px;
     height: 60px;
     outline: none;
     text-align: start;
+    transition: background-color 400ms linear, color 400ms linear;
 }
 
 .messages__button {
     width: 75px;
     height: 35px;
-    color: #000000;
-    background-color: #DDE1E1;
+    color: var(--text-color);
+    background-color: var(--background-color-hover2);
     cursor: pointer;
     border: none;
     font-style: normal;
@@ -179,6 +164,7 @@
     border-radius: 5px;
     border: 1px solid #1F1F1F;
     margin: 20px 0 0 20px;
+    transition: background-color 400ms linear, color 400ms linear;
 }
 
 .messages__button:hover {

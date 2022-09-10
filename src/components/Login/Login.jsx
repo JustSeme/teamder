@@ -2,7 +2,6 @@ import React from "react";
 import { Link, Navigate } from "react-router-dom";
 import "./Login.css";
 import loginImage from "../../images/login_image.svg";
-import logoLarge from "../../images/logo_large.svg";
 import { Form, Field } from "react-final-form";
 import { maxLengthCreator, required, minLengthCreator } from "../../utils/validators";
 import { loginThunkCreator } from "../../redux/auth-reducer";
@@ -43,7 +42,7 @@ function Login() {
         render={({ handleSubmit }) => (
           <form className="login__wrap" onSubmit={handleSubmit}>
             <Link to="/">
-              <img className="login__logo" src={logoLarge} alt="login_logo" />
+              <div className="login__logo" />
             </Link>
             <p className="login__title">Welcome, login to your account!</p>
             <Field

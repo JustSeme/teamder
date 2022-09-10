@@ -35,8 +35,9 @@
     font-weight: 400;
     font-size: 20px;
     line-height: 27px;
-    color: #000000;
+    color: var(--text-color);
     margin: 0 0 0 10px;
+    transition: color 400ms linear;
 }
 
 .profile__title {
@@ -45,8 +46,9 @@
     font-size: 30px;
     line-height: 38px;
     letter-spacing: -1.35px;
-    color: #000000;
+    color: var(--text-color);
     margin: 0;
+    transition: color 400ms linear;
 }
 
 .profile__information_wrap {
@@ -79,8 +81,9 @@
     font-weight: 700;
     font-size: 20px;
     line-height: 27px;
-    color: #000000;
+    color: var(--text-color);
     margin: 0 15px 0 0;
+    transition: color 400ms linear;
 }
 
 .profile__name_logo {
@@ -94,49 +97,14 @@
     line-height: 22px;
     display: flex;
     align-items: center;
-    color: #000000;
+    color: var(--text-color);
     margin: 0;
-}
-
-.profile__information_text {
-    font-style: normal;
-    font-weight: 400;
-    font-size: 16px;
-    line-height: 117.8%;
-    text-align: justify;
-    color: #000000;
-    margin: 20px 0 20px;
-    width: 530px;
+    transition: color 400ms linear;
 }
 
 .profile__buttons_wrap {
     display: flex;
     margin: 15px 0 0;
-}
-
-.profile__button {
-    background-color: #DDE1E1;
-    display: flex;
-    align-items: center;
-    padding: 0;
-    cursor: pointer;
-    border: none;
-}
-
-.profile__button_logo-color {
-    fill: #EE1C35;
-    transition: linear 0.2s;
-}
-
-.profile__button_text {
-    font-style: normal;
-    font-weight: 400;
-    font-size: 16px;
-    line-height: 22px;
-    display: flex;
-    align-items: center;
-    color: #000000;
-    margin: 0 29px 0 6px;
 }
 
 .profile__button_wrapper {
@@ -154,12 +122,13 @@
     display: flex;
     align-items: center;
     letter-spacing: 0.01em;
-    color: #000000;
-    background-color: #DDE1E1;
+    color: var(--text-color);
+    background-color: var(--background-color-hover2);
     cursor: pointer;
     margin: 0;
     padding: 0 30px 17px 30px;
     border: none;
+    transition: background-color 400ms linear, color 400ms linear;
 }
 
 .profile__button_post:hover {
@@ -175,13 +144,14 @@
     display: flex;
     align-items: center;
     letter-spacing: 0.01em;
-    background-color: #DDE1E1;
+    background-color: var(--background-color-hover2);
     cursor: pointer;
     margin: 0;
     padding: 0 30px 17px 30px;
     border: none;
     color: #126FA4;
     border-bottom: 1px solid #126FA4;
+    transition: background-color 400ms linear, color 400ms linear;
 }
 
 .profile__link {
@@ -197,12 +167,13 @@
     font-weight: 400;
     font-size: 20px;
     line-height: 38px;
-    color: #000000;
+    color: var(--text-color);
     margin: 0;
+    transition: color 400ms linear;
 }
 
 .profile-create__field {
-    background-color: #DDE1E1;
+    background-color: var(--background-color-hover2);
     border-bottom: 1px solid #1F1F1F;
     border-right: none;
     border-left: none;
@@ -214,18 +185,19 @@
     display: flex;
     align-items: center;
     letter-spacing: 0.15px;
-    color: #000000;
+    color: var(--text-color);
     width: 300px;
     height: 70px;
     outline: none;
     text-align: start;
+    transition: background-color 400ms linear;
 }
 
 .profile-create__button {
     width: 200px;
     height: 50px;
-    color: #000000;
-    background-color: #DDE1E1;
+    color: var(--text-color);
+    background-color: var(--background-color-hover2);
     cursor: pointer;
     border: none;
     font-style: normal;
@@ -236,6 +208,7 @@
     border-radius: 5px;
     border: 1px solid #1F1F1F;
     margin: 20px 0 0;
+    transition: background-color 400ms linear, color 400ms linear;
 }
 
 .profile-create__button:hover {
@@ -251,10 +224,11 @@
     font-size: 16px;
     line-height: 117.8%;
     text-align: justify;
-    color: #000000;
+    color: var(--text-color);
     max-width: 200px;
     margin: 10px 0 0;
     cursor: pointer;
+    transition: color 400ms linear;
 }
 
 .profile__description_title {
@@ -263,9 +237,10 @@
     font-size: 16px;
     line-height: 117.8%;
     text-align: justify;
-    color: #000000;
+    color: var(--text-color);
     max-width: 200px;
     margin: 0 0 0 5px;
+    transition: color 400ms linear;
 }
 
 .profile__buttons_wrapper {
@@ -281,9 +256,18 @@
     align-items: center;
 }
 
-.profile__image {
-    width: 20px;
-    height: 20px;
+.profile__image_desc {
+    background-image: var(--image-profile-desc);
+    width: 25px;
+    height: 25px;
+    transition: background-image 400ms linear;
+}
+
+.profile__image_job {
+    background-image: var(--image-profile-job);
+    width: 25px;
+    height: 25px;
+    transition: background-image 400ms linear;
 }
 
 .profile__description_input {

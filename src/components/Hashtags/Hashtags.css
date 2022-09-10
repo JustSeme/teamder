@@ -14,10 +14,14 @@
     display: flex;
     align-items: center;
     letter-spacing: 0.15px;
-    color: #000000;
-    border-bottom: solid 1px #3A444C;
+    color: var(--text-color);
     margin: 0 0 40px 0;
     padding: 6px;
+    background-color: var(--background-color-hover2);
+    outline: none;
+    border: none;
+    border-bottom: solid 1px #3A444C;
+    transition: background-color 400ms linear, color 400ms linear;
 }
 
 .hashtags__wrap {
@@ -33,10 +37,11 @@
     display: flex;
     align-items: center;
     letter-spacing: -0.015em;
-    color: #000000;
+    color: var(--text-color);
     margin: 0;
     padding: 9px 0 9px 14px;
     border-bottom: 1px solid #3A444C;
+    transition: color 400ms linear;
 }
 
 .hashtags__wrapper {
@@ -52,9 +57,8 @@
     display: flex;
     align-items: center;
     letter-spacing: -0.015em;
-    color: #000000;
+    color: #626262;
     margin: 0;
-    
 }
 
 .hashtags__subtitle {
@@ -64,8 +68,9 @@
     line-height: 22px;
     display: flex;
     align-items: center;
-    color: #000000;
+    color: var(--text-color);
     margin: 0;
+    transition: color 400ms linear;
 }
 
 .hashtags__show {

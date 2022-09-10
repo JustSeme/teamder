@@ -10,8 +10,6 @@ import Media from "./Media/Media";
 import { useDispatch, useSelector } from "react-redux";
 import { getProfileUserThunkCreator } from "../../redux/profile-reducer";
 import Preloader from "../Preloader/Preloader";
-import job from "../../images/job.svg";
-import desc from "../../images/desc.svg";
 import avatar from "../../images/nonameAvatar.svg";
 
 function Profile() {
@@ -88,14 +86,14 @@ function Profile() {
           <div className="profile__buttons_wrap">
             <div className="profile__buttons_wrapper">
               <div className="profile__description_wrapper">
-                <img className="profile__image" src={desc} alt="Desc" />
+                <div className="profile__image_desc" />
                 <p className="profile__description_title">Description:</p>
               </div>
               <p className="profile__description">{profileUser.aboutMe}</p>
             </div>
             <div className="profile__buttons_wrapper">
               <div className="profile__description_wrapper">
-                <img className="profile__image" src={job} alt="Job" />
+                <div className="profile__image_job" />
                 <p className="profile__description_title">Job search:</p>
               </div>
               <p className="profile__description">

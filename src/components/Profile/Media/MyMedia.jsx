@@ -1,15 +1,12 @@
 import { React } from "react";
 import "./Media.css";
-import instagram from "../../../images/instagram.svg";
-import twitter from "../../../images/twitter.svg";
-import telegram from "../../../images/telegram.svg";
 
 function MyMedia() {
   return (
     <div className="media">
       <div className="media__wrapper">
         <div className="media__wrap">
-          <img className="media__image" src={instagram} alt="instagram" />
+          <div className="media__image_inst" />
           <a
             className="media__link"
             href="https://www.instagram.com/strelkovv_/"
@@ -20,7 +17,7 @@ function MyMedia() {
           </a>
         </div>
         <div className="media__wrap">
-          <img className="media__image" src={twitter} alt="twitter" />
+        <div className="media__image_twt" />
           <a
             className="media__link"
             href="https://twitter.com/rod938361647"
@@ -31,7 +28,7 @@ function MyMedia() {
           </a>
         </div>
         <div className="media__wrap">
-          <img className="media__image" src={telegram} alt="Telegram" />
+        <div className="media__image_tg" />
           <a
             className="media__link"
             href="https://t.me/rodion914"

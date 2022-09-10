@@ -13,3 +13,46 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+
+html[data-theme='light'] {
+  --background-color: #DDE1E1;
+  --text-color: #000000;
+  --text-color2: #FFFFFF;
+  --border: #3A444C;
+  --background-color-hover: #D3D4D4;
+  --background-color-hover2: #DDE1E1;
+  --image-logo-main: url(./images/logo.png);
+  --image-profile-desc: url(./images/desc.png);
+  --image-profile-job: url(./images/job.png);
+  --image-media-inst: url(./images/instagram.png);
+  --image-media-twitter: url(./images/twitter.png);
+  --image-media-telegram: url(./images/telegram.png);
+  --image-home-date: url(./images/date.png);
+  --image-home-geo: url(./images/geo.png);
+  --image-home-people: url(./images/people.png);
+  --image-home-interest: url(./images/interest.png);
+  --image-navigation-logout: url(./images/logout.png);
+  --image-navigation-login: url(./images/login.png);
+  --image-login-logo: url(./images/login_logo.png);
+}
+
+html[data-theme='dark'] {
+  --background-color: #131313;
+  --text-color: #FFFFFF;
+  --border: #3A444C;
+  --background-color-hover: #1B1B1B;
+  --background-color-hover2: #131313;
+  --image-logo-main: url(./images/logo_dark.png);
+  --image-profile-desc: url(./images/desc_dark.png);
+  --image-profile-job: url(./images/job_dark.png);
+  --image-media-inst: url(./images/instagram_dark.png);
+  --image-media-twitter: url(./images/twitter_dark.png);
+  --image-media-telegram: url(./images/telegram_dark.png);
+  --image-home-date: url(./images/date_dark.png);
+  --image-home-geo: url(./images/geo_dark.png);
+  --image-home-people: url(./images/people_dark.png);
+  --image-home-interest: url(./images/interest_dark.png);
+  --image-navigation-logout: url(./images/logout_dark.png);
+  --image-navigation-login: url(./images/login_dark.png);
+  --image-login-logo: url(./images/login_logo_dark.png);
+}

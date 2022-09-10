@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./App.css";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Home from "./components/Home/Home";
@@ -7,8 +7,17 @@ import Messages from "./components/Messages/Messages";
 import Teams from "./components/Teams/Teams";
 import MyProfile from "./components/Profile/MyProfile";
 import Login from "./components/Login/Login";
+import { useDispatch } from "react-redux";
+import { authMeThunkCreator } from "./redux/auth-reducer";
 
 function App() {
+
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(authMeThunkCreator());
+  })
+
   return (
     <div className="page">
       <BrowserRouter>

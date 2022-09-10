@@ -1,11 +1,6 @@
 import React from "react";
 import "./Event.css";
 
-import date from "../../images/date.svg";
-import geo from "../../images/geo2.svg";
-import people from "../../images/people.svg";
-import interest from "../../images/interest.svg";
-
 function Event(props) {
   return (
     <div className="event">
@@ -19,22 +14,22 @@ function Event(props) {
         </div>
         <div className="event__buttons">
           <button className="event__button">
-            <img className="event__button_logo" src={date} alt="date" />
+            <div className="event__button_logo-date" />
             <p className="event__button_title">{props.date}</p>
           </button>
           <button className="event__button">
-            <img className="event__button_logo" src={geo} alt="geo" />
+            <div className="event__button_logo-geo" />
             <p className="event__button_title">{props.geo}</p>
           </button>
           <button className="event__button">
-            <img className="event__button_logo" src={people} alt="people" />
+            <div className="event__button_logo-people" />
             <p className="event__button_title">{props.people}</p>
           </button>
         </div>
         <div className="event__interests">
           <div className="event__interest_wrapper">
             <div className="event__interest">
-              <img className="event__interest_logo" src={interest} alt="interest" />
+              <div className="event__button_logo-interest" />
               <p className="event__interest_title">Related interests</p>
             </div>
             <p className="event__interest_subtitle">{props.interest}</p>

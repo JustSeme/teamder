@@ -9,12 +9,10 @@ import ProfilePosts from "./Posts/Profile/ProfilePosts";
 import profileAvatar from "../../images/profile_logo2.svg";
 import edit from "../../images/edit.svg";
 import MyMedia from "./Media/MyMedia";
-import job from "../../images/job.svg";
-import desc from "../../images/desc.svg";
 
 function Profile() {
-  const [post, setPost] = useState("ProfilePosts");
 
+  const [post, setPost] = useState("ProfilePosts");
   const handleProfilePostsClick = () => {
     setPost("ProfilePosts");
   };
@@ -22,12 +20,10 @@ function Profile() {
   const handleProfileMediaClick = () => {
     setPost("SocialMedia");
   };
-
   const activeColorPost = "profile__button_post";
   const inactiveColorPost = "profile__button_post-color";
 
   const [isPopup, setIsPopup] = useState(false);
-
   const handlePopupClick = () => {
     setIsPopup("popupEdit");
   };
@@ -74,7 +70,7 @@ function Profile() {
           <div className="profile__buttons_wrap">
             <div className="profile__buttons_wrapper">
               <div className="profile__description_wrapper">
-                <img className="profile__image" src={desc} alt="Desc" />
+                <div className="profile__image_desc" />
                 <p className="profile__description_title">Description:</p>
               </div>
               {toggle ? (
@@ -102,7 +98,7 @@ function Profile() {
             </div>
             <div className="profile__buttons_wrapper">
               <div className="profile__description_wrapper">
-                <img className="profile__image" src={job} alt="Job" />
+                <div className="profile__image_job" />
                 <p className="profile__description_title">Job search:</p>
               </div>
               <p className="profile__description">Yes, actively looking!</p>

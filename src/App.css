@@ -5,6 +5,6 @@
 }
 
 .container {
-  background-color: #DDE1E1;
-
+  background-color: var(--background-color);
+  transition: background-color 400ms linear;
 }

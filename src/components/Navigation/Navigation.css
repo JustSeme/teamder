@@ -9,14 +9,18 @@
 }
 
 .navigation__logo {
-    margin-bottom: 50px;
+    margin-bottom: 35px;
     padding: 0;
+    background-image: var(--image-logo-main);
+    width: 172px;
+    height: 31px;
+    transition: background-image 400ms linear;
 }
 
 .navigation__button {
     display: flex;
     align-items: center;
-    background-color: #DDE1E1;
+    background-color: var(--background-color-hover2);
     border: none;
     margin-bottom: 10px;
     text-decoration: none;
@@ -27,15 +31,16 @@
     display: flex;
     align-items: center;
     letter-spacing: -0.015em;
-    color: #000000;
+    color: var(--text-color);
     padding: 10px;
     border-radius: 10px;
+    transition: background-color 400ms linear, color 400ms linear;
 }
 
 .navigation__button_active {
     display: flex;
     align-items: center;
-    background-color: #DDE1E1;
+    background-color: var(--background-color-hover2);
     border: none;
     margin-bottom: 10px;
     text-decoration: none;
@@ -50,6 +55,7 @@
     fill: #126FA4;
     padding: 10px;
     border-radius: 10px;
+    transition: background-color 400ms linear;
 }
 
 .navigation__create_button {
@@ -80,31 +86,31 @@
 
 .navigation__button:hover {
     color: #126FA4;
-    transition: linear 0.2s;
-    background-color: #D3D4D4;
+    transition: linear 0.1s;
+    background-color: var(--background-color-hover);
 }
 
 .navigation__button:hover .navigation__inactive {
     fill: #126FA4;
-    transition: linear 0.2s;
+    transition: linear 0.1s;
 }
 
 .navigation__active {
     fill: #126FA4;
-    transition: linear 0.2s;
+    transition: linear 0.1s;
 }
 
 .navigation__active:hover {
     fill: #126FA4;
-    transition: linear 0.2s;
+    transition: linear 0.1s;
 }
 
 .navigation__button_active:hover {
-    background-color: #D3D4D4;
+    background-color: var(--background-color-hover);
 }
 
 .navigation__inactive {
-    transition: linear 0.2s;
+    transition: linear 0.1s;
 }
 
 .navigation__image {
@@ -124,8 +130,9 @@
     font-size: 16px;
     line-height: 22px;
     text-align: justify;
-    color: #000000;
+    color: var(--text-color);
     margin: 0 0 0 7px;
+    transition: color 400ms linear;
 }
 
 .login-nav__wrap {
@@ -142,7 +149,7 @@
 }
 
 .login-nav__link:hover {
-    background-color: #D3D4D4;
+    background-color: var(--background-color-hover);
     border-radius: 15px;
     transition: linear 0.2s;
 }
@@ -154,12 +161,56 @@
 }
 
 .login-nav__logout {
+    background-image: var(--image-navigation-logout);
+    width: 24px;
+    height: 24px;
     padding: 15px;
     cursor: pointer;
+    background-repeat: no-repeat;
+    background-position: center;
+    transition: background-image 400ms linear;
 }
 
 .login-nav__logout:hover {
-    background-color: #D3D4D4;
+    background-color: var(--background-color-hover);
     border-radius: 15px;
     transition: linear 0.2s;
+}
+
+.navigation__wrapper {
+    display: flex;
+    margin-top: 20px;
+    justify-content: center;
+}
+
+.navigation__theme {
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 22px;
+    text-align: justify;
+    color: var(--text-color);
+    margin: 0 10px 0 0;
+    background-color: var(--background-color-hover);
+    border: none;
+    width: 75px;
+    height: 40px;
+    text-align: center;
+    border-radius: 10px;
+    margin: 0;
+    cursor: pointer;
+    transition: background-color 400ms linear, color 400ms linear;
+}
+
+.navigation__theme:last-of-type {
+    margin-left: 10px;
+}
+
+.login-nav__img {
+    width: 24px;
+    height: 24px;
+    background-image: var(--image-navigation-login);
+    background-repeat: no-repeat;
+    background-position: center;
+    transition: background-image 400ms linear;
 }

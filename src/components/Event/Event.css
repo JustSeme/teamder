@@ -30,8 +30,9 @@
     display: flex;
     align-items: center;
     letter-spacing: -0.015em;
-    color: #000000;
+    color: var(--text-color);
     margin: 0 0 5px 0;
+    transition: color 400ms linear;
 }
 
 .event__title {
@@ -39,8 +40,9 @@
     font-weight: 700;
     font-size: 20px;
     line-height: 117.8%;
-    color: #000000;
+    color: var(--text-color);
     margin: 0;
+    transition: color 400ms linear;
 }
 
 .event__buttons {
@@ -49,10 +51,11 @@
 
 .event__button {
     display: flex;
-    background-color: #DDE1E1;
+    background-color: var(--background-button-color);
     border: none;
     padding: 0 20px 0 20px;
     align-items: center;
+    transition: background-color 400ms linear;
 }
 
 .event__button:first-of-type {
@@ -64,8 +67,9 @@
     font-weight: 400;
     font-size: 16px;
     line-height: 117.8%;
-    color: #000000;
+    color: var(--text-color);
     margin-left: 5px;
+    transition: color 400ms linear;
 }
 
 .event__interests {
@@ -83,8 +87,9 @@
     font-weight: 400;
     font-size: 16px;
     line-height: 117.8%;
-    color: #000000;
+    color: var(--text-color);
     margin: 0 0 0 10px;
+    transition: color 400ms linear;
 }
 
 .event__interest_subtitle {
@@ -92,8 +97,9 @@
     font-weight: 400;
     font-size: 16px;
     line-height: 117.8%;
-    color: #000000;
+    color: var(--text-color);
     margin: 11px 0 0;
+    transition: color 400ms linear;
 }
 
 .event__interest_button {
@@ -111,4 +117,40 @@
 
 .event__element {
     margin: 0 0 50px 0;
+}
+
+.event__button_logo-date {
+    background-repeat: no-repeat;
+    background-position: center;
+    background-image: var(--image-home-date);
+    width: 20px;
+    height: 20px;
+    transition: background-image 400ms linear;
+}
+
+.event__button_logo-geo {
+    background-repeat: no-repeat;
+    background-position: center;
+    background-image: var(--image-home-geo);
+    width: 20px;
+    height: 20px;
+    transition: background-image 400ms linear;
+}
+
+.event__button_logo-people {
+    background-repeat: no-repeat;
+    background-position: center;
+    background-image: var(--image-home-people);
+    width: 20px;
+    height: 20px;
+    transition: background-image 400ms linear;
+}
+
+.event__button_logo-interest {
+    background-repeat: no-repeat;
+    background-position: center;
+    background-image: var(--image-home-interest);
+    width: 20px;
+    height: 20px;
+    transition: background-image 400ms linear;
 }

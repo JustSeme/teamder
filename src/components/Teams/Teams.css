@@ -34,8 +34,9 @@
     font-weight: 400;
     font-size: 20px;
     line-height: 27px;
-    color: #000000;
+    color: var(--text-color);
     margin: 0 0 0 10px;
+    transition: color 400ms linear;
 }
 
 .teams__title {
@@ -44,8 +45,9 @@
     font-size: 30px;
     line-height: 38px;
     letter-spacing: -1.35px;
-    color: #000000;
+    color: var(--text-color);
     margin: 0;
+    transition: color 400ms linear;
 }
 
 .team__container {
@@ -82,39 +84,9 @@
     font-size: 19px;
     line-height: 25px;
     text-align: justify;
-    color: #000000;
+    color: var(--text-color);
     margin: 0 7px 0 0;
-}
-
-.team__message {
-    font-style: normal;
-    font-weight: 400;
-    font-size: 17px;
-    line-height: 22px;
-    color: #000000;
-    margin: 10px 0 0;
-    word-break: break-word;
-    border-radius: 8px;
-}
-
-.team__city {
-    font-style: normal;
-    font-weight: 600;
-    font-size: 17px;
-    line-height: 22px;
-    text-align: justify;
-    color: #000000;
-    margin: 0 7px 0 0;
-}
-
-.team__country {
-    font-style: normal;
-    font-weight: 500;
-    font-size: 15px;
-    line-height: 20px;
-    text-align: justify;
-    color: #000000;
-    margin: 0 7px 0 0;
+    transition: color 400ms linear;
 }
 
 .team__wrap_location {
@@ -125,87 +97,8 @@
     padding: 20px 25px 20px 0;
 }
 
-.team__button {
-    width: 100px;
-    height: 35px;
-    color: #FFF;
-    background-color: #001012;
-    cursor: pointer;
-    border: none;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 18px;
-    line-height: 22px;
-    text-align: center;
-    border-radius: 5px;
-}
-
-.team__container:hover .message__button {
-    background-color: #002F34;
-    transition: linear 0.2s;
-}
-
 .team__link {
     text-decoration: none;
-}
-
-.team__input {
-    background-color: #DDE1E1;
-    border-bottom: 1px solid #1F1F1F;
-    border-right: none;
-    border-left: none;
-    border-top: none;
-    font-style: normal;
-    font-weight: 400;
-    font-size: 16px;
-    line-height: 19px;
-    display: flex;
-    align-items: center;
-    letter-spacing: 0.15px;
-    color: #000000;
-    width: 300px;
-    height: 60px;
-    outline: none;
-    text-align: start;
-}
-
-.team__button {
-    width: 75px;
-    height: 35px;
-    color: #000000;
-    background-color: #DDE1E1;
-    cursor: pointer;
-    border: none;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 18px;
-    line-height: 22px;
-    text-align: center;
-    border-radius: 5px;
-    border: 1px solid #1F1F1F;
-    margin: 20px 0 0 20px;
-}
-
-.team__button:hover {
-    background-color: #126FA4;
-    transition: linear 0.3s;
-    color: #000000;
-}
-
-.team__wrapper_name {
-    display: flex;
-    align-items: center;
-}
-
-.team__login {
-    margin: 0;
-    font-style: normal;
-    font-weight: 500;
-    font-size: 15px;
-    line-height: 20px;
-    display: flex;
-    align-items: center;
-    color: #3A444C;
 }
 
 .teammap__wrap {
@@ -213,29 +106,6 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-}
-
-.teammap__button_show {
-    background-color: #D3D4D4;
-    border: none;
-    border-radius: 8px;
-    width: 120px;
-    height: 50px;
-    font-style: normal;
-    font-weight: 500;
-    font-size: 14px;
-    line-height: 24px;
-    letter-spacing: 0.4px;
-    text-transform: uppercase;
-    color: #000000;
-    margin: 0 0 20px 0;
-    cursor: pointer;
-}
-
-.teammap__button_show:hover {
-    transition: linear 0.3s;
-    background-color: #126FA4;
-    color: #FFFFFF;
 }
 
 .team__follow_button {
@@ -284,9 +154,10 @@
     font-size: 19px;
     line-height: 25px;
     text-align: justify;
-    color: #000000;
+    color: var(--text-color);
     margin: 0 10px 0 0;
     cursor: pointer;
+    transition: color 400ms linear;
 }
 
 .team__pagination_number:hover {
@@ -299,9 +170,10 @@
     font-size: 19px;
     line-height: 25px;
     text-align: justify;
-    color: #000000;
+    color: var(--text-color);
     margin: 0;
     cursor: pointer;
+    transition: color 400ms linear;
 }
 
 .team__pagination_number:last-of-type:hover {

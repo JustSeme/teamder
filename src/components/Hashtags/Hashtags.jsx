@@ -6,7 +6,7 @@ function Hashtags() {
   return (
     <div className="hashtags">
       <div className="hashtags__container">
-        <p className="hashtags__search">Search Teamder</p>
+        <input className="hashtags__search" placeholder="Search Teamder" type="text" />
         <div className="hashtags__wrap">
           <p className="hashtags__text">Hashtags for you</p>
           <div className="hashtags__wrapper">

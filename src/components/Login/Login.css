@@ -31,12 +31,13 @@
     display: flex;
     align-items: center;
     letter-spacing: 0.15px;
-    color: #000000;
+    color: var(--text-color);
     margin: 40px 0 55px 0;
+    transition: color 400ms linear;
 }
 
 .login__input {
-    background-color: #DDE1E1;
+    background-color: var(--background-color-button);
     outline: none;
     border: none;
     border-bottom: 1px solid #3A444C;
@@ -49,11 +50,9 @@
     display: flex;
     align-items: center;
     letter-spacing: 0.15px;
-    color: #000000;
+    color: var(--text-color);
     margin: 0;
-}
-.login__input:active {
-    background-color: #DDE1E1;
+    transition: background 400ms linear, color 400ms linear;
 }
 
 input:-webkit-autofill {
@@ -94,9 +93,10 @@ input:-webkit-autofill {
     font-weight: 500;
     font-size: 18px;
     line-height: 21px;
-    color: #000000;
+    color: var(--text-color);
     margin: 0;
     text-decoration: none;
+    transition: color 400ms linear;
 }
 
 .login__remember {
@@ -113,4 +113,10 @@ input:-webkit-autofill {
     line-height: 22px;
     text-align: justify;
     color: #EE3465;
+}
+
+.login__logo {
+    width: 500px;
+    height: 157px;
+    background-image: var(--image-login-logo);
 }
