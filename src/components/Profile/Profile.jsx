@@ -67,13 +67,12 @@ function Profile() {
           <div className="profile__information_wrapper">
             <img
               className="profile__logo"
-              src={
-                profileUser && profileUser.photos && profileUser.photos.small
+              src={profileUser && profileUser.photos && profileUser.photos.small
                   ? profileUser &&
                     profileUser.photos &&
                     profileUser.photos.small
                   : avatar
-              }
+                }
               alt="logo"
             />
             <div className="profile__wrap_name">

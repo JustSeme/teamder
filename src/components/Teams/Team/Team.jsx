@@ -10,7 +10,6 @@ import {
 import avatar from "../../../images/nonameAvatar.svg";
 import Preloader from "../../Preloader/Preloader";
 import { useEffect } from "react";
-// import { Navigate } from "react-router-dom";
 
 function Team() {
   const dispatch = useDispatch();
@@ -41,6 +40,9 @@ function Team() {
   // if (!isAuth) {
   //   return <Navigate to="/login" />
   // }
+
+  // const activePage = 'team__pagination_number-active';
+  // const inactivePage = 'team__pagination_number';
 
   return (
     <>
@@ -84,6 +86,7 @@ function Team() {
             {pages.map((p) => {
               return (
                 <span className="team__pagination_number"
+                  id="active__color"
                   onClick={() => {
                     onPageChanged(p);
                   }}

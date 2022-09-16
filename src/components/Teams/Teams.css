@@ -160,22 +160,22 @@
     transition: color 400ms linear;
 }
 
-.team__pagination_number:hover {
-    color: #126FA4;
-}
-
-.team__pagination_number:last-of-type {
+.team__pagination_number-active {
     font-style: normal;
     font-weight: 500;
     font-size: 19px;
     line-height: 25px;
     text-align: justify;
-    color: var(--text-color);
-    margin: 0;
+    color: #126FA4;
+    margin: 0 10px 0 0;
     cursor: pointer;
     transition: color 400ms linear;
 }
 
-.team__pagination_number:last-of-type:hover {
+.team__pagination_number:hover {
     color: #126FA4;
+}
+
+.team__pagination_number:last-of-type {
+    margin: 0;
 }

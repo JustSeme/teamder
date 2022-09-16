@@ -56,7 +56,7 @@
 }
 
 input:-webkit-autofill {
-    -webkit-box-shadow: 0 0 0px 1000px #DDE1E1 inset;
+    -webkit-box-shadow: 0 0 0px 1000px var(--background-color) inset;
 }
 
 .login__input:last-of-type {
