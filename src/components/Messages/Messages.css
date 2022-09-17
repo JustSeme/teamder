@@ -128,7 +128,7 @@
     text-decoration: none;
 }
 
-.messages__input {
+/* .messages__input {
     background-color: var(--background-color-hover2);
     border-bottom: 1px solid #1F1F1F;
     border-right: none;
@@ -147,7 +147,7 @@
     outline: none;
     text-align: start;
     transition: background-color 400ms linear, color 400ms linear;
-}
+} */
 
 .messages__button {
     width: 75px;

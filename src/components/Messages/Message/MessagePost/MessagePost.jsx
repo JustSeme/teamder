@@ -5,6 +5,9 @@ import { useDispatch, useSelector } from "react-redux";
 import {sendMessageActionCreator} from "../../../../redux/message-reducer";
 import { Form, Field } from "react-final-form";
 import { required, maxLengthCreator } from "../../../../utils/validators";
+import Box from '@mui/material/Box';
+import TextField from '@mui/material/TextField';
+import Button from "@mui/material/Button";
 
 function MessagePost() {
   const dispatch = useDispatch();
@@ -47,15 +50,46 @@ function MessagePost() {
               >
                 {({ input, meta }) => (
                   <>
-                    <input {...input} className="messages__input" placeholder="Start a new message" type="text" />
-                    {meta.error && meta.touched && <span className="error__span">{meta.error}</span>}
+                    <Box
+                      component="form"
+                      sx={{
+                        "& > :not(style)": { m: 1, width: "30ch" },
+                      }}
+                      autoComplete="off"
+                    >
+                      <TextField
+                        id="standard-basic"
+                        label="Start a new message"
+                        variant="standard"
+                        color="primary"
+                        // sx={{ input: { color: '#3A444C' } }}
+                        sx={{
+                          "& .MuiFormLabel-root": {
+                            color: "secondary.main",
+                          },
+                          input: { color: "#3A444C" },
+                        }}
+                        className="messages__input"
+                        {...input}
+                      />
+                    </Box>
+                    {meta.error && meta.touched && (
+                      <span className="error__span">{meta.error}</span>
+                    )}
                   </>
                 )}
               </Field>
             </div>
-            <button className="messages__button" type="submit">
-              Reply
-            </button>
+            <Button
+              className="messages__button"
+              type="submit"
+              variant="outlined"
+              color="primary"
+              size="medium"
+              sx={{
+                margin: "0 0 0 10px"
+              }}
+            >Reply</Button>
           </form>
         )}
       />

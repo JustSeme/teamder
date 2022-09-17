@@ -5,6 +5,8 @@ import profileLogo from "../../images/profile_logo2.svg";
 import { useDispatch, useSelector } from "react-redux";
 import { logoutThunkCreator } from "../../redux/auth-reducer";
 import { useTheme } from "../../hooks/useTheme";
+import Button from "@mui/material/Button";
+import Switch from '@mui/material/Switch';
 
 function Navigation(props) {
 
@@ -17,15 +19,21 @@ function Navigation(props) {
     dispatch(logoutThunkCreator());
   }
 
-  const {setTheme} = useTheme();
+  const {theme, setTheme} = useTheme();
 
-  const handleLightThemeClick = () => {
-    setTheme('light');
-  };
+  // const handleLightThemeClick = () => {
+  //   setTheme('light');
+  // };
 
-  const handleDarkThemeClick = () => {
-    setTheme('dark');
-  };
+  // const handleDarkThemeClick = () => {
+  //   setTheme('dark');
+  // };
+
+  const toggleTheme = () => {
+    setTheme((curr) => (curr === "light" ? "dark" : "light"));
+  }
+
+  const label = { inputProps: { 'aria-label': 'Switch demo' } };
 
   return (
     <div className="navigation">
@@ -59,11 +67,11 @@ function Navigation(props) {
             Profile
           </NavLink>
 
-        <button className="navigation__create_button">CREATE A TEAM</button>
+        <Button variant="contained" color="primary" size="medium">CREATE A TEAM</Button>
 
         <div className="navigation__wrapper">
-          <button className="navigation__theme" onClick={handleLightThemeClick}>Light</button>
-          <button className="navigation__theme" onClick={handleDarkThemeClick}>Dark</button>
+          <label className="login-nav__title">{theme === "light" ? "Dark Theme" : "Light Theme"}</label>
+          <Switch {...label} defaultChecked onChange={toggleTheme} />
         </div>
 
         {isAuth ?

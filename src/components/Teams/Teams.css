@@ -78,6 +78,12 @@
     padding: 7px;
 }
 
+.team__logo:hover {
+    background-color: rgba(0, 0, 0, .3);
+    border: 1px solid rgba(0, 0, 0, .5);
+    transition: linear 0.1s;
+}
+
 .team__name {
     font-style: normal;
     font-weight: 600;

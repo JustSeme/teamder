@@ -5,6 +5,9 @@ import {addPostActionCreator} from "../../../../redux/profile-reducer";
 import { useSelector, useDispatch } from "react-redux";
 import { Form, Field } from "react-final-form";
 import { maxLengthCreator, required, minLengthCreator } from "../../../../utils/validators";
+import Box from '@mui/material/Box';
+import TextField from '@mui/material/TextField';
+import Button from "@mui/material/Button";
 
 function ProfilePosts() {
   const posts = useSelector((state) => [...state.profilePage.profilePosts]);
@@ -48,12 +51,44 @@ function ProfilePosts() {
             >
               {({ input, meta }) => (
                 <>
-                  <input {...input} className="profile-create__field" placeholder="Enter your post" type="text" />
+                  <Box
+                      component="form"
+                      sx={{
+                        "& > :not(style)": { m: 1, width: "30ch" },
+                      }}
+                      autoComplete="off"
+                    >
+                      <TextField
+                        id="standard-basic"
+                        label="Start a new message"
+                        variant="standard"
+                        color="primary"
+                        // sx={{ input: { color: '#3A444C' } }}
+                        sx={{
+                          "& .MuiFormLabel-root": {
+                            color: "secondary.main",
+                          },
+                          input: { color: "#3A444C" },
+                        }}
+                        {...input}
+                      />
+                    </Box>
                   { meta.error && meta.touched && <span className="error__span">{meta.error}</span> }
                 </>
               )}
             </Field>
-            <button className="profile-create__button" type="submit">Create</button>
+            <Button
+              className="messages__button"
+              type="submit"
+              variant="outlined"
+              color="primary"
+              size="large"
+              sx={{
+                margin: "10px 0 0 8px",
+                width: "100px",
+                height: "40px"
+              }}
+            >Create</Button>
           </form>
         )}
       />

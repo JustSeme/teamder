@@ -1,5 +1,6 @@
 import React from "react";
 import "./Event.css";
+import Button from "@mui/material/Button";
 
 function Event(props) {
   return (
@@ -34,7 +35,7 @@ function Event(props) {
             </div>
             <p className="event__interest_subtitle">{props.interest}</p>
           </div>
-          <button className="event__interest_button">SEE MORE</button>
+          <Button variant="contained" color="primary" size="small">SEE MORE</Button>
         </div>
       </div>
     </div>
