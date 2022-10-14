@@ -15,12 +15,6 @@
 - React Final Form
 - Rest API
 
-## Запуск проекта
-
-`npm i` — устанавливает необходимые пакеты
-
-`npm start` — запускает преокт
-
 ## Скриншоты <br>
 https://user-images.githubusercontent.com/77898003/195926511-09734d6e-ef7a-4aad-85bf-c8a8cccd9aa7.png <br>
 
@@ -29,3 +23,11 @@ https://user-images.githubusercontent.com/77898003/195926589-afafcb14-06bb-492e-
 https://user-images.githubusercontent.com/77898003/195926631-8dc36c18-a85f-4fe9-a1d7-4daa45c5961c.png <br>
 
 https://user-images.githubusercontent.com/77898003/195926654-fc074372-465c-4104-99b1-84316b1f2164.png
+
+## Запуск проекта
+
+`npm i` — устанавливает необходимые пакеты
+
+`npm start` — запускает преокт
+
+### Данная работа выполнена с помощью API от https://social-network.samuraijs.com/ и привязана к данному сервису.
